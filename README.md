@@ -30,16 +30,16 @@ This is a microlearning web application that sends you a page on something you w
 |---|---|---|
 |5|Admin adding a new interest to the interest List|As an admin, I should be able to add a new interest to the interest list|
 |6|Admin viewing interest List|As an admin, when I login I should be able to see the interest list|
-|7|Admin deleteing interest to the interest List|As an admin, I should be able to delete a interest from the interest list|
+|7|Admin can enable/disable an interest|As an admin, I should be able to disable an already enabled interest or vice versa|
 |8|Admin adding a new link| As a admin, I should be able to add a new link and associate the link to interests|
 |9|Admin viewing links List of particular interest| As an admin, when I select a interest I should be able to see list of links for that interest|
-|10|Admin deleting a link|As an admin, I should be able to delete a link from a particuler interest|
+|10|Admin can enable/disable an link|As an admin, I should be able to disable an already enabled link or vice versa|
 
 ### Profile Management Epic
 |#User Story|Scenario|User Story|
 |---|---|---|
 |PM1|User can click on the add interest button|As a User, I should be able to click on the Add Interest button so that I can add interest I would want to subscribe|
-|PM2|User can add the interest|As a User, I should be able to select the interests I want to subscribe to and click on the Save button|
+|PM2|User can add the interest|As a User, I should be able to select the interests I wish to subscribe to and click on the Save button|
 |PM3|User can view the subscribed interests|As a User, I should be able to view the subscribed interests so that I can view the subscribed interest together|
-|PM4|User can unsubscribe an interest|As a User, I should be able to unsubscribe an already subscribed interest so that I don't recieve content for those interest|
-|PM5|User can set a schedule to recieve content| As a User, I should be able to set a timer of when/how frequently do I want to recieve the  content|
+|PM4|User can unsubscribe an interest|As a User, I should be able to unsubscribe an already selected interest so that I don't receive content for those interest|
+|PM5|User can set a schedule to receive content| As a User, I should be able to set a timer of when/how frequently do I want to receive the content |
