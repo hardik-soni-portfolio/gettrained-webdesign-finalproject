@@ -16,9 +16,9 @@ This is a microlearning web application that sends you a page on something you w
 
 ## User Stories
 
-|#User Story|Epic|User Story|
-|---|---|---|
-|1|Registration|As a user, I should be able to Register on the microlearning app.|
-
+|#User Story|Epic|Scenario|User Story|
+|---|---|---|---|
+|1|Registration|Unregistered User should see a link to user registration|As a Unregistered User, I should be able to navigate to the main site and view the Register button so that I can create my profile|
+|2|Registration|Unregistered User should should be able to see the registration form|As a Unregistered User, I should be able to |
 
 
