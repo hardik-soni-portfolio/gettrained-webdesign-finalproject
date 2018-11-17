@@ -28,12 +28,20 @@ This is a microlearning web application that sends you a page on something you w
 ### Master Data Management Epic
 |#User Story|Scenario|User Story|
 |---|---|---|
-|5|Admin adding a new interest to the interest List|As an admin, I should be able to add a new interest to the interest list|
-|6|Admin viewing interest List|As an admin, when I login I should be able to see the interest list|
-|7|Admin can enable/disable an interest|As an admin, I should be able to disable an already enabled interest or vice versa|
-|8|Admin adding a new link| As a admin, I should be able to add a new link and associate the link to interests|
-|9|Admin viewing links List of particular interest| As an admin, when I select a interest I should be able to see list of links for that interest|
-|10|Admin can enable/disable an link|As an admin, I should be able to disable an already enabled link or vice versa|
+|MDM1|Admin adding a new interest to the interest List|As an admin, I should be able to add a new interest to the interest list|
+|MDM2|Admin viewing interest List|As an admin, when I login I should be able to see the interest list|
+|MDM3|Admin can enable/disable an interest|As an admin, I should be able to disable an already enabled interest or vice versa|
+|MDM4|Admin adding a new link| As a admin, I should be able to add a new link and associate the link to interests|
+|MDM5|Admin viewing links List of particular interest| As an admin, when I select a interest I should be able to see list of links for that interest|
+|MDM6|Admin can enable/disable an link|As an admin, I should be able to disable an already enabled link or vice versa|
+
+
+### Login Epic
+|#User Story|Scenario|User Story|
+|---|---|---|
+|LOG1|User can login to the application|As an user, I should be able to log in to the application so that I can use it|
+|LOG2|User can logout of the application|As a user, I should be able to logout of the application|
+
 
 ### Profile Management Epic
 |#User Story|Scenario|User Story|
