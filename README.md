@@ -22,8 +22,6 @@ This is a microlearning web application that sends you a page on something you w
 |2|Registration|Unregistered User should be able to see the registration form|As an Unregistered User, I should be able to click on the Register button and view the registration form so that I can create my profile|
 |3|Registration|Unregistered User should be able to register and recieve confirmation email|As an Unregistered User, I should be able to fill out and submit the registration form and recieve a confirmation email|
 |4|Registration|Unregistered User should be able to validate the account|As an Unregistered User, I should be able to verfiy my email address by clicking on the link recieved in the email|
-
-
 |5|Master Data Management|Admin adding a new interest to the interest List|As an admin, I should be able to add a new interest to the interest list|
 |6|Master Data Management|Admin viewing interest List|As an admin, when I login I should be able to see the interest list|
 |7|Master Data Management|Admin deleteing interest to the interest List|As an admin, I should be able to delete a interest from the interest list|
