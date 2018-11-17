@@ -30,7 +30,7 @@ This is a microlearning web application that sends you a page on something you w
 |---|---|---|
 |5|Admin adding a new interest to the interest List|As an admin, I should be able to add a new interest to the interest list|
 |6|Admin viewing interest List|As an admin, when I login I should be able to see the interest list|
-|7|Admin deleteing interest to the interest List|As an admin, I should be able to delete a interest from the interest list|
+|7|Admin can enable/disable an interest|As an admin, I should be able to disable an already enabled interest or vice versa|
 |8|Admin adding a new link| As a admin, I should be able to add a new link and associate the link to interests|
 |9|Admin viewing links List of particular interest| As an admin, when I select a interest I should be able to see list of links for that interest|
-|10|Admin deleting a link|As an admin, I should be able to delete a link from a particuler interest|
+|10|Admin can enable/disable an link|As an admin, I should be able to disable an already enabled link or vice versa|
