@@ -69,6 +69,7 @@ Below is the domain model for the application.
 
 ## Database Design
 Below is the Database design for the application.
-![alt text](https://github.com/neu-mis-info6150-fall-2018/final-project-pixels/blob/bhargavi_development/assets/database_design.svg)
+
+![alt text](/assets/database_design.svg)
 
 
