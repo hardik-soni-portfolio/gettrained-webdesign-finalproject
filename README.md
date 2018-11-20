@@ -66,6 +66,9 @@ This is a microlearning web application that sends you a page on something you w
 ## Domain Model
 Below is the domain model for the application.
 ![alt text](/assets/EduMail.jpg?raw=true "Optional Title")
+
+## Database Design
+Below is the Database design for the application.
 ![alt text](https://github.com/neu-mis-info6150-fall-2018/final-project-pixels/blob/bhargavi_development/assets/database_design.svg)
 
 
