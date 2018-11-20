@@ -62,3 +62,7 @@ This is a microlearning web application that sends you a page on something you w
   - Email address should follow the email address format specified
   - Password should be a combination of special characters, uppercase/lowercase characters, numbers and should not be less than 6 characters
 - Email address used during registration should be unique, meaning email address should not be present in the User table
+
+## Domain Model
+Below is the domain model for the application.
+![alt text](/assets/EduMail.jpg?raw=true "Optional Title")
