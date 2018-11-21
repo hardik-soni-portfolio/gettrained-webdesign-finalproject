@@ -2,23 +2,21 @@
 final-project-pixels created by GitHub Classroom
 
 ## What is this application about?
-This is a microlearning web application that sends you a page on something you want to learn based on user's preferences. The content published will be sent from the application's database based upon the interest.
+This is the application which helps a user such as team manager to create his own course and give access to specific people such as his subordinates and the subordinates can access the course and learn. There will be some quizes which help team manager to assess the progress of his subordinates.
 
 ## Epics
-- Master data management
 - Registration
+- Master Data Management Epic
 - Login
-- Profile management
-- Email notifications
-- Database 
+- Contact Us 
 
 ## User Stories
 
 ### Regitration Epic
 |#User Story|Scenario|User Story|
 |---|---|---|
-|REG1|Unregistered User should see a link to user registration|As an Unregistered User, I should be able to navigate to the main site and view the Register button so that I can create my profile|
-|REG2|Unregistered User should be able to see the registration form|As an Unregistered User, I should be able to click on the Register button and view the registration form so that I can create my profile|
+|REG1|Unregistered User should see a link to user registration|As an Unregistered User, I should be able to navigate to the main site and view the Register button so that I can create account|
+|REG2|Unregistered User should be able to see the registration form|As an Unregistered User, I should be able to click on the Register button and view the registration form so that I can create my account|
 |REG3|Unregistered User should be able to register and recieve confirmation email|As an Unregistered User, I should be able to fill out and submit the registration form and recieve a confirmation email|
 |REG4|Unregistered User should be able to validate the account|As an Unregistered User, I should be able to verfiy my email address by clicking on the link recieved in the email|
 
@@ -26,36 +24,29 @@ This is a microlearning web application that sends you a page on something you w
 ### Master Data Management Epic
 |#User Story|Scenario|User Story|
 |---|---|---|
-|MDM1|Admin adding a new interest to the interest List|As an admin, I should be able to add a new interest to the interest list|
-|MDM2|Admin viewing the interest list|As an admin, I should be able to see the interest list|
-|MDM3|Admin can enable/disable an interest|As an admin, I should be able to disable an already enabled interest or vice versa|
-|MDM4|Admin adding a new link| As a admin, I should be able to add a new link and associate the link to interests|
-|MDM5|Admin viewing the list of links for a specified interest|As an admin, when I select an interest I should be able to see list of links for that interest|
-|MDM6|Admin can enable/disable an link|As an admin, I should be able to disable an already enabled link or vice versa|
+|MDM1|Admin adding a new category to the category List|As an admin, I should be able to add a new category to the category list|
+|MDM2|Admin viewing the category list|As an admin, I should be able to see the category list|
+|MDM3|Admin can enable/disable a category|As an admin, I should be able to disable an already enabled category or vice versa|
 
 
 ### Login Epic
 |#User Story|Scenario|User Story|
 |---|---|---|
 |LOG1|User can login to the application|As an user, I should be able to log in to the application so that I can use it|
-|LOG2|User can logout of the application|As a user, I should be able to logout of the application|
+|LOG2|User can logout of the application|As an user, I should be able to logout of the application|
 
-
-### Profile Management Epic
+### Contact Us Epic
 |#User Story|Scenario|User Story|
 |---|---|---|
-|PM1|User can click on the add interest button|As a User, I should be able to click on the Add Interest button so that I can add interest I would want to subscribe|
-|PM2|User can add/remove the interest|As a User, I should be able to select the interests I wish to subscribe to and click on the Save button|
-|PM3|User can view the subscribed interests|As a User, I should be able to view the subscribed interests so that I can view the links for those interest|
-|PM4|User can unsubscribe an interest|As a User, I should be able to unsubscribe an already selected interest so that I don't receive content for those interest|
-|PM5|User can set a schedule to receive content|As a User, I should be able to set a timer of when/how frequently do I want to receive the content |
-|PM6|User can view his homepage|As a User, I should be able to view the homepage with the links for the interest I am subscribed to|
+|CU1|User can make request to admin|As an user, I should be able to see a button which helps me to reach a admin|
+|CU2|User can fill request form|As an user, I should be able to fill a form in order to pass the information to admin(can be request, feedback)|
+|CU3|User can submit form|As a user, I can click on submit button inorder to send request to admin|
+
 
 ## Services/APIs to be used in the application
 - Email API: External email API to be identified and used in the application for sending emails
 - Email Verification API: Verification API to send an email with a link to the user during registration (API to be identified)
 - Google Material Design: Google material design API to be used for UI of the application
-- Schedular: A schedule job to be written to find the list of users to send an email using email API
 
 ## Validation scenarios to be handled
 - All of the text fields should have respective validation
