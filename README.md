@@ -41,15 +41,26 @@ This is a microlearning web application that sends you a page on something you w
 |LOG2|User can logout of the application|As a user, I should be able to logout of the application|
 
 
-### Profile Management Epic
+### User Dashboard Epic
 |#User Story|Scenario|User Story|
 |---|---|---|
-|PM1|User can click on the add interest button|As a User, I should be able to click on the Add Interest button so that I can add interest I would want to subscribe|
-|PM2|User can add/remove the interest|As a User, I should be able to select the interests I wish to subscribe to and click on the Save button|
-|PM3|User can view the subscribed interests|As a User, I should be able to view the subscribed interests so that I can view the links for those interest|
-|PM4|User can unsubscribe an interest|As a User, I should be able to unsubscribe an already selected interest so that I don't receive content for those interest|
-|PM5|User can set a schedule to receive content|As a User, I should be able to set a timer of when/how frequently do I want to receive the content |
-|PM6|User can view his homepage|As a User, I should be able to view the homepage with the links for the interest I am subscribed to|
+|PM1|User can click on the add course button|As a User, I should be able to click on the Add course button so that I can add course for a category|
+|PM2|User can remove the course|As a User, I should be able to select the course(s) for a category and click on the delete course button|
+|PM3|User can view the enrolled courses|As a User, I should be able to view the list of enrolled courses|
+|PM4|User can view the created courses|As a User, I should be able to view the list of created courses|
+|PM5|User can view his homepage|As a User, I should be able to view the homepage with two sections, the first one for list of created courses and later for the list of enrolled courses|
+
+### Create Course Epic
+|#User Story|Scenario|User Story|
+|---|---|---|
+|CM1|User can add title for a course|As a User, I should be able to add title for the course|
+|CM2|User can click to add Slides|As a User, I should be able to click on add button to add slides to the course|
+|CM3|User can click to add Quiz|As a User, I should be able to click on add button to add quiz to the course|
+|CM4|User can click to add Video|As a User, I should be able to click on add button to add video to the couse|
+|CM6
+|CM6|User can add a member|As a User, I should be able to add a member to a course|
+|CM7|User can remove a member from a course|As a User,I should be able to remove a member from a course|
+
 
 ## Services/APIs to be used in the application
 - Email API: External email API to be identified and used in the application for sending emails
