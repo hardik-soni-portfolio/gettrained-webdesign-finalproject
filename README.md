@@ -54,3 +54,15 @@ This is the application which helps a user such as team manager to create his ow
   - Email address should follow the email address format specified
   - Password should be a combination of special characters, uppercase/lowercase characters, numbers and should not be less than 6 characters
 - Email address used during registration should be unique, meaning email address should not be present in the User table
+
+
+## Domain Model
+Below is the domain model for the application.
+![alt text](/assets/EduMail.jpg?raw=true "Optional Title")
+
+## Database Design
+Below is the Database design for the application.
+
+![alt text](/assets/INFO6150-Database-Design.jpg)
+
+
