@@ -70,6 +70,6 @@ Below is the domain model for the application.
 ## Database Design
 Below is the Database design for the application.
 
-![alt text](/assets/database_design.svg)
+![alt text](/assets/INFO6150-Database-Design.jpg)
 
 
