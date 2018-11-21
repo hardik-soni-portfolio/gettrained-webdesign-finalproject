@@ -35,6 +35,29 @@ This is the application which helps a user such as team manager to create his ow
 |LOG1|User can login to the application|As an user, I should be able to log in to the application so that I can use it|
 |LOG2|User can logout of the application|As an user, I should be able to logout of the application|
 
+
+### User Dashboard Epic
+|#User Story|Scenario|User Story|
+|---|---|---|
+|PM1|User can click on the add course button|As a User, I should be able to click on the Add course button so that I can add course for a category|
+|PM2|User can remove the course|As a User, I should be able to select the course(s) for a category and click on the delete course button|
+|PM3|User can view the enrolled courses|As a User, I should be able to view the list of enrolled courses|
+|PM4|User can view the created courses|As a User, I should be able to view the list of created courses|
+|PM5|User can view his homepage|As a User, I should be able to view the homepage with two sections, the first one for list of created courses and later for the list of enrolled courses|
+
+
+### Create Course Epic
+|#User Story|Scenario|User Story|
+|---|---|---|
+|CM1|User can add title for a course|As a User, I should be able to add title for the course|
+|CM2|User can click to add Slides|As a User, I should be able to click on add button to add slides to the course|
+|CM3|User can click to add Quiz|As a User, I should be able to click on add button to add quiz to the course|
+|CM4|User can click to add Video|As a User, I should be able to click on add button to add video to the couse|
+|CM6
+|CM6|User can add a member|As a User, I should be able to add a member to a course|
+|CM7|User can remove a member from a course|As a User,I should be able to remove a member from a course|
+
+
 ### Contact Us Epic
 |#User Story|Scenario|User Story|
 |---|---|---|
@@ -49,6 +72,7 @@ This is the application which helps a user such as team manager to create his ow
 - Email Verification API: Verification API to send an email with a link to the user during registration (API to be identified)
 - Google Material Design: Google material design API to be used for UI of the application
 
+
 ## Validation scenarios to be handled
 - All of the text fields should have respective validation
   - Email address should follow the email address format specified
@@ -62,7 +86,4 @@ Below is the domain model for the application.
 
 ## Database Design
 Below is the Database design for the application.
-
 ![alt text](/assets/INFO6150-Database-Design.jpg)
-
-
