@@ -41,6 +41,7 @@ This is the application which helps a user such as team manager to create his ow
 |CU1|User can make request to admin|As an user, I should be able to see a button which helps me to reach a admin|
 |CU2|User can fill request form|As an user, I should be able to fill a form in order to pass the information to admin(can be request, feedback)|
 |CU3|User can submit form|As a user, I can click on submit button inorder to send request to admin|
+|CU4|Admin can view request List|As a admin, I can see list of requests from users|
 
 
 ## Services/APIs to be used in the application
@@ -53,14 +54,3 @@ This is the application which helps a user such as team manager to create his ow
   - Email address should follow the email address format specified
   - Password should be a combination of special characters, uppercase/lowercase characters, numbers and should not be less than 6 characters
 - Email address used during registration should be unique, meaning email address should not be present in the User table
-
-## Domain Model
-Below is the domain model for the application.
-![alt text](/assets/EduMail.jpg?raw=true "Optional Title")
-
-## Database Design
-Below is the Database design for the application.
-
-![alt text](/assets/database_design.svg)
-
-
