@@ -82,7 +82,7 @@ This is the application which helps a user such as team manager to create his ow
 
 ## Domain Model
 Below is the domain model for the application.
-![alt text](/assets/EduMail.jpg?raw=true "Optional Title")
+![alt text](/assets/INFO-6150-DDD-Final.jpg?raw=true "Optional Title")
 
 ## Database Design
 Below is the Database design for the application.
