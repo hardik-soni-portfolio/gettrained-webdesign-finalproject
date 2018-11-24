@@ -1,5 +1,5 @@
 let express = require('express'),
-    port = process.env.PORT || 3003,
+    port = process.env.PORT || 3000,
     mongoose = require('mongoose'), //created model loading here
     bodyParser = require('body-parser'),
     cors = require('cors');
