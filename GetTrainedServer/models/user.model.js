@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 mongoose.connect('mongodb://localhost:27017/GetTrained', (err) => {
     if(!err){ console.log('MongoDB connection succeeded.'); }
     else { console.log('Error in MongoDB connection : ' + JSON.stringify(err, undefined, 2)); }
@@ -30,7 +31,10 @@ var userSchema = new mongoose.Schema({
         required: 'Password cannot be empty',
         minlength: [6, 'Password must be 6 or more characters long']
     },
-    saltSecret: String
+    isVerified: {
+        type: Boolean,
+        default: false
+    }
 });
 
 userSchema.path('email').validate((val) => {

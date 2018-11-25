@@ -1,6 +1,7 @@
 'use strict';
 const mongoose = require('mongoose'),
-    User = mongoose.model('User');
+    User = mongoose.model('User'),
+    uuidv3 = require('uuid/v3');
 
     let throwError = function (error, res) {
         if (error) {
@@ -15,6 +16,6 @@ const mongoose = require('mongoose'),
                 throwError(err, res);
                 callback(user);
         };
+        newUser.user_id = uuidv3(newUser.email, uuidv3.DNS);
         newUser.save(resultCallback);
     };
-    
