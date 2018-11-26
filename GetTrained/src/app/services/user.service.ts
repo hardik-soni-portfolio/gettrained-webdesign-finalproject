@@ -18,4 +18,7 @@ export class UserService {
   postUser(user: User) {
     return this.http.post(environment.apiBaseUrl + '/register', user);
   }
+  activate(token: String) {
+    return this.http.put(environment.apiBaseUrl + '/activate/' + token, token);
+  }
 }

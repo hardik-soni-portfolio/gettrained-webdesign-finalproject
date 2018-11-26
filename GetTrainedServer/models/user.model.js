@@ -31,9 +31,13 @@ var userSchema = new mongoose.Schema({
         required: 'Password cannot be empty',
         minlength: [6, 'Password must be 6 or more characters long']
     },
-    isVerified: {
+    is_verified: {
         type: Boolean,
         default: false
+    },
+    temporary_token: {
+        type: String,
+        required: true
     }
 });
 
