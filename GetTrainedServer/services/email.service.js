@@ -51,7 +51,7 @@ exports.activate = (req, res) => {
                     if(err){
                         console.log(err);
                     }else{
-                        this.sendMail(user);
+                        exports.sendMail(user);
                         res.json({ success: true, message: 'Account has been activated' });
                     }
                 });

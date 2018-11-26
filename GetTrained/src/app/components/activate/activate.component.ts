@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-activate',
@@ -6,10 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./activate.component.scss']
 })
 export class ActivateComponent implements OnInit {
+  token: String;
+  userService: UserService;
+  successMessage: String;
+  errorMessage: String;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, userService: UserService) {
+    this.userService = userService;
+  }
 
   ngOnInit() {
+    this.token = this.route.snapshot.paramMap.get('token');
+    console.log(this.token);
+    this.userService.activate(this.token).subscribe(( data: Object ) => {
+      if ( data.success ) {
+        this.successMessage = data.message;
+      } else {
+        this.errorMessage = data.message;
+      }
+    });
   }
 
 }
