@@ -2,8 +2,7 @@
 const mongoose = require('mongoose'),
     User = mongoose.model('User'),
     uuidv3 = require('uuid/v3'),
-    jwt = require('jsonwebtoken'),
-    emailService = require('./email.service');
+    jwt = require('jsonwebtoken');
 
 let secret = 'trainingModule';
 
@@ -17,7 +16,6 @@ let secret = 'trainingModule';
     exports.save = function (user, res, callback) {
         let newUser = new User(user),
             resultCallback = function (err, user) {
-                emailService.sendMail(user);
                 throwError(err, res);
                 callback(user);
         };

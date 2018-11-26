@@ -11,12 +11,14 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
 import { RegisterComponent } from './components/register/register.component';
 import { appRoutes } from './routes/routes';
+import { ActivateComponent } from './components/activate/activate.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    RegisterComponent
+    RegisterComponent,
+    ActivateComponent
   ],
   imports: [
     BrowserModule,
