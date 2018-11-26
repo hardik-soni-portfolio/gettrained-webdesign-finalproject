@@ -3,8 +3,9 @@ let nodemailer = require('nodemailer'),
     User = mongoose.model('User'),
     jwt = require('jsonwebtoken');
 
-let secret = 'trainingModule';
+let secret = 'trainingModule'; //salt secret for jwt token for activation link.
 
+//send email to user after registration
 exports.sendMail = (user) => {
     let activateSubject = 'Account Activation Link',
         activateHtml = 'Hello, <strong>'+ user.first_name + ' ' + user.last_name + '<strong><br><br>Please click on link below to activate your account: <br><br><a href=`http://localhost:4200/activate/' + user.temporary_token + '`> http://localhost:4200 </a>',
@@ -35,6 +36,7 @@ exports.sendMail = (user) => {
         });
 }
 
+//activate the user account by clicking on activation link.
 exports.activate = (req, res) => {
     User.findOne({ temporary_token: req.params.token }, function(err, user){
         if(err) throw err;

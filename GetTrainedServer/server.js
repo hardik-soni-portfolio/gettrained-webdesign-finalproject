@@ -1,10 +1,11 @@
+//required all necessary modules to construct a server
 let express = require('express'),
     port = process.env.PORT || 3003,
     mongoose = require('mongoose'), 
     bodyParser = require('body-parser'),
     cors = require('cors');
 
-
+//got a mongoose connection to mongoDB database named GetTrained
 mongoose.connect('mongodb://localhost:27017/GetTrained', {
     useNewUrlParser: true
 });
