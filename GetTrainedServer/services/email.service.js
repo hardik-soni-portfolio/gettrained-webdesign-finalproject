@@ -19,7 +19,6 @@ exports.sendMail = (user) => {
                 pass: 'Pixel@123'
             }
         });
-        console.log(user);
         const mailOptions = {
             from: 'amansr95@gmail.com',
             to: user.email,
