@@ -4,7 +4,7 @@ const mongoose = require('mongoose'),
     uuidv3 = require('uuid/v3'),
     jwt = require('jsonwebtoken');
 
-let secret = 'trainingModule';
+let secret = 'trainingModule'; // salt secret for jwt token.
 
     let throwError = function (error, res) {
         if (error) {

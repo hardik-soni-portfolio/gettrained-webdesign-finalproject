@@ -5,8 +5,9 @@ mongoose.connect('mongodb://localhost:27017/GetTrained', (err) => {
     else { console.log('Error in MongoDB connection : ' + JSON.stringify(err, undefined, 2)); }
 });
 
-const bcrypt = require('bcryptjs');
+//const bcrypt = require('bcryptjs');
 
+//defining the user schema
 var userSchema = new mongoose.Schema({
     user_id:{
         type: String,
@@ -38,8 +39,15 @@ var userSchema = new mongoose.Schema({
     temporary_token: {
         type: String,
         required: true
+    },
+    role: {
+        type: String,
+        required: true,
+        default: 'user'
     }
 });
+
+//Validation for email on back end.
 
 userSchema.path('email').validate((val) => {
     emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,13}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
