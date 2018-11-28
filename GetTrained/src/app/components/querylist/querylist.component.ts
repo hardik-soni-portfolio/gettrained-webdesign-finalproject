@@ -1,4 +1,8 @@
+import { Query } from './../../models/query.model';
 import { Component, OnInit } from '@angular/core';
+import { QueryService } from './../../services/query.service';
+
+
 
 @Component({
   selector: 'app-querylist',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuerylistComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  queries: Query[];
+  displayedColumns: string[] = [ 'query_title', 'query_content', 'query_type'];
+  constructor(private queryService: QueryService) {
   }
 
+  ngOnInit() {
+    this.fetchQueries();
+  }
+
+  fetchQueries() {
+    this.queryService
+      .getQueries()
+      .subscribe((data: Query[]) => {
+        this.queries = data;
+        console.log('Data requested ...');
+        console.log(this.queries);
+      });
+  }
 }
