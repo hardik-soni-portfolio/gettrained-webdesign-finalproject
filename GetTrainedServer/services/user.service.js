@@ -19,7 +19,7 @@ let secret = 'trainingModule'; // salt secret for jwt token.
                 throwError(err, res);
                 callback(user);
         };
-        newUser.user_id = uuidv3(newUser.email, uuidv3.DNS);
-        newUser.temporary_token = jwt.sign({ username: user.first_name+user.last_name, email: user.email}, secret, {expiresIn: '24h'});
+        newUser.user_id = uuidv3(newUser.email, uuidv3.DNS); //generate a unique id and assign to the user
+        newUser.temporary_token = jwt.sign({ username: user.first_name+user.last_name, email: user.email}, secret, {expiresIn: '24h'}); //generate the temporary token and store.
         newUser.save(resultCallback);
     };
