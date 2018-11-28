@@ -44,7 +44,25 @@ var userSchema = new mongoose.Schema({
         type: String,
         required: true,
         default: 'user'
-    }
+    },
+    courses_created: [{
+        course_id: {
+            type: String
+        }
+    }],
+    courses_enrolled: [{
+        course: [{
+            course_id: {
+                type: String
+            },
+            score: {
+                type: Number
+            },
+            progress: {
+                type: Number
+            }
+        }]
+    }]
 });
 
 //Validation for email on back end.
