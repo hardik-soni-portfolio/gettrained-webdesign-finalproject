@@ -12,6 +12,7 @@ import { UserComponent } from './components/user/user.component';
 import { RegisterComponent } from './components/register/register.component';
 import { appRoutes } from './routes/routes';
 import { ActivateComponent } from './components/activate/activate.component';
+import { LoginComponent } from './components/login/login.component';
 import { QueryComponent } from './components/query/query.component';
 import { QuerylistComponent } from './components/querylist/querylist.component';
 import { AddqueryComponent } from './components/addquery/addquery.component';
@@ -22,6 +23,7 @@ import { AddqueryComponent } from './components/addquery/addquery.component';
     UserComponent,
     RegisterComponent,
     ActivateComponent,
+    LoginComponent,
     QueryComponent,
     QuerylistComponent,
     AddqueryComponent
@@ -38,8 +40,8 @@ import { AddqueryComponent } from './components/addquery/addquery.component';
     MatChipsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule, 
-    MatOptionModule, 
+    MatSelectModule,
+    MatOptionModule,
     MatTableModule,
     MatSnackBarModule,
     RouterModule.forRoot(appRoutes)

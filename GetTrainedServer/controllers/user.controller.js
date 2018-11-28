@@ -10,5 +10,11 @@ exports.register = (req, res) =>{
         res.json(user);
         emailService.sendMail(user); //Send activation email after successful registration.
         };
-    userService.save(user, res, callback); // populate the user object with values and invoke save method to database
+    userService.save(user, res, callback);
+}
+
+exports.login = (req, res) =>{
+    console.log('Inside Login function');
+    let user = Object.assign({}, req.body);
+    userService.login(user, res);
 }
