@@ -1,7 +1,7 @@
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatCardModule, MatChipsModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatCardModule, MatChipsModule, MatSelectModule, MatOptionModule, MatTableModule,MatSnackBarModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -12,13 +12,19 @@ import { UserComponent } from './components/user/user.component';
 import { RegisterComponent } from './components/register/register.component';
 import { appRoutes } from './routes/routes';
 import { ActivateComponent } from './components/activate/activate.component';
+import { QueryComponent } from './components/query/query.component';
+import { QuerylistComponent } from './components/querylist/querylist.component';
+import { AddqueryComponent } from './components/addquery/addquery.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     RegisterComponent,
-    ActivateComponent
+    ActivateComponent,
+    QueryComponent,
+    QuerylistComponent,
+    AddqueryComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +38,10 @@ import { ActivateComponent } from './components/activate/activate.component';
     MatChipsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatOptionModule,
+    MatTableModule,
+    MatSnackBarModule,
+    MatSelectModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
