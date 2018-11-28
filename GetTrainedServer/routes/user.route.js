@@ -4,4 +4,5 @@ module.exports = (app) => {
 
     app.route('/register').post(userController.register);
     app.route('/activate/:token').put(emailController.activate);
+    app.route('/login').post(userController.login);
 };

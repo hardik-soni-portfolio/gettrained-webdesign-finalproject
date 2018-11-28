@@ -11,3 +11,9 @@ exports.register = (req, res) =>{
         };
     userService.save(user, res, callback);
 }
+
+exports.login = (req, res) =>{
+    console.log('Inside Login function');
+    let user = Object.assign({}, req.body);
+    userService.login(user, res);    
+}

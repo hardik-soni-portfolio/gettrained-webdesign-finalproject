@@ -23,3 +23,24 @@ let secret = 'trainingModule';
         newUser.temporary_token = jwt.sign({ username: user.first_name+user.last_name, email: user.email}, secret, {expiresIn: '24h'});
         newUser.save(resultCallback);
     };
+
+    exports.login = function (user, res){
+        User.findOne({ email: user.email}, function(err, dbUser){
+            if(err) throw err;
+            if(!dbUser){
+                console.log('no user found');
+                res.json({success: false, message: 'Activation link has expired'});
+            }
+            else if(dbUser && (dbUser.password !== user.password)){
+                console.log(dbUser.password + '  '+ user.password);
+                res.json({success: false, message: 'Activation link has expired'});
+            }
+            else if(dbUser && (dbUser.password === user.password) && (dbUser.is_verified === false)){
+                res.json({success: false, message: 'User is not verified'});
+            }
+            else{
+                res.status(200);
+                res.json({success: true, loggedUser: dbUser.user_id});
+            }
+        })
+    }
