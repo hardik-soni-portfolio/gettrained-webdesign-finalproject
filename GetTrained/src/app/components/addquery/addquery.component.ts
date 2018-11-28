@@ -39,7 +39,8 @@ export class AddqueryComponent implements OnInit {
     this.queryService.selectedQuery = {
      query_title: '',
      query_content: '',
-     query_type: ''
+     query_type: '',
+     query_createdby: ''
     };
     form.resetForm();
     this.serverErrorMessage = '';

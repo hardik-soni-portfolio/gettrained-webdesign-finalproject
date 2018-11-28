@@ -9,3 +9,29 @@ let mongoose = require('mongoose'),
         //     callback(query);
         // });
     };
+
+    let throwError = function (err, callback, msg) {
+        console.log(err);
+        callback(msg);
+    };
+    
+    exports.save = function (query, callback, errCallback) {
+        let newQuery = new Query(query);
+        newQuery.save(function (err, query) {
+            if(err){
+                throwError(err, errCallback, "Error saving query");
+                return;
+            } 
+            callback(query);
+        });
+    };
+
+    exports.display = (req, res) => {
+        Query.find(function(err, queries){
+            if(err) throw err;
+            else{
+                res.json(queries);
+            }
+    
+         });
+    }
