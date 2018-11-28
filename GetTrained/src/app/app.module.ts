@@ -38,8 +38,8 @@ import { AddqueryComponent } from './components/addquery/addquery.component';
     MatChipsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule, 
-    MatOptionModule, 
+    MatSelectModule,
+    MatOptionModule,
     MatTableModule,
     MatSnackBarModule,
     RouterModule.forRoot(appRoutes)
