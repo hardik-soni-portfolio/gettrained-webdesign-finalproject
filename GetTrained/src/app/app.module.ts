@@ -12,13 +12,19 @@ import { UserComponent } from './components/user/user.component';
 import { RegisterComponent } from './components/register/register.component';
 import { appRoutes } from './routes/routes';
 import { ActivateComponent } from './components/activate/activate.component';
+import { QueryComponent } from './query/query.component';
+import { AddqueryComponent } from './components/addquery/addquery.component';
+import { QuerylistComponent } from './components/querylist/querylist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     RegisterComponent,
-    ActivateComponent
+    ActivateComponent,
+    QueryComponent,
+    AddqueryComponent,
+    QuerylistComponent
   ],
   imports: [
     BrowserModule,
