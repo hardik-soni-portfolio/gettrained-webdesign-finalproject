@@ -25,3 +25,9 @@
         <button mat-raised-button color="primary" type="submit" >Login</button>
   </form>
 </mat-card-content>
+<div class="alert" *ngIf="showErrorMessage">
+  {{ errorMessage }}
+</div>
+<div>
+  <p> New to GetTrained? <a href="http://localhost:4200/register">Create an Account</a></p>
+</div>
