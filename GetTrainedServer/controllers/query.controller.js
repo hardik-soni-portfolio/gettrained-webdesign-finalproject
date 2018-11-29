@@ -1,9 +1,5 @@
 let queryService = require('../services/query.service');
 
-// exports.displayquery = (req, res, err) => {
-//     queryService.displayquery(req, res);
-// }
-
 exports.displayquery = function (req, res) {
     //console.log(request.params);
 
@@ -13,3 +9,19 @@ exports.displayquery = function (req, res) {
             response.status(400).send(errMsg);
         });
         };
+
+    
+    exports.post = function (request, response) {
+        // request.body.password = bcrypt.hashSync(request.body.password,bcrypt.genSaltSync());
+        let newQuery = Object.assign({}, request.body);
+        queryService.save(newQuery, function (query) {
+            response.status(200);
+            response.json(query);
+        },function(errMsg){
+            response.status(400).send(errMsg);
+        });
+    };
+
+    exports.display = (req, res, err) => {
+        queryService.display(req, res);
+    }

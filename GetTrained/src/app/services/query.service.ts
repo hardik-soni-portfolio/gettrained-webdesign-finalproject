@@ -14,7 +14,8 @@ export class QueryService {
   selectedQuery: Query = {
      query_title: '',
      query_content: '',
-     query_type: ''
+     query_type: '',
+     query_createdby: ''
   };
 // query_id: String, query_title: String, query_content: String, query_createdby: String, query_type: String
   // createQuery(query: Query): Observable<Query>{
