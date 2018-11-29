@@ -4,6 +4,9 @@ import { UserComponent } from './../components/user/user.component';
 import { Routes } from '@angular/router';
 import { LoginComponent } from '../components/login/login.component';
 import { HomeComponent } from '../components/home/home.component';
+import { AddqueryComponent} from './../components/addquery/addquery.component';
+import { QueryComponent} from './../components/query/query.component';
+import { QuerylistComponent} from './../components/querylist/querylist.component';
 
 export const appRoutes: Routes = [
   {
@@ -18,5 +21,20 @@ export const appRoutes: Routes = [
   },
   {
     path: 'activate/:token', component: ActivateComponent
+  },
+  {
+    path: 'addquery',
+    component: AddqueryComponent,
+    pathMatch : 'full'
+  },
+  {
+    path: 'queries',
+    component: QuerylistComponent,
+    pathMatch : 'full'
+  },
+  {
+    path: 'query/:id',
+    component: QueryComponent,
+    pathMatch : 'full'
   }
 ];
