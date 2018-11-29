@@ -1,7 +1,7 @@
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatCardModule, MatChipsModule,  MatSelectModule, MatOptionModule, MatTableModule,MatSnackBarModule } from '@angular/material';
+import { MatButtonModule, MatToolbarModule, MatDividerModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatCardModule, MatChipsModule,  MatSelectModule, MatOptionModule, MatTableModule,MatSnackBarModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,9 +13,13 @@ import { RegisterComponent } from './components/register/register.component';
 import { appRoutes } from './routes/routes';
 import { ActivateComponent } from './components/activate/activate.component';
 import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
 import { QueryComponent } from './components/query/query.component';
 import { QuerylistComponent } from './components/querylist/querylist.component';
 import { AddqueryComponent } from './components/addquery/addquery.component';
+import { ListCategoryComponent } from './components/listCategory/listCategory.component';
+import { CreateCategoryComponent } from './components/createCategory/createCategory.component';
+import {CategoryService} from './services/category.service';
 
 @NgModule({
   declarations: [
@@ -24,9 +28,12 @@ import { AddqueryComponent } from './components/addquery/addquery.component';
     RegisterComponent,
     ActivateComponent,
     LoginComponent,
+    HomeComponent,
     QueryComponent,
     QuerylistComponent,
-    AddqueryComponent
+    AddqueryComponent,
+    CreateCategoryComponent,
+    ListCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +51,8 @@ import { AddqueryComponent } from './components/addquery/addquery.component';
     MatOptionModule,
     MatTableModule,
     MatSnackBarModule,
+    MatToolbarModule, 
+    MatDividerModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

@@ -1,3 +1,4 @@
+
 //required all necessary modules to construct a server
 let express = require('express'),
     port = process.env.PORT || 3003,
@@ -6,7 +7,7 @@ let express = require('express'),
     cors = require('cors');
 
 //got a mongoose connection to mongoDB database named GetTrained
-mongoose.connect('mongodb://localhost:27017/GetTrained', {
+mongoose.connect('mongodb://get-trained-admin:iKrC632Y2akRIBHx@cluster0-shard-00-00-koc4n.mongodb.net:27017,cluster0-shard-00-01-koc4n.mongodb.net:27017,cluster0-shard-00-02-koc4n.mongodb.net:27017/get-trained?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true', {
     useNewUrlParser: true
 });
 mongoose.Promise = global.Promise;
