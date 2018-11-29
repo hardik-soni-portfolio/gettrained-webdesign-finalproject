@@ -29,12 +29,12 @@ exports.display = (req, res) => {
     });
 }
 
-//API to delete category
-exports.delete = (req, res) => {
-    Category.findByIdAndRemove({ _id: req.params.id }, (err, categories) => {
-        if (err)
-            throw err;
-        else
-            res.json('Removed successfully');
-    });
-}
+// //API to delete category
+// exports.delete = (req, res) => {
+//     Category.findByIdAndRemove({ _id: req.params.id }, (err, categories) => {
+//         if (err)
+//             throw err;
+//         else
+//             res.json('Removed successfully');
+//     });
+// }

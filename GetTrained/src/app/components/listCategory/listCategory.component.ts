@@ -18,7 +18,7 @@ export class ListCategoryComponent implements OnInit {
   displayedColumns: string[] =['category_name', 'active', 'delete'];
 
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(private categoryService: CategoryService                                                                                                                                                                                                                                                                ) { }
 
   ngOnInit() {
     this.fetchCategories();

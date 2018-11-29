@@ -11,7 +11,11 @@ export class CreateCategoryComponent implements OnInit {
 
   createCategoryForm: FormGroup;
 
-  constructor(private categoryService: CategoryService, private fb: FormBuilder) { }
+  constructor(private categoryService: CategoryService, private fb: FormBuilder) {
+    // this.createCategoryForm = this.fb.group({
+    //   category_name:
+    // });
+  }
 
   ngOnInit() {
   }

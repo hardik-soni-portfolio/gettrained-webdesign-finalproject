@@ -3,4 +3,5 @@ module.exports = (app) => {
 
     app.route('/categoryAdd').post(categoryController.post);
     app.route('/categoryList').get(categoryController.display);
+    // app.route('/categoryDelete/:id').delete(categoryController.delete);
 };
