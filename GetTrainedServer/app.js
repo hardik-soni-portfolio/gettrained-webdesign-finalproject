@@ -1,4 +1,3 @@
-
 module.exports = function (app) {
     //enabling creation of schema
     let userModel = require('./models/user.model');
