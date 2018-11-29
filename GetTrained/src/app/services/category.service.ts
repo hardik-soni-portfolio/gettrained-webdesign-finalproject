@@ -13,10 +13,9 @@ export class CategoryService {
     return this.http.get(environment.apiBaseUrl + '/categoryList');
   }
 
-  addCategory(category_name, active){
+  addCategory(category_name){
     const category = {
-      category_name: category_name,
-      active: active
+      category_name: category_name
     };
     return this.http.post(environment.apiBaseUrl +'/categoryAdd', category);
   }
