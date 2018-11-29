@@ -14,6 +14,10 @@ exports.display = (req, res, err) => {
     categoryService.display(req, res);
 }
 
-// exports.delete = (req, res, err) => {
-//     categoryService.delete(req, res);
-// }
+//  exports.delete = (req, res, err) => {
+//      categoryService.delete(req, res);
+//  }
+
+ exports.delete = function (req, res) {
+    categoryService.delete(req,res);
+};
