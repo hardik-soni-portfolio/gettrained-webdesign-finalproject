@@ -21,4 +21,7 @@ export class UserService {
   activate(token: String) {
     return this.http.put(environment.apiBaseUrl + '/activate/' + token, token);
   }
+  loginUser(user: User) {
+    return this.http.post(environment.apiBaseUrl + '/login', {'email': user.email, 'password': user.password});
+  }
 }

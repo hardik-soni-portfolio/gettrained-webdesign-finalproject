@@ -29,11 +29,11 @@ let secret = 'trainingModule';
             if(err) throw err;
             if(!dbUser){
                 console.log('no user found');
-                res.json({success: false, message: 'Activation link has expired'});
+                res.json({success: false, message: 'No user found please Register'});
             }
             else if(dbUser && (dbUser.password !== user.password)){
                 console.log(dbUser.password + '  '+ user.password);
-                res.json({success: false, message: 'Activation link has expired'});
+                res.json({success: false, message: 'User email or password did not match'});
             }
             else if(dbUser && (dbUser.password === user.password) && (dbUser.is_verified === false)){
                 res.json({success: false, message: 'User is not verified'});
