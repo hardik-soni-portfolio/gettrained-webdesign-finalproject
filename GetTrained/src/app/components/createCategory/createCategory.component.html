@@ -12,8 +12,8 @@
       </mat-form-field>
       <mat-divider></mat-divider>
       <br>
-      <button mat-raised-button color ="accent" routerLink="/categories">BACK</button>
-      <button type ="submit" (click) = "addCategory(category_name.value)" [disabled]="createCategoryForm.pristine || createCategoryForm.invalid" mat-raised-button color ="primary">SAVE</button>
+      <button mat-raised-button color ="accent" class = "create-category-buttons" routerLink="/categories">BACK</button>
+      <button mat-raised-button type ="submit" class = "create-category-buttons" (click) = "addCategory(category_name.value)" [disabled]="createCategoryForm.pristine || createCategoryForm.invalid" color ="primary">SAVE</button>
     </form>
   </mat-card>
 </div>
