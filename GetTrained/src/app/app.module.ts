@@ -1,38 +1,47 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatCardModule, MatChipsModule } from '@angular/material';
+import { MatDividerModule, MatToolbarModule, MatButtonModule, MatSelectModule,MatTableModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatCardModule, MatChipsModule, MatSnackBarModule} from '@angular/material';
 import {RouterModule, Routes} from '@angular/router';
-
+import {HttpClientModule} from '@angular/common/http';
+import {AppRoutingModule} from './app-routing.module';
+import {appRoutes} from './routes/routes';
 import { AppComponent } from './app.component';
-import { ListComponent } from './components/list/list.component';
-import { CreateComponent } from './components/create/create.component';
+import { ListCategoryComponent } from './components/listCategory/listCategory.component';
+import { CreateCategoryComponent } from './components/createCategory/createCategory.component';
 
-const routes: Routes = [
-  {path: 'create', component:CreateComponent},
-  {path: 'list', component: ListComponent},
-  {path: '', redirectTo: 'list', pathMatch: 'full'}
-]
+import {CategoryService} from './services/category.service';
+
+// const routes: Routes = [
+//   {path: 'createCategory', component:CreateCategoryComponent},
+//   {path: 'listCategory', component: ListCategoryComponent},
+//   {path: '', redirectTo: 'list', pathMatch: 'full'}
+// ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent,
-    CreateComponent
+    ListCategoryComponent,
+    CreateCategoryComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes),
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes),
     MatToolbarModule,
     MatButtonModule, 
+    MatSelectModule,
     MatCheckboxModule,
+    MatDividerModule,
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
+    MatTableModule,
+    MatSnackBarModule,
     MatChipsModule
   ],
-  providers: [],
+  providers: [CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
