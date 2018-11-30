@@ -12,7 +12,7 @@ import { QueryService } from './../../services/query.service';
 export class QuerylistComponent implements OnInit {
 
   queries: Query[];
-  displayedColumns: string[] = [ 'query_title', 'query_content', 'query_type'];
+  displayedColumns: string[] = [ 'query_title', 'query_content', 'query_type', 'query_createdby'];
   constructor(private queryService: QueryService) {
   }
 

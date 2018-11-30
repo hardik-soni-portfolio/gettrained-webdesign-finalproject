@@ -1,7 +1,7 @@
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatToolbarModule, MatDividerModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatCardModule, MatChipsModule,  MatSelectModule, MatOptionModule, MatTableModule,MatSnackBarModule } from '@angular/material';
+import { MatButtonModule, MatDividerModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatCardModule, MatChipsModule,  MatSelectModule, MatOptionModule, MatTableModule,MatSnackBarModule, MatMenuModule, MatToolbarModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,7 +19,6 @@ import { QuerylistComponent } from './components/querylist/querylist.component';
 import { AddqueryComponent } from './components/addquery/addquery.component';
 import { ListCategoryComponent } from './components/listCategory/listCategory.component';
 import { CreateCategoryComponent } from './components/createCategory/createCategory.component';
-import {CategoryService} from './services/category.service';
 
 @NgModule({
   declarations: [
@@ -50,10 +49,11 @@ import {CategoryService} from './services/category.service';
     MatSelectModule,
     MatOptionModule,
     MatTableModule,
+    MatToolbarModule,
     MatSnackBarModule,
-    MatToolbarModule, 
     MatDividerModule,
     ReactiveFormsModule,
+    MatMenuModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

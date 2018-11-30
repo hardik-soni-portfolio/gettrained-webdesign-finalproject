@@ -1,15 +1,16 @@
-<!-- <div> -->
-  <!--li *ngFor="let query of queries">{{query.query_id}}</li>-->
-    <!-- <br>
+<div> 
+  <!-- li *ngFor="let query of queries">{{query.query_id}}</li> -->
+    <br>
     <mat-card>
-      <table mat-table [dataSource]="queries"> -->
+        <h2>List of Feedbacks</h2>
+      <table mat-table [dataSource]="queries">
 
         <!-- <ng-container matColumnDef="query_id">
           <th mat-header-cell *matHeaderCellDef>QueryId</th>
           <td mat-cell *matCellDef="let element">{{element.query_id}}</td>
         </ng-container> -->
 
-        <!-- <ng-container matColumnDef="query_title">
+        <ng-container matColumnDef="query_title">
             <th mat-header-cell *matHeaderCellDef>Query Title</th>
             <td mat-cell *matCellDef="let element">{{element.query_title}}</td>
         </ng-container>
@@ -17,14 +18,14 @@
         <ng-container matColumnDef="query_content">
             <th mat-header-cell *matHeaderCellDef>Query Content</th>
             <td mat-cell *matCellDef="let element">{{element.query_content}}</td>
-          </ng-container> -->
+          </ng-container> 
 
-          <!-- <ng-container matColumnDef="query_createdby">
+          <ng-container matColumnDef="query_createdby">
               <th mat-header-cell *matHeaderCellDef>Query Created By</th>
               <td mat-cell *matCellDef="let element">{{element.query_createdby}}</td>
-          </ng-container> -->
+          </ng-container>
 
-          <!-- <ng-container matColumnDef="query_type">
+          <ng-container matColumnDef="query_type">
               <th mat-header-cell *matHeaderCellDef>Query Type</th>
               <td mat-cell *matCellDef="let element">{{element.query_type}}</td>
             </ng-container>
@@ -33,10 +34,16 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   
       </table>
+      <mat-divider></mat-divider>
+      <br>
+      <button mat-raised-button color="primary" routerLink="/home" class="query-buttons">BACK</button>
+      <br><br>
+      <mat-divider></mat-divider>
+      
     </mat-card>
-  </div> -->
+  </div>
 
-  <div>
+  <!-- <div>
     <div *ngFor="let query of queries">
       <ul>
         <li>Title:{{query.query_title}}</li>
@@ -45,4 +52,4 @@
         <li>Created By:{{query.query_createdby}}</li>
       </ul>
     </div>
-  </div>
+  </div> -->
