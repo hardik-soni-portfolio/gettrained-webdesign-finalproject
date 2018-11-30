@@ -18,6 +18,11 @@ export const appRoutes: Routes = [
     children: [{ path: '', component: RegisterComponent}]
   },
   {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  {
     path: 'login', component: LoginComponent
   },
   {
@@ -41,7 +46,15 @@ export const appRoutes: Routes = [
     component: QueryComponent,
     pathMatch : 'full'
   },
-  { path: 'createCategory', component: CreateCategoryComponent, pathMatch: 'full'},
-  { path: 'categories', component: ListCategoryComponent,pathMatch: 'full' },
+  {
+    path: 'createCategory',
+    component: CreateCategoryComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'categories',
+    component: ListCategoryComponent,
+    pathMatch: 'full'
+  },
 ];
 

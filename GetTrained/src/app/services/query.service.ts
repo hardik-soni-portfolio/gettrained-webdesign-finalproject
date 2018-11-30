@@ -29,11 +29,12 @@ export class QueryService {
   // }
 
   postQuery(query: Query) {
-    return this.http.post(environment.apiBaseUrl + '/queryadd', query);
+    return this.http.post(`${environment.apiBaseUrl}/queries`, query);
   }
 
   getQueries() {
-    return this.http.get(environment.apiBaseUrl + '/querylist');
+    return this.http.get(`${environment.apiBaseUrl}/queries`);
+    // return this.http.get(environment.apiBaseUrl + '/queries');
   }
   // activate(token: String) {
   //   return this.http.put(environment.apiBaseUrl + '/activate/' + token, token);
