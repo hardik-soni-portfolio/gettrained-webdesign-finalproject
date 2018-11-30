@@ -9,7 +9,7 @@ import { containsElement } from '@angular/animations/browser/src/render/shared';
 @Component({
   selector: 'app-list',
   templateUrl: './listCategory.component.html',
-  styleUrls: ['./listCategory.component.css']
+  styleUrls: ['./listCategory.component.scss']
 })
 export class ListCategoryComponent implements OnInit {
 

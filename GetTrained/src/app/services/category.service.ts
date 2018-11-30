@@ -10,19 +10,18 @@ export class CategoryService {
   constructor(private http:HttpClient) {}
 
   getCategories(){
-    return this.http.get(environment.apiBaseUrl + '/categoryList');
+    return this.http.get(`${environment.apiBaseUrl}/categories`);
   }
 
-  addCategory(category_name, active){
+  addCategory(category_name){
     const category = {
-      category_name: category_name,
-      active: active
+      category_name: category_name
     };
-    return this.http.post(environment.apiBaseUrl +'/categoryAdd', category);
+    return this.http.post(`${environment.apiBaseUrl}/categories`, category);
   }
 
   deleteCategory(id){
-    return this.http.get(environment.apiBaseUrl+ '/categoryDelete', id);
+    return this.http.delete(`${environment.apiBaseUrl}/categories/${id}`);
   }
 
 }
