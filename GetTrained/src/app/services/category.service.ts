@@ -7,20 +7,20 @@ import { environment } from 'src/environments/environment';
 })
 export class CategoryService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http:HttpClient) {}
 
-  getCategories() {
+  getCategories(){
     return this.http.get(`${environment.apiBaseUrl}/categories`);
   }
 
-  addCategory(category_name) {
+  addCategory(category_name){
     const category = {
       category_name: category_name
     };
     return this.http.post(`${environment.apiBaseUrl}/categories`, category);
   }
 
-  deleteCategory(id) {
+  deleteCategory(id){
     return this.http.delete(`${environment.apiBaseUrl}/categories/${id}`);
   }
 
