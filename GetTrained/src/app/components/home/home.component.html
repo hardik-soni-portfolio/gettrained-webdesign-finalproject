@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Welcome to the GetTrained!!!</span>
+    <span class="example-spacer"></span>
+    <button mat-button (click) = "gotoCategories()">Category</button>
+    <button mat-button [matMenuTriggerFor]="feedback">Feedback</button>
+    <mat-menu #feedback="matMenu">
+      <button mat-menu-item (click) = "gotoCreateFeedback()">Add Feedback</button>
+      <button mat-menu-item (click) = "gotoViewFeedback()" >View All Feedbacks</button>
+    </mat-menu>
+    <button mat-button (click) = "logout()">Logout</button>
+  </mat-toolbar-row>
+</mat-toolbar>
