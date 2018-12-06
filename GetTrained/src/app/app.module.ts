@@ -1,3 +1,4 @@
+import { PreventAccessService } from './services/prevent-access.service';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -60,7 +61,7 @@ import { CourseListComponent } from './components/course-list/course-list.compon
     MatMenuModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [PreventAccessService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
