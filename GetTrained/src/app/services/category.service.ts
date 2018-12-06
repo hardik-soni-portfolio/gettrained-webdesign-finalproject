@@ -13,14 +13,14 @@ export class CategoryService {
     return this.http.get(`${environment.apiBaseUrl}/categories`);
   }
 
-  addCategory(category_name){
+  addCategory(category_name) {
     const category = {
       category_name: category_name
     };
     return this.http.post(`${environment.apiBaseUrl}/categories`, category);
   }
 
-  deleteCategory(id){
+  deleteCategory(id) {
     return this.http.delete(`${environment.apiBaseUrl}/categories/${id}`);
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   errorMessage: String;
   showErrorMessage: boolean;
 
-  constructor(userService: UserService) {
+  constructor(userService: UserService, private router: Router) {
     this.userService = userService;
    }
 

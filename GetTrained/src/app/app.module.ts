@@ -21,6 +21,8 @@ import { AddqueryComponent } from './components/addquery/addquery.component';
 import { ListCategoryComponent } from './components/listCategory/listCategory.component';
 import { CreateCategoryComponent } from './components/createCategory/createCategory.component';
 import {CategoryService} from './services/category.service';
+import { CreateCourseAreaComponent } from './components/create-course-area/create-course-area.component';
+import { CreateContentComponent } from './components/create-content/create-content.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import {CategoryService} from './services/category.service';
     QuerylistComponent,
     AddqueryComponent,
     CreateCategoryComponent,
-    ListCategoryComponent
+    ListCategoryComponent,
+    CreateCourseAreaComponent,
+    CreateContentComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,7 @@ import {CategoryService} from './services/category.service';
     MatOptionModule,
     MatTableModule,
     MatSnackBarModule,
-    MatToolbarModule, 
+    MatToolbarModule,
     MatDividerModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
