@@ -1,19 +1,18 @@
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import {MatMenuModule} from '@angular/material/menu';
-
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class NavbarComponent implements OnInit {
 
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
+
   gotoCategories() {
     this.router.navigate(['categories']);
   }
@@ -26,4 +25,5 @@ export class HomeComponent implements OnInit {
   logout() {
     this.router.navigate(['login']);
   }
+
 }

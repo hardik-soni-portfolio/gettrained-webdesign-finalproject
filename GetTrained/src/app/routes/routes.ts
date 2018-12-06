@@ -6,7 +6,6 @@ import { UserComponent } from './../components/user/user.component';
 import { Routes, CanActivate } from '@angular/router';
 import { AppComponent } from './../app.component';
 import { LoginComponent } from '../components/login/login.component';
-import { HomeComponent } from '../components/home/home.component';
 import { AddqueryComponent} from './../components/addquery/addquery.component';
 import { QueryComponent} from './../components/query/query.component';
 import { QuerylistComponent} from './../components/querylist/querylist.component';
@@ -27,7 +26,7 @@ export const appRoutes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: 'home', component: HomeComponent, canActivate: [PreventAccessService]
+    path: 'home', component: AppComponent, canActivate: [PreventAccessService]
   },
   {
     path: 'activate/:token', component: ActivateComponent
