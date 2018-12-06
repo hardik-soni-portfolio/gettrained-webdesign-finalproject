@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
         console.log(res);
         if (res.success) {
           // redirect to main home page
+          localStorage.setItem('id', res.loggedUser);
           this.router.navigate(['/home']);
         } else {
           this.errorMessage = res.message;
