@@ -1,8 +1,9 @@
+import { PreventAccessService } from './../services/prevent-access.service';
 
 import { ActivateComponent } from '../components/activate/activate.component';
 import { RegisterComponent } from './../components/register/register.component';
 import { UserComponent } from './../components/user/user.component';
-import { Routes } from '@angular/router';
+import { Routes, CanActivate } from '@angular/router';
 import { AppComponent } from './../app.component';
 import { LoginComponent } from '../components/login/login.component';
 import { HomeComponent } from '../components/home/home.component';
@@ -26,7 +27,7 @@ export const appRoutes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: 'home', component: HomeComponent
+    path: 'home', component: HomeComponent, canActivate: [PreventAccessService]
   },
   {
     path: 'activate/:token', component: ActivateComponent
@@ -34,27 +35,32 @@ export const appRoutes: Routes = [
   {
     path: 'addquery',
     component: AddqueryComponent,
-    pathMatch : 'full'
+    pathMatch : 'full',
+    canActivate: [PreventAccessService]
   },
   {
     path: 'queries',
     component: QuerylistComponent,
-    pathMatch : 'full'
+    pathMatch : 'full',
+    canActivate: [PreventAccessService]
   },
   {
     path: 'query/:id',
     component: QueryComponent,
-    pathMatch : 'full'
+    pathMatch : 'full',
+    canActivate: [PreventAccessService]
   },
   {
     path: 'createCategory',
     component: CreateCategoryComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [PreventAccessService]
   },
   {
     path: 'categories',
     component: ListCategoryComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [PreventAccessService]
   },
 ];
 
