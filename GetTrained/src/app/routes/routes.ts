@@ -6,16 +6,16 @@ import { UserComponent } from './../components/user/user.component';
 import { Routes, CanActivate } from '@angular/router';
 import { AppComponent } from './../app.component';
 import { LoginComponent } from '../components/login/login.component';
-import { AddqueryComponent} from './../components/addquery/addquery.component';
-import { QueryComponent} from './../components/query/query.component';
-import { QuerylistComponent} from './../components/querylist/querylist.component';
+import { AddqueryComponent } from './../components/addquery/addquery.component';
+import { QueryComponent } from './../components/query/query.component';
+import { QuerylistComponent } from './../components/querylist/querylist.component';
 import { ListCategoryComponent } from './../components/listCategory/listCategory.component';
 import { CreateCategoryComponent } from './../components/createCategory/createCategory.component';
 
 export const appRoutes: Routes = [
   {
     path: 'register', component: UserComponent,
-    children: [{ path: '', component: RegisterComponent}]
+    children: [{ path: '', component: RegisterComponent }]
   },
   {
     path: '',
@@ -26,11 +26,7 @@ export const appRoutes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-<<<<<<< HEAD
-    path: 'home', component: AppComponent
-=======
-    path: 'home', component: HomeComponent, canActivate: [PreventAccessService]
->>>>>>> a9178c8d0bc594fdf077beea56d035cf66b03cd4
+    path: 'home', component: AppComponent, canActivate: [PreventAccessService]
   },
   {
     path: 'activate/:token', component: ActivateComponent
@@ -38,19 +34,19 @@ export const appRoutes: Routes = [
   {
     path: 'addquery',
     component: AddqueryComponent,
-    pathMatch : 'full',
+    pathMatch: 'full',
     canActivate: [PreventAccessService]
   },
   {
     path: 'queries',
     component: QuerylistComponent,
-    pathMatch : 'full',
+    pathMatch: 'full',
     canActivate: [PreventAccessService]
   },
   {
     path: 'query/:id',
     component: QueryComponent,
-    pathMatch : 'full',
+    pathMatch: 'full',
     canActivate: [PreventAccessService]
   },
   {
