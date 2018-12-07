@@ -1,3 +1,4 @@
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { PreventAccessService } from './services/prevent-access.service';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
@@ -38,7 +39,8 @@ import { CreateContentComponent } from './components/create-content/create-conte
     CreateCategoryComponent,
     ListCategoryComponent,
     CreateCourseAreaComponent,
-    CreateContentComponent
+    CreateContentComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
