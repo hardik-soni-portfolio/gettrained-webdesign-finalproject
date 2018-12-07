@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class PreventAccessService implements CanActivate{
+export class PreventAccessService implements CanActivate {
 
   constructor(private router: Router) { }
 

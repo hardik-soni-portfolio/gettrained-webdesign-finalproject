@@ -1,0 +1,38 @@
+<br>
+<!-- <h1>Welcome to the course {{course.course_title}}</h1><br>
+ -->
+
+<h1>Welcome to the course {{course_title}}</h1><br>
+<!-- <h2>{{course.course_description}}</h2> -->
+<h2>{{course_description}}</h2>
+<div>
+  <div>
+    <li *ngFor="let  text of textarray">{{text}}</li>
+    <br>
+    <div>
+      <img src="assets/img1.png" height="400px" width="450px">
+      <div>
+          <iframe width="560" height="315" [src]="getEmbedURL(video)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<div class="slide">
+  <div class="textarea">
+      <li *ngFor="let  textcontent of course[current_page].text">{{textcontent}}{{current_page}}</li>
+  </div>
+  <div>
+    <img [src]=course[current_page].imagepath height="400px" width="450px">
+  </div>
+  <div>
+      <iframe width="560" height="315" [src]="getEmbedURL(course[current_page].videopath)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+<button mat-button [disabled]="isprevDisabled" (click)="dec_page(current_page)">previous</button>
+<button mat-button [disabled]="isnextDisabled" (click)="inc_page(current_page)">next</button>
+<!-- <div *ngFor="let cor of course">
+  <div> <iframe width="560" height="315" [src]="getEmbedURL(cor.videopath)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div> -->
