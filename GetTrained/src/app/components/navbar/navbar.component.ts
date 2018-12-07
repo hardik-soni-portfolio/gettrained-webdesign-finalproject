@@ -25,5 +25,8 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.router.navigate(['login']);
   }
+  gotoCourses() {
+    this.router.navigate(['courses']);
+  }
 
 }
