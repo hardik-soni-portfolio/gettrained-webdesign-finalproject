@@ -1,3 +1,4 @@
+import { Content } from './../../models/content.model';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Form, NgForm } from '@angular/forms';
 import { CourseService } from 'src/app/services/course.service';
@@ -9,7 +10,7 @@ import { CourseService } from 'src/app/services/course.service';
   providers: [CourseService]
 })
 export class CreateContentComponent implements OnInit {
-  @Output() content = new EventEmitter<any>();
+  @Output() content = new EventEmitter<Content>();
   textContent: Array<String>;
   text: String;
   slide_content: any;
@@ -28,8 +29,13 @@ export class CreateContentComponent implements OnInit {
   onRemoveText() {
     this.textContent.pop();
   }
-  onSubmit(form: NgForm) {
-    this.slide_content = {'text': this.textContent, 'value': form.value };
-    this.content.emit();
+  onFileSelected(event) {
+    console.log(event);
+    this.courseService.selectedSlide.image = event.target.value;
+  }
+  onSubmit() {
+    this.slide_content = {'text': this.textContent, 'title': this.courseService.selectedSlide.title,
+  'image': this.courseService.selectedSlide.image, 'video': this.courseService.selectedSlide.video};
+    this.content.emit(this.slide_content);
   }
 }

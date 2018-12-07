@@ -1,5 +1,5 @@
 <mat-card-content>
-    <app-create-content></app-create-content>
-    <button mat-raised-button color="primary" type="add">Add Slide</button><br/><br/>
-    <button mat-raised-button color="primary" type="submit">Create</button>
+    <app-create-content (content)="addSlide($event)" *ngFor="let count of counter"></app-create-content>
+    <button mat-raised-button color="primary" (click)="addNewSlide()">Add Slide</button><br/><br/>
+    <button mat-raised-button color="primary" (click)="createCourseContent()">Create</button>
 </mat-card-content>

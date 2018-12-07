@@ -12,8 +12,8 @@
         <mat-label>Content:</mat-label>
         <input matInput #slide_content="ngModel" [(ngModel)]="text" name="slide_content">
       </mat-form-field>
-      <button mat-raised-button color="primary" type="submit" (click)="onAddText()">Add</button>
-      <button mat-raised-button color="primary" type="submit" (click)="onRemoveText()">Remove</button>
+      <button mat-raised-button color="primary" (click)="onAddText()">Add</button>
+      <button mat-raised-button color="primary" (click)="onRemoveText()">Remove</button>
     </div>
     <div>
       <mat-list>
@@ -23,11 +23,8 @@
       </mat-list>
     </div>
     <div>
-      <mat-form-field>
-        <mat-label>Image:</mat-label>
-        <input matInput #slide_image="ngModel" [(ngModel)]="courseService.selectedSlide.image" name="slide_image">
-      </mat-form-field>
-      <button mat-raised-button color="primary" type="submit">Add</button>
+      <input type="file" (change)="onFileSelected($event)" accept="image/*" #inputImg hidden>
+      <button mat-raised-button color="primary" (click)="inputImg.click()">Add Image</button>
     </div>
     <div>
       <mat-form-field>
@@ -35,6 +32,6 @@
         <input matInput #slide_video="ngModel" [(ngModel)]="courseService.selectedSlide.video" name="slide_video">
       </mat-form-field>
     </div>
-    <button mat-raised-button color="primary" type="submit">Save Slide</button>
+    <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Save Slide</button>
   </form>
 </mat-card-content>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Content } from './../../models/content.model';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -7,15 +8,22 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./create-course-area.component.scss']
 })
 export class CreateCourseAreaComponent implements OnInit {
-  components: any;
-  constructor() { }
+  @Output() content = new EventEmitter<Array<Content>>();
+  courseContent: Array<Content>;
+  counter: Array<Number> = [1];
+  constructor() {
+   }
 
   ngOnInit() {
   }
-  onSubmit() {
-    this.components = document.getElementsByTagName('app-create-content');
-    this.components.forEach(element => {
 
-    });
+  addSlide(content: Content) {
+    this.courseContent.push(content);
+  }
+  addNewSlide() {
+    this.counter.push(1);
+  }
+  createCourseContent() {
+    this.content.emit(this.courseContent);
   }
 }
