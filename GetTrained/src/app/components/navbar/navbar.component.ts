@@ -13,6 +13,14 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  isAdmin() {
+    return localStorage.getItem("role") === "admin" ? true : false;
+  }
+
+  isLoggedIn() {
+    return localStorage.getItem("id") ? true : false;
+  }
+
   gotoCategories() {
     this.router.navigate(['categories']);
   }
@@ -24,6 +32,9 @@ export class NavbarComponent implements OnInit {
   }
   logout() {
     this.router.navigate(['login']);
+  }
+  gotoCourses() {
+    this.router.navigate(['courses']);
   }
 
 }
