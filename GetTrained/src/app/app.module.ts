@@ -2,7 +2,7 @@ import { PreventAccessService } from './services/prevent-access.service';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatToolbarModule, MatDividerModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatCardModule, MatChipsModule,  MatSelectModule, MatOptionModule, MatTableModule,MatSnackBarModule } from '@angular/material';
+import { MatButtonModule, MatToolbarModule, MatDividerModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatCardModule, MatChipsModule,  MatSelectModule, MatOptionModule, MatTableModule,MatSnackBarModule, MatListModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -58,6 +58,7 @@ import { CreateContentComponent } from './components/create-content/create-conte
     MatSnackBarModule,
     MatToolbarModule,
     MatDividerModule,
+    MatListModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],

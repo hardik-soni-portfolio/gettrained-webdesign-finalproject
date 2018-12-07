@@ -1,3 +1,4 @@
+import { CreateCourseAreaComponent } from './../components/create-course-area/create-course-area.component';
 import { PreventAccessService } from './../services/prevent-access.service';
 
 import { ActivateComponent } from '../components/activate/activate.component';
@@ -57,6 +58,10 @@ export const appRoutes: Routes = [
     pathMatch: 'full',
     canActivate: [PreventAccessService]
   },
+  {
+    path: 'createCourseContent',
+    component: CreateCourseAreaComponent
+  }
 
 ];
 
