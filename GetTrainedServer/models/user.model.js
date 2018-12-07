@@ -55,6 +55,12 @@ var userSchema = new mongoose.Schema({
             },
             progress: {
                 type: Number
+            },
+            current_page: {
+                 type:Number
+            },
+            progress_page: {
+                type: Number
             }
         }]
     }]

@@ -21,8 +21,7 @@ var querySchema = new mongoose.Schema({
         required: 'Query type cannot be empty'
     },
     query_createdby:{
-        type: String,
-        default: 'Bhargavi'
+        type: String
     }
 });
 

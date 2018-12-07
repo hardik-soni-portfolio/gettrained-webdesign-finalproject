@@ -13,13 +13,15 @@ export class AddqueryComponent implements OnInit {
   showSuccessMessage: boolean;
   serverErrorMessage: string;
   queryService: QueryService;
+  req: any;
   constructor( queryService: QueryService) {
     this.queryService = queryService;
    }
 
 
    onSubmit(form: NgForm) {
-    this.queryService.postQuery(form.value).subscribe(
+    this.req = {'value': form.value, 'user_id': localStorage.getItem('id')};
+    this.queryService.postQuery(this.req).subscribe(
       res => {
         this.showSuccessMessage = true;
         setTimeout(() => this.showSuccessMessage = false, 4000);
