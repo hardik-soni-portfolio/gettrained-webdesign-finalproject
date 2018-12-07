@@ -15,7 +15,6 @@ import { RegisterComponent } from './components/register/register.component';
 import { appRoutes } from './routes/routes';
 import { ActivateComponent } from './components/activate/activate.component';
 import { LoginComponent } from './components/login/login.component';
-import { HomeComponent } from './components/home/home.component';
 import { QueryComponent } from './components/query/query.component';
 import { QuerylistComponent } from './components/querylist/querylist.component';
 import { AddqueryComponent } from './components/addquery/addquery.component';
@@ -24,6 +23,8 @@ import { CreateCategoryComponent } from './components/createCategory/createCateg
 import {CategoryService} from './services/category.service';
 import { CreateCourseAreaComponent } from './components/create-course-area/create-course-area.component';
 import { CreateContentComponent } from './components/create-content/create-content.component';
+import { CourseCreateComponent } from './components/course-create/course-create.component';
+import { CourseListComponent } from './components/course-list/course-list.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,6 @@ import { CreateContentComponent } from './components/create-content/create-conte
     RegisterComponent,
     ActivateComponent,
     LoginComponent,
-    HomeComponent,
     QueryComponent,
     QuerylistComponent,
     AddqueryComponent,
@@ -40,7 +40,9 @@ import { CreateContentComponent } from './components/create-content/create-conte
     ListCategoryComponent,
     CreateCourseAreaComponent,
     CreateContentComponent,
-    NavbarComponent
+    NavbarComponent,
+    CourseCreateComponent,
+    CourseListComponent,
   ],
   imports: [
     BrowserModule,

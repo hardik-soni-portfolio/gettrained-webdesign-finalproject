@@ -19,6 +19,11 @@ export const appRoutes: Routes = [
     children: [{ path: '', component: RegisterComponent }]
   },
   {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  {
     path: 'login', component: LoginComponent
   },
   {
