@@ -55,6 +55,9 @@ var userSchema = new mongoose.Schema({
             },
             progress: {
                 type: Number
+            },
+            lastSlideIndex: {
+                 type:Number
             }
         }]
     }]

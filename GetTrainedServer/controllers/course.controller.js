@@ -13,3 +13,7 @@ exports.post = function (request, response) {
 exports.display = (req, res, err) => {
     courseService.display(req, res);
 }
+
+exports.displayCourse = (req,res,err) => {
+    courseService.displayCourse(req, res);
+}
