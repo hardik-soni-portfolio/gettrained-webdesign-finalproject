@@ -22,6 +22,7 @@ import { CreateCategoryComponent } from './components/createCategory/createCateg
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CourseCreateComponent } from './components/course-create/course-create.component';
 import { CourseListComponent } from './components/course-list/course-list.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { CourseListComponent } from './components/course-list/course-list.compon
     NavbarComponent,
     CourseCreateComponent,
     CourseListComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
