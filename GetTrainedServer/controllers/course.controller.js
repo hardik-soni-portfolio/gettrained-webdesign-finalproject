@@ -13,3 +13,10 @@ exports.post = function (request, response) {
 exports.display = (req, res, err) => {
     courseService.display(req, res);
 }
+
+exports.find = (req, res, err) => {
+    let id = req.body;
+console.log(req);
+    courseService.find(id, res);
+    
+}

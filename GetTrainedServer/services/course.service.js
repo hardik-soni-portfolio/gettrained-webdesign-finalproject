@@ -1,6 +1,7 @@
 'use strict';
 const mongoose = require('mongoose'),
-    Course = mongoose.model('Courses');
+    Course = mongoose.model('Courses'),
+    User = mongoose.model('Users');
 
 let throwError = function (err, callback, msg) {
     console.log(err);
@@ -26,5 +27,24 @@ exports.display = (req, res) => {
             res.json(courses);
         }
 
+    });
+}
+
+exports.find = (id, res) => {
+    let enrolledCourses = [];
+    User.findOne(id, (err, user) => {
+        let courses = user.course_enrolled;
+        courses.forEach(course => {
+            let courseId = course.course_id;
+            Course.findOne(courseId, (err, enrolledCourse) => {
+                let userCourse = {
+                    'progress': course.progress, 
+                    'lastSlideIndex': course.lastSlideIndex,
+                    'course': enrolledCourse
+                };
+                enrolledCourses.push(userCourse);
+            })
+        });
+        res.json(enrolledCourses);
     });
 }

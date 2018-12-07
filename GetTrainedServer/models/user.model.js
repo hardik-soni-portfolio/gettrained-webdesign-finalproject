@@ -46,7 +46,6 @@ var userSchema = new mongoose.Schema({
         }
     }],
     courses_enrolled: [{
-        course: [{
             course_id: {
                 type: String
             },
@@ -55,9 +54,11 @@ var userSchema = new mongoose.Schema({
             },
             progress: {
                 type: Number
+            },
+            lastSlideIndex: {
+                type: Number
             }
         }]
-    }]
 });
 
 //Validation for email on back end.
