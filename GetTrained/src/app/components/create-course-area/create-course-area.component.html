@@ -1,8 +1,5 @@
 <mat-card-content>
-  <form #courseContentForm = "ngForm" (ngSubmit) = "courseContentForm.valid && onSubmit(courseContentForm)" class="myForm">
     <app-create-content></app-create-content>
-    <button mat-raised-button color="primary" type="submit">Add Slide</button><br/>
-    <button mat-raised-button color="primary" type="submit">Save</button>
+    <button mat-raised-button color="primary" type="add">Add Slide</button><br/><br/>
     <button mat-raised-button color="primary" type="submit">Create</button>
-  </form>
 </mat-card-content>

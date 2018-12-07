@@ -10,13 +10,13 @@
     <div>
       <mat-form-field>
         <mat-label>Content:</mat-label>
-        <input matInput #slide_content="ngModel" [(ngModel)]="content" name="slide_content">
+        <input matInput #slide_content="ngModel" [(ngModel)]="text" name="slide_content">
         <button mat-raised-button color="primary" type="submit">Add</button>
       </mat-form-field>
     </div>
     <div>
       <mat-list>
-        <mat-list-item *ngFor="let content of slideContent">
+        <mat-list-item *ngFor="let content of textContent">
           <h1>{{ content }}</h1>
         </mat-list-item>
       </mat-list>
@@ -34,5 +34,6 @@
         <input matInput #slide_video="ngModel" [(ngModel)]="video" name="slide_video">
       </mat-form-field>
     </div>
+    <button mat-raised-button color="primary" type="submit">Save Slide</button>
   </form>
 </mat-card-content>

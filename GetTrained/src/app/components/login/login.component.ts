@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     this.userService = userService;
    }
 
-   onSubmit(form: NgForm){
+   onSubmit(form: NgForm) {
     this.userService.loginUser(form.value).subscribe(
       (res: any) => {
         console.log(res);
