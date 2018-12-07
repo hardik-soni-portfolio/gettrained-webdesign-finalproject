@@ -6,16 +6,19 @@ import { UserComponent } from './../components/user/user.component';
 import { Routes, CanActivate } from '@angular/router';
 import { AppComponent } from './../app.component';
 import { LoginComponent } from '../components/login/login.component';
-import { AddqueryComponent} from './../components/addquery/addquery.component';
-import { QueryComponent} from './../components/query/query.component';
-import { QuerylistComponent} from './../components/querylist/querylist.component';
+import { AddqueryComponent } from './../components/addquery/addquery.component';
+import { QueryComponent } from './../components/query/query.component';
+import { QuerylistComponent } from './../components/querylist/querylist.component';
 import { ListCategoryComponent } from './../components/listCategory/listCategory.component';
 import { CreateCategoryComponent } from './../components/createCategory/createCategory.component';
+import { CourseCreateComponent } from './../components/course-create/course-create.component';
+import { CourseListComponent } from './../components/course-list/course-list.component';
+import { Component } from '@angular/core';
 
 export const appRoutes: Routes = [
   {
     path: 'register', component: UserComponent,
-    children: [{ path: '', component: RegisterComponent}]
+    children: [{ path: '', component: RegisterComponent }]
   },
   {
     path: '',
@@ -34,19 +37,19 @@ export const appRoutes: Routes = [
   {
     path: 'addquery',
     component: AddqueryComponent,
-    pathMatch : 'full',
+    pathMatch: 'full',
     canActivate: [PreventAccessService]
   },
   {
     path: 'queries',
     component: QuerylistComponent,
-    pathMatch : 'full',
+    pathMatch: 'full',
     canActivate: [PreventAccessService]
   },
   {
     path: 'query/:id',
     component: QueryComponent,
-    pathMatch : 'full',
+    pathMatch: 'full',
     canActivate: [PreventAccessService]
   },
   {
@@ -60,6 +63,18 @@ export const appRoutes: Routes = [
     component: ListCategoryComponent,
     pathMatch: 'full',
     canActivate: [PreventAccessService]
+  },
+  {
+    path: 'courses',
+    component: CourseListComponent,
+    pathMatch:'full',
+    canActivate:[PreventAccessService]
+  },
+  {
+    path: 'createCourse',
+    component: CourseCreateComponent,
+    pathMatch:'full',
+    canActivate:[PreventAccessService]
   },
 ];
 
