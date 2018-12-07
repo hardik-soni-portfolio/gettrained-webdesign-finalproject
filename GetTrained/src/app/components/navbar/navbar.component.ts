@@ -13,11 +13,11 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
-  isAdmin (){
-    return localStorage.getItem("id") == "admin" ? true : false;
+  isAdmin() {
+    return localStorage.getItem("role") === "admin" ? true : false;
   }
 
-  isLoggedIn (){
+  isLoggedIn() {
     return localStorage.getItem("id") ? true : false;
   }
 
