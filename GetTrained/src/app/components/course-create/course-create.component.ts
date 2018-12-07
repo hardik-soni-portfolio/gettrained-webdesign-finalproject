@@ -3,6 +3,13 @@ import { CourseService } from './../../services/course.service';
 import {CategoryService} from '../../services/category.service';
 import { Category } from 'src/app/models/category.model';
 import { NgForm } from '@angular/forms';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import {MatChipInputEvent} from '@angular/material';
+import { interceptingHandler } from '@angular/common/http/src/module';
+
+export interface Learner{
+  name: String;
+}
 
 @Component({
   selector: 'app-course-create',
@@ -16,12 +23,14 @@ export class CourseCreateComponent implements OnInit {
   serverErrorMessage: string;
   courseService: CourseService;
   req: any;
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   constructor( courseService: CourseService,private categoryService: CategoryService) {
     this.courseService = courseService;
     this.categoryService=categoryService;
    }
 
    categories: Category[];
+   learners: Learner[];
 
    onSubmit(form: NgForm) {
     form.value.course_created_by=localStorage.getItem('id');
@@ -39,6 +48,21 @@ export class CourseCreateComponent implements OnInit {
         }
       }
     );
+  }
+
+  add(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+
+    // Add email
+    if ((value || '').trim()) {
+      this.learners.push({name: value.trim()});
+    }
+
+    // Reset the input value
+    if (input) {
+      input.value = '';
+    }
   }
 
   resetForm(form: NgForm) {
