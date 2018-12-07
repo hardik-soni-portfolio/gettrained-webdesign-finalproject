@@ -15,8 +15,11 @@ exports.display = (req, res, err) => {
 }
 
 exports.find = (req, res, err) => {
-    let id = req.body;
-console.log(req);
+    console.log("---inside find function",req.params.id);
+  
+    let id = req.params.id;
+    console.log("inside find function",req.body);
+    console.log( "prathamesh ne bola",id);
+
     courseService.find(id, res);
-    
 }

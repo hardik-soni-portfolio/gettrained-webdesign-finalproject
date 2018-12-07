@@ -6,13 +6,15 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class CourseService {
+  id : any;
 
   constructor(private http: HttpClient) {
+    this.id = localStorage.getItem('id');
 
    }
 
 
 getEnrolledCourses(){
-  return this.http.post(`${environment.apiBaseUrl}/enrolledCourses`, localStorage.getItem('id'));
+  return this.http.get(`${environment.apiBaseUrl}/dashboard/`+ this.id);
 }
 }
