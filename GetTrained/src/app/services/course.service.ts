@@ -18,12 +18,13 @@ export class CourseService {
     course_created_date: '',
     course_modified_date: '',
     course_contents: '',
-    course_status: ''
+    course_status: '',
+    course_created_by: ''
   };
 
 
   getCourses() {
-    return this.http.get(`${environment.apiBaseUrl}/courses`);
+    return this.http.get(`${environment.apiBaseUrl}/courses/?userId=${localStorage.getItem("id")}`);
   }
 
   postCourse(course: Course) {

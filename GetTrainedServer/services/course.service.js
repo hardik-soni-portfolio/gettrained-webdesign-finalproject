@@ -8,7 +8,7 @@ let throwError = function (err, callback, msg) {
 };
 
 exports.save = function (course, callback, errCallback) {
-    let newCourse = new Course(course);
+    let newCourse = new Course(course);  
     newCourse.save(function (err, course) {
         if (err) {
             throwError(err, errCallback, "Error saving course");

@@ -14,15 +14,12 @@
         </div>
       </mat-form-field>
       &nbsp;
-      <mat-form-field class="full-width">
-        <mat-label>Course Category</mat-label>
-        <input matInput #course_category ="ngModel" name="course_category" [(ngModel)]="courseService.selectedCourse.course_category" placeholder="Course Category"
-        required  [ngClass]="{'invalid-textbox' :courseCreateFrom.submitted && !course_category.valid }">
-        <div *ngIf="courseCreateFrom.submitted && !course_category.valid">
-          <mat-error class="validation-message">This field is required</mat-error>
-        </div>
-      </mat-form-field>
+      
+      <mat-select #course_category="ngModel" placeholder="select category" name="course_category" [(ngModel)]="courseService.selectedCourse.course_category" required>
+        <mat-option *ngFor = "let category of categories" [value]="category._id">{{category.category_name}}</mat-option>
+      </mat-select>
     </div>
+
 
     <div>
       <mat-form-field class="full-width">
@@ -39,7 +36,7 @@
       <mat-form-field class="full-width">
         <mat-label>Course Learners</mat-label>
         <input matInput #course_learners ="ngModel" name="course_learners" [(ngModel)]="courseService.selectedCourse.course_learners" placeholder="Course Learners"
-        required  [ngClass]="{'invalid-textbox' :courseCreateFrom.submitted && !course_learners.valid }">
+        required [ngClass]="{'invalid-textbox' :courseCreateFrom.submitted && !course_learners.valid }">
         <div *ngIf="courseCreateFrom.submitted && !course_learners.valid">
           <mat-error class="validation-message">This field is required</mat-error>
         </div>

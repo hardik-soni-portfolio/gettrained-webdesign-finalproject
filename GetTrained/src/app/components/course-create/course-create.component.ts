@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from './../../services/course.service';
+import {CategoryService} from '../../services/category.service';
+import { Category } from 'src/app/models/category.model';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -13,12 +15,16 @@ export class CourseCreateComponent implements OnInit {
   showSuccessMessage: boolean;
   serverErrorMessage: string;
   courseService: CourseService;
-  constructor( courseService: CourseService) {
+  req: any;
+  constructor( courseService: CourseService,private categoryService: CategoryService) {
     this.courseService = courseService;
+    this.categoryService=categoryService;
    }
 
+   categories: Category[];
 
    onSubmit(form: NgForm) {
+    form.value.course_created_by=localStorage.getItem('id');
     this.courseService.postCourse(form.value).subscribe(
       res => {
         this.showSuccessMessage = true;
@@ -44,13 +50,25 @@ export class CourseCreateComponent implements OnInit {
       course_created_date:'',
       course_modified_date:'',
       course_contents:'',
-      course_status:''
+      course_status:'',
+      course_created_by:''
     };
     form.resetForm();
     this.serverErrorMessage = '';
   }
 
+  fetchCategories() {
+    this.categoryService
+      .getCategories()
+      .subscribe((data: Category[]) => {
+        this.categories = data;
+        console.log('Data requested...');
+        console.log(this.categories);
+      });
+  }
+
   ngOnInit() {
+    this.fetchCategories();
   }
 
 }
