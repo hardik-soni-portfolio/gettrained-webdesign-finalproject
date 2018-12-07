@@ -1,0 +1,31 @@
+ul {
+    list-style-type: none;
+    background: #F2F2F2;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 1em 1em 0 1em;
+
+    li {
+        a {
+            color: #673ab7;
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-variant-caps: all-petite-caps;
+            font-size: large;
+            text-decoration: none;
+        }
+
+        .activated {
+            background-color: #00a8ff;
+        }
+    }
+}
+
+.course-buttons{
+    margin: 1em 1em 1em 1em;
+}
+
+.mat-typography{
+    margin: 1em 1em 1em 1em;
+}

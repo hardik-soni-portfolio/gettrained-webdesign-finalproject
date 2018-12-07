@@ -12,6 +12,9 @@ import { QueryComponent } from './../components/query/query.component';
 import { QuerylistComponent } from './../components/querylist/querylist.component';
 import { ListCategoryComponent } from './../components/listCategory/listCategory.component';
 import { CreateCategoryComponent } from './../components/createCategory/createCategory.component';
+import { CourseCreateComponent } from './../components/course-create/course-create.component';
+import { CourseListComponent } from './../components/course-list/course-list.component';
+import { Component } from '@angular/core';
 
 export const appRoutes: Routes = [
   {
@@ -65,7 +68,18 @@ export const appRoutes: Routes = [
   {
     path: 'createCourseContent',
     component: CreateCourseAreaComponent
-  }
-
+  },
+  {
+    path: 'courses',
+    component: CourseListComponent,
+    pathMatch: 'full',
+    canActivate: [PreventAccessService]
+  },
+  {
+    path: 'createCourse',
+    component: CourseCreateComponent,
+    pathMatch: 'full',
+    canActivate: [PreventAccessService]
+  },
 ];
 
