@@ -7,4 +7,5 @@ export class Course {
     course_modified_date: String;
     course_status: String;
     course_contents: String;
+    course_created_by: String;
 }
