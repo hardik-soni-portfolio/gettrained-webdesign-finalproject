@@ -3,7 +3,7 @@ import { PreventAccessService } from './services/prevent-access.service';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatToolbarModule, MatDividerModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatCardModule, MatChipsModule,  MatSelectModule, MatOptionModule, MatTableModule,MatSnackBarModule, MatListModule } from '@angular/material';
+import { MatButtonModule, MatToolbarModule, MatDividerModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatCardModule, MatChipsModule,  MatSelectModule, MatOptionModule, MatTableModule,MatSnackBarModule, MatListModule, MatMenuModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -42,7 +42,7 @@ import { CourseListComponent } from './components/course-list/course-list.compon
     CreateContentComponent,
     NavbarComponent,
     CourseCreateComponent,
-    CourseListComponent,
+    CourseListComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +64,7 @@ import { CourseListComponent } from './components/course-list/course-list.compon
     MatDividerModule,
     MatListModule,
     ReactiveFormsModule,
+    MatMenuModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [PreventAccessService],

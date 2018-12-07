@@ -3,7 +3,7 @@
     <div>
       <mat-form-field>
         <mat-label>Title:</mat-label>
-        <input matInput #slide_title="ngModel" [(ngModel)]="contentService.selectedSlide.slide_title" name="slide_title"
+        <input matInput #slide_title="ngModel" [(ngModel)]="courseService.selectedSlide.title" name="slide_title"
         required [ngClass]="{'invalid-textbox': slideContent.submitted && !slide_title.valid}">
       </mat-form-field>
     </div>
@@ -11,8 +11,9 @@
       <mat-form-field>
         <mat-label>Content:</mat-label>
         <input matInput #slide_content="ngModel" [(ngModel)]="text" name="slide_content">
-        <button mat-raised-button color="primary" type="submit">Add</button>
       </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" (click)="onAddText()">Add</button>
+      <button mat-raised-button color="primary" type="submit" (click)="onRemoveText()">Remove</button>
     </div>
     <div>
       <mat-list>
@@ -24,14 +25,14 @@
     <div>
       <mat-form-field>
         <mat-label>Image:</mat-label>
-        <input matInput #slide_image="ngModel" [(ngModel)]="image" name="slide_image">
-        <button mat-raised-button color="primary" type="">Add</button>
+        <input matInput #slide_image="ngModel" [(ngModel)]="courseService.selectedSlide.image" name="slide_image">
       </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Add</button>
     </div>
     <div>
       <mat-form-field>
         <mat-label>Video:</mat-label>
-        <input matInput #slide_video="ngModel" [(ngModel)]="video" name="slide_video">
+        <input matInput #slide_video="ngModel" [(ngModel)]="courseService.selectedSlide.video" name="slide_video">
       </mat-form-field>
     </div>
     <button mat-raised-button color="primary" type="submit">Save Slide</button>
