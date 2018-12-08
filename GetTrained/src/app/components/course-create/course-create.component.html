@@ -9,7 +9,7 @@
         <mat-form-field class="full-width">
           <mat-label>Course Title</mat-label>
           <input matInput #course_title="ngModel" name="course_title" [(ngModel)]="courseService.selectedCourse.course_title"
-            placeholder="Course Title" required [ngClass]="{'invalid-textbox' :courseCreateFrom.submitted && !course_title.valid }">
+            placeholder="Course Title" required [ngClass]="{'invalid-textbox' :courseCreateFrom.submitted && !course_title.valid }" #title>
           <div *ngIf="courseCreateFrom.submitted && !course_title.valid">
             <mat-error class="validation-message">This field is required</mat-error>
           </div>
@@ -51,7 +51,7 @@
       </div>
     </div>
     <mat-divider></mat-divider>
-    <button mat-raised-button color="primary" class="course-buttons" routerLink="/home">ADD CONTENT</button>
+    <button mat-raised-button color="primary" class="course-buttons" (click)="addContent()">ADD CONTENT</button>
     <div></div>
     <br>
     <mat-divider></mat-divider>

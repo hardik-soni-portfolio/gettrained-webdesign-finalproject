@@ -1,3 +1,4 @@
+import { CourseService } from './services/course.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PreventAccessService } from './services/prevent-access.service';
 import { RouterModule } from '@angular/router';
@@ -66,7 +67,7 @@ import { CourseListComponent } from './components/course-list/course-list.compon
     MatMenuModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [PreventAccessService],
+  providers: [PreventAccessService, CourseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

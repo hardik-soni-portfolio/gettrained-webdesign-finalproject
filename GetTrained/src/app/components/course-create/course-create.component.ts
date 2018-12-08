@@ -1,3 +1,6 @@
+import { Course } from './../../models/course.model';
+import { Router } from '@angular/router';
+import { Content } from './../../models/content.model';
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from './../../services/course.service';
 import {CategoryService} from '../../services/category.service';
@@ -14,26 +17,35 @@ export interface Learner{
 @Component({
   selector: 'app-course-create',
   templateUrl: './course-create.component.html',
-  styleUrls: ['./course-create.component.scss'],
-  providers:[CourseService]
+  styleUrls: ['./course-create.component.scss']
 })
 
 export class CourseCreateComponent implements OnInit {
   showSuccessMessage: boolean;
   serverErrorMessage: string;
-  courseService: CourseService;
   req: any;
+  course: Course;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-  constructor( courseService: CourseService,private categoryService: CategoryService) {
-    this.courseService = courseService;
-    this.categoryService=categoryService;
+  constructor(private courseService: CourseService, private categoryService: CategoryService, private router: Router) {
+    this.categoryService = categoryService;
    }
 
    categories: Category[];
    learners: Learner[];
 
+   addContent() {
+     this.courseService.setSelectedCourse(this.courseService.getSelectedCourse());
+     console.log(this.courseService.getSelectedCourse());
+     this.router.navigate(['createCourseContent']);
+    // this.courseService.selectedCourse.course_title = title;
+    // this.courseService.selectedCourse.course_description = form.value.course_description;
+    // this.courseService.selectedCourse.course_category = form.value.course_category;
+    // this.courseService.selectedCourse.course_learners = form.value.course_learners;
+  }
    onSubmit(form: NgForm) {
-    form.value.course_created_by=localStorage.getItem('id');
+    form.value.course_created_by = localStorage.getItem('id');
+    form.value.course_contents = this.courseService.selectedCourse.course_contents;
+    console.log(form.value);
     this.courseService.postCourse(form.value).subscribe(
       res => {
         this.showSuccessMessage = true;
@@ -73,7 +85,7 @@ export class CourseCreateComponent implements OnInit {
       course_learners:'',
       course_created_date:'',
       course_modified_date:'',
-      course_contents:'',
+      course_contents: [],
       course_status:'',
       course_created_by:''
     };

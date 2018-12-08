@@ -1,3 +1,4 @@
+import { CourseService } from './../../services/course.service';
 import { Content } from './../../models/content.model';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -11,10 +12,12 @@ export class CreateCourseAreaComponent implements OnInit {
   @Output() content = new EventEmitter<Array<Content>>();
   courseContent: Array<Content>;
   counter: Array<Number> = [1];
-  constructor() {
+  constructor(private courseService: CourseService ) {
+    console.log(courseService.getSelectedCourse());
    }
 
   ngOnInit() {
+    console.log(this.courseService.getSelectedCourse());
   }
 
   addSlide(content: Content) {
@@ -24,6 +27,6 @@ export class CreateCourseAreaComponent implements OnInit {
     this.counter.push(1);
   }
   createCourseContent() {
-    this.content.emit(this.courseContent);
+    this.courseService.selectedCourse.course_contents = this.courseContent;
   }
 }

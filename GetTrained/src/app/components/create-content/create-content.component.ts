@@ -6,18 +6,15 @@ import { CourseService } from 'src/app/services/course.service';
 @Component({
   selector: 'app-create-content',
   templateUrl: './create-content.component.html',
-  styleUrls: ['./create-content.component.scss'],
-  providers: [CourseService]
+  styleUrls: ['./create-content.component.scss']
 })
 export class CreateContentComponent implements OnInit {
   @Output() content = new EventEmitter<Content>();
   textContent: Array<String>;
   text: String;
   slide_content: any;
-  courseService: CourseService;
 
-  constructor( courseService: CourseService) {
-    this.courseService = courseService;
+  constructor( private courseService: CourseService) {
     this.textContent = courseService.selectedSlide.content;
    }
 
