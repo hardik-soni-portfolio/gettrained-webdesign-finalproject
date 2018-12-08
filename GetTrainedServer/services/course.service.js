@@ -2,6 +2,7 @@
 const mongoose = require('mongoose'),
     Course = mongoose.model('Courses'),
     User = mongoose.model('User');
+    var ObjectId = require('mongodb').ObjectID;
 
 let throwError = function (err, callback, msg) {
     console.log(err);
@@ -30,22 +31,25 @@ exports.display = (req, res) => {
     });
 }
 
+
 exports.find = (id, res) => {
     let enrolledCourses = [];
-    console.log("I am in id",id);
 
     User.findOne({user_id: id}, function(err, user) {
+        console.log("I am in id",id);
         if(err)
         throw err;
         else{
-            console.log("I am in user",user);
+    
         let courses = user.courses_enrolled;
+        console.log("I am in user",courses);
         courses.forEach(course => {
             let courseId = course.course_id;
-            Course.findOne({_id: courseId}, (err, enrolledCourse) => {
+            Course.findOne({_id: courseId}, (err, user) => {
+                console.log("i am trying courses",courses);
                 let userCourse = {
-                    'progress': course.progress, 
-                    'lastSlideIndex': course.lastSlideIndex,
+                    'progress': enrolledCourse.course_title, 
+                    'lastSlideIndex': enrolledCourse.course_description,
                     'course': enrolledCourse
                 };
                 enrolledCourses.push(userCourse);
