@@ -5,7 +5,7 @@
 <h1>Welcome to the course {{course_title}}</h1><br>
 <!-- <h2>{{course.course_description}}</h2> -->
 <h2>{{course_description}}</h2>
-<div>
+<!-- <div>
   <div>
     <li *ngFor="let  text of textarray">{{text}}</li>
     <br>
@@ -18,7 +18,8 @@
   </div>
 </div>
 <br>
-<br>
+<br> -->
+<button mat-button (click)="update()">back</button>
 <div class="slide">
   <div class="textarea">
       <li *ngFor="let  textcontent of course[current_page].text">{{textcontent}}{{current_page}}</li>

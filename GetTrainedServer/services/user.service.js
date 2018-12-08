@@ -44,3 +44,49 @@ let secret = 'trainingModule'; // salt secret for jwt token.
             }
         })
     }
+
+    exports.updateProgress = function(req,res){
+        console.log('hi');
+        let userid = req.user_id;
+        console.log(userid);
+        let courseid = req.course_id;
+        console.log(courseid);
+        let courses;
+        
+        User.findOne({user_id:userid},function(err,user){
+            if(err){
+                // throwError(err, errCallback, "Error saving query");
+                // throwError(err, errCallback, "Error getting user");
+                // return;
+                console.log(err);
+            } 
+            // if(!user){
+            //     return next(new Error('cannot load user'));
+            // }
+            // else{
+                //  console.log(user.courses_enrolled);
+                courses=user.courses_enrolled;
+                // console.log("courses"+courses);
+                courses.forEach(course =>{
+                    console.log("1   "+course);
+                    console.log("2    "+courseid);
+                    console.log("3      "+course.course_id);
+                    if(course.course_id === courseid)
+                    {
+                        course.progress = req.progress;
+                        course.lastSlideIndex = req.current_page;
+                        user.save().then(user =>{
+                            res.json('Update done.');
+                        }).catch(err=>{
+                            res.status(400).send('Update failed');
+                        });
+                    }
+                });
+
+            // }
+             
+        });
+        // callback(user_here){
+        // let courses = user_here.courses;
+        // }
+    }
