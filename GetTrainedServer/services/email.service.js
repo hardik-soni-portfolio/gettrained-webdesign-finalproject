@@ -42,9 +42,9 @@ exports.activate = (req, res) => {
         var token = req.params.token;
         jwt.verify(token, secret, (err, decoded) => {
             if(err){
-                res.json({ success: false, message: 'Activation link has expired' });
+                res.json({ success: false, message: 'Activation link has expired'});
             }else if(!user){
-                res.json({ success: false, message: 'Activation link has expired' });
+                res.json({ success: false, message: 'Activation link has expired'});
             }else {
                 user.temporary_token = false;
                 user.is_verified = true;
@@ -59,4 +59,31 @@ exports.activate = (req, res) => {
             }
         })
     });
+}
+
+exports.invite = (course) => {
+    let inviteSubject = 'GetTrained: Course enrollment nomination',
+        inviteHtml = 'Hello,<br><br>You have been invited for enrolling into course. Please log in on the below link to view your enrolled course:<br><br><a href=`http://localhost:4200/> http://localhost:4200 </a>';
+
+        let transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'pixelweb29@gmail.com',
+                pass: 'Pixel@123'
+            }
+        });
+        const mailOptions = {
+            from: 'pixelweb29@gmail.com',
+            to: course.course_learners,
+            subject: inviteSubject,
+            html: inviteHtml
+        };
+        transporter.sendMail(mailOptions, function(err, info){
+            if(err){
+                console.log(err);
+            }else{
+                console.log(info.messageId);
+                console.log(nodemailer.getTestMessageUrl(info));
+            }
+        });
 }

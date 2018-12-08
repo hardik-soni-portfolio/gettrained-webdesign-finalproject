@@ -40,7 +40,7 @@ let secret = 'trainingModule'; // salt secret for jwt token.
             }
             else{
                 res.status(200);
-                res.json({success: true, loggedUser: dbUser.user_id});
+                res.json({success: true, loggedUser: dbUser.user_id, role:dbUser.role});
             }
         })
     }
