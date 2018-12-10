@@ -9,23 +9,26 @@ import { DomSanitizer } from "@angular/platform-browser";
 })
 export class ViewCourseComponent implements OnInit {
   // course: any;
-  course_title = "course title";
+  course_title = "Introduction to R";
   isnextDisabled: Boolean;
   isprevDisabled: Boolean;
   current_page = 0;
-  course_description = "course description";
-  course = [
+  course_description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.";
+  courseContents = [
     {
+      title: "Setting up python",
       text: ['text1', 'text2'],
       imagepath: `assets/img1.png`,
       videopath: `L4QSwT8WhmM`
     },
     {
+      title: "Setting up R",
       text: ['text3', 'text4'],
       imagepath: `assets/img2.png`,
       videopath: `6wD4V0rvlDI`
     },
     {
+      title: "Starting with hello world",
       text: ['text5', 'text6'],
       imagepath: `assets/img3.png`,
       videopath: `PH_5lXxSpww`
@@ -38,12 +41,12 @@ export class ViewCourseComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
-    console.log(this.course);
+    console.log(this.courseContents);
     this.checkDisability();
   }
 
   dispalyCourse(getCourse: any) {
-    this.course = getCourse;
+    this.courseContents = getCourse;
   }
 
   getEmbedURL(video) {
@@ -71,7 +74,7 @@ export class ViewCourseComponent implements OnInit {
     } else {
       this.isprevDisabled = false;
     }
-    if (this.current_page === (this.course.length - 1)) {
+    if (this.current_page === (this.courseContents.length - 1)) {
       this.isnextDisabled = true;
     } else {
       this.isnextDisabled = false;

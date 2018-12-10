@@ -1,11 +1,21 @@
-<br>
-<!-- <h1>Welcome to the course {{course.course_title}}</h1><br>
- -->
+<section class="mat-typography-title">
+  <h2>{{course_title}}</h2>
+</section>
+<mat-divider></mat-divider>
+<section class="mat-typography-description">
+  <p>{{course_description}}</p>
+</section>
 
-<h1>Welcome to the course {{course_title}}</h1><br>
-<!-- <h2>{{course.course_description}}</h2> -->
-<h2>{{course_description}}</h2>
-<div>
+<div class="course-view-slide">
+  <ul *ngFor="let courseContent of courseContents">
+    
+    <!-- <li>{{courseContent.title}}</li>
+    <li><img [src]=course[current_page].imagepath height="400px" width="450px"></li>
+    <li><iframe width="560" height="315" [src]="getEmbedURL(course[current_page].videopath)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li> -->
+  </ul>
+</div>
+
+<!-- <div>
   <div>
     <li *ngFor="let  text of textarray">{{text}}</li>
     <br>
@@ -16,18 +26,18 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <br>
 <br>
 <div class="slide">
   <div class="textarea">
-      <li *ngFor="let  textcontent of course[current_page].text">{{textcontent}}{{current_page}}</li>
+      <li *ngFor="let  textcontent of courseContents[current_page].text">{{textcontent}}{{current_page}}</li>
   </div>
   <div>
-    <img [src]=course[current_page].imagepath height="400px" width="450px">
+    <img [src]=courseContents[current_page].imagepath height="400px" width="450px">
   </div>
   <div>
-      <iframe width="560" height="315" [src]="getEmbedURL(course[current_page].videopath)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="560" height="315" [src]="getEmbedURL(courseContents[current_page].videopath)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 </div>
 <button mat-button [disabled]="isprevDisabled" (click)="dec_page(current_page)">previous</button>
@@ -36,3 +46,5 @@
   <div> <iframe width="560" height="315" [src]="getEmbedURL(cor.videopath)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 </div> -->
+
+
