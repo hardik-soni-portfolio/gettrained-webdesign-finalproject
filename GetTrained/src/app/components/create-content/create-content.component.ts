@@ -13,8 +13,9 @@ export class CreateContentComponent implements OnInit {
   textContent: Array<String>;
   text: String;
   slide_content: any;
-
-  constructor( private courseService: CourseService) {
+  courseService: CourseService;
+  constructor(  courseService: CourseService) {
+    this.courseService = courseService;
     this.textContent = courseService.selectedSlide.content;
    }
 
