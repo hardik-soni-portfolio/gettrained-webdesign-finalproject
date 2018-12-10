@@ -14,12 +14,15 @@ import { RegisterComponent } from './components/register/register.component';
 import { appRoutes } from './routes/routes';
 import { ActivateComponent } from './components/activate/activate.component';
 import { LoginComponent } from './components/login/login.component';
-import { HomeComponent } from './components/home/home.component';
 import { QueryComponent } from './components/query/query.component';
 import { QuerylistComponent } from './components/querylist/querylist.component';
 import { AddqueryComponent } from './components/addquery/addquery.component';
 import { ListCategoryComponent } from './components/listCategory/listCategory.component';
 import { CreateCategoryComponent } from './components/createCategory/createCategory.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { CourseCreateComponent } from './components/course-create/course-create.component';
+import { CourseListComponent } from './components/course-list/course-list.component';
+import { ViewCourseComponent } from './components/view-course/view-course.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +31,15 @@ import { CreateCategoryComponent } from './components/createCategory/createCateg
     RegisterComponent,
     ActivateComponent,
     LoginComponent,
-    HomeComponent,
     QueryComponent,
     QuerylistComponent,
     AddqueryComponent,
     CreateCategoryComponent,
-    ListCategoryComponent
+    ListCategoryComponent,
+    NavbarComponent,
+    CourseCreateComponent,
+    CourseListComponent,
+    ViewCourseComponent,
   ],
   imports: [
     BrowserModule,

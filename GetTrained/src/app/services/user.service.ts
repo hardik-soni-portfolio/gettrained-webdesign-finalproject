@@ -24,4 +24,8 @@ export class UserService {
   loginUser(user: User) {
     return this.http.post(environment.apiBaseUrl + '/login', {'email': user.email, 'password': user.password});
   }
+  updateUser(req: any) {
+    console.log("user.service");
+    return this.http.put(environment.apiBaseUrl + '/updateprogress', req );
+  }
 }
