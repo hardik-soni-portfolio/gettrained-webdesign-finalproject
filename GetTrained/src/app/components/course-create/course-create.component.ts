@@ -34,8 +34,6 @@ export class CourseCreateComponent implements OnInit {
    learners: Learner[];
 
    addContent() {
-     this.courseService.setSelectedCourse(this.courseService.getSelectedCourse());
-     console.log(this.courseService.getSelectedCourse());
      this.router.navigate(['createCourseContent']);
     // this.courseService.selectedCourse.course_title = title;
     // this.courseService.selectedCourse.course_description = form.value.course_description;

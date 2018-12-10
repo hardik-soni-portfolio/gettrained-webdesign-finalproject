@@ -13,11 +13,9 @@ export class CreateCourseAreaComponent implements OnInit {
   courseContent: Array<Content> = [];
   counter: Array<Number> = [1];
   constructor(private courseService: CourseService ) {
-    console.log(courseService.getSelectedCourse());
    }
 
   ngOnInit() {
-    console.log(this.courseService.getSelectedCourse());
   }
 
   addSlide(content: Content) {
