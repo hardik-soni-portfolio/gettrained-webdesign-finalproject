@@ -14,9 +14,12 @@ exports.displayquery = function (req, res) {
     exports.post = function (request, response) {
         // request.body.password = bcrypt.hashSync(request.body.password,bcrypt.genSaltSync());
         let newQuery = Object.assign({}, request.body);
+        console.log(request.body);
         queryService.save(newQuery, function (query) {
+            console.log(newQuery);
             response.status(200);
             response.json(query);
+            console.log(query);
         },function(errMsg){
             response.status(400).send(errMsg);
         });

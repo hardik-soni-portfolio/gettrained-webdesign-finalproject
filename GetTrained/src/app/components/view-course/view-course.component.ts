@@ -4,12 +4,21 @@ import { Course } from './../../models/course.model';
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
+
 @Component({
   selector: 'app-view-course',
   templateUrl: './view-course.component.html',
   styleUrls: ['./view-course.component.scss']
 })
 export class ViewCourseComponent implements OnInit {
+
+
+//   constructor() { }
+
+//   ngOnInit() {
+//   }
+
+
   // course: any;
   course_title = 'course title';
   req: any;
@@ -115,5 +124,4 @@ this.userService.updateUser(this.req).subscribe(( data: any ) => {
 });
 
 }
-
 }
