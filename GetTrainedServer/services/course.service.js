@@ -45,11 +45,14 @@ exports.find = (id, res) => {
         console.log("I am in user",courses);
         courses.forEach(course => {
             let courseId = course.course_id;
-            Course.findOne({_id: courseId}, (err, user) => {
+            let progress = course.progress;
+            let lastSlide = course.lastSlideIndex;
+            console.log("i am trying courses",courseId);
+            Course.findOne({_id: courseId}, (err, enrolledCourse) => {
                 console.log("i am trying courses",courses);
                 let userCourse = {
-                    'progress': enrolledCourse.course_title, 
-                    'lastSlideIndex': enrolledCourse.course_description,
+                    'progress': progress, 
+                    'lastSlideIndex': lastSlide,
                     'course': enrolledCourse
                 };
                 enrolledCourses.push(userCourse);
