@@ -22,11 +22,10 @@ exports.find = (req, res, err) => {
     let id = req.params.id;
     console.log("inside find function",req.body);
     console.log( "prathamesh ne bola",id);
-
     courseService.find(id, res);
 }
 
-exports.find = (req, res, err) => {
-    let id = req.params.id;
-    courseService.find(id, res);
-}
+// exports.find = (req, res, err) => {
+//     let id = req.params.id;
+//     courseService.find(id, res);
+// }
