@@ -26,6 +26,8 @@ import { CreateContentComponent } from './components/create-content/create-conte
 import { CourseCreateComponent } from './components/course-create/course-create.component';
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { RemoveSlideDialogComponent } from './components/remove-slide-dialog/remove-slide-dialog.component';
+import { ViewCourseComponent } from './components/view-course/view-course.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +45,7 @@ import { RemoveSlideDialogComponent } from './components/remove-slide-dialog/rem
     NavbarComponent,
     CourseCreateComponent,
     CourseListComponent,
-    RemoveSlideDialogComponent
+    ViewCourseComponent,
   ],
   imports: [
     BrowserModule,

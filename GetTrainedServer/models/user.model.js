@@ -46,15 +46,18 @@ var userSchema = new mongoose.Schema({
         }
     }],
     courses_enrolled: [{
-        course_id: {
-            type: String
-        },
-        score: {
-            type: Number
-        },
-        progress: {
-            type: Number
-        }
+            course_id: {
+                type: String
+            },
+            score: {
+                type: Number
+            },
+            progress: {
+                type: Number
+            },
+            lastSlideIndex: {
+                 type:Number
+            }
     }]
 });
 

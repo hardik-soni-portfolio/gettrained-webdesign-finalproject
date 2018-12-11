@@ -28,8 +28,13 @@ export class QueryService {
   //     });
   // }
 
-  postQuery(query: Query) {
-    return this.http.post(environment.apiBaseUrl + '/queryadd', query);
+  // postQuery(query: Query) {
+
+  //   return this.http.post(`${environment.apiBaseUrl}/queries`, query);
+  // }
+  postQuery(req: any) {
+
+    return this.http.post(`${environment.apiBaseUrl}/queries`, req);
   }
 
   getQueries() {
