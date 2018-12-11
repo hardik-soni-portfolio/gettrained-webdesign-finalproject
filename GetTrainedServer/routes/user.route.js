@@ -5,4 +5,5 @@ module.exports = (app) => {
     app.route('/register').post(userController.register); //invoke register function on /register route
     app.route('/activate/:token').put(emailController.activate); //invoke activate function on /activate/:token route
     app.route('/login').post(userController.login);
+    app.route('/updateprogress').put(userController.updateProgress);
 };
