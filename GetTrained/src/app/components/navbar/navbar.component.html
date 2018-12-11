@@ -4,6 +4,7 @@
     <span class="example-spacer"></span>
     <button mat-button *ngIf="isAdmin()" (click) = "gotoCategories()">Category</button>
     <button mat-button (click) = "gotoCourses()">Course Creation</button>
+    <button mat-button (click) = "viewCourse()">View Course</button>
     <button mat-button [matMenuTriggerFor]="feedback">Feedback</button>
     <mat-menu #feedback="matMenu">
       <button mat-menu-item (click) = "gotoCreateFeedback()">Add Feedback</button>

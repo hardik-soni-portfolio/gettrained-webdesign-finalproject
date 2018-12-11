@@ -8,7 +8,7 @@ let throwError = function (err, callback, msg) {
 };
 
 exports.save = function (course, callback, errCallback) {
-    let newCourse = new Course(course);  
+    let newCourse = new Course(course);
     newCourse.save(function (err, course) {
         if (err) {
             throwError(err, errCallback, "Error saving course");
@@ -19,8 +19,7 @@ exports.save = function (course, callback, errCallback) {
 };
 
 exports.display = (req, res) => {
-    console.log(req.query.userId)
-    Course.find({course_created_by:req.query.userId},function (err, courses) {
+    Course.find(function (err, courses) {
         if (err)
             throw err;
         else {
@@ -29,3 +28,13 @@ exports.display = (req, res) => {
 
     });
 }
+
+exports.displayCourse = function (params, callback, errCallback) {
+    Course.find(params, function (err, course) {
+        if(err){
+            throwError(err, errCallback, "Error finding message");
+            return;
+        }
+        callback(course);
+    });
+};

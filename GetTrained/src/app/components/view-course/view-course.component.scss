@@ -1,0 +1,67 @@
+body{
+    background: aqua;
+}
+
+.all, .two, .one{
+    margin: 0 auto;
+    background: white;
+    width: 850px;
+    height: 600px;
+}
+
+.all{
+
+    .textarea{
+        background: pink;
+        width: 825px;
+        height: 300px;
+    }
+    img{
+        width: 400px;
+        height: 300px;
+        float: left; 
+        margin-right:20px;
+        margin-left: 14px;
+    }
+    iframe{
+        width: 400px;
+        height: 300px;
+        float: left;
+        margin-right:0px;
+    }
+}
+.two{
+
+    .textarea{
+        width: 825px;
+        height: 250px;
+        margin-left: 13px;
+    }
+    img{
+        width: 825px;
+        height: 250px;
+        margin-left: 13px;
+    }
+    iframe{
+        width: 825px;
+        height: 250px;
+        margin-left: 13px;
+    }
+}
+.one{
+    .textarea{
+        width: 825px;
+        height: 500px;
+        margin-left: 13px;
+    }
+    img{
+        width: 825px;
+        height: 500px;
+        margin-left: 13px;
+    }
+    iframe{
+        width: 825px;
+        height: 500px;
+        margin-left: 13px;
+    }
+}

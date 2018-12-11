@@ -24,7 +24,7 @@ export class CourseService {
 
 
   getCourses() {
-    return this.http.get(`${environment.apiBaseUrl}/courses/?userId=${localStorage.getItem("id")}`);
+    return this.http.get(`${environment.apiBaseUrl}/courses`);
   }
 
   postCourse(course: Course) {
