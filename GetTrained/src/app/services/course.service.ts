@@ -39,6 +39,8 @@ export class CourseService {
   }
 
   postCourse(course: Course) {
+    console.log(course);
     return this.http.post(`${environment.apiBaseUrl}/courses`, course);
   }
 }
+

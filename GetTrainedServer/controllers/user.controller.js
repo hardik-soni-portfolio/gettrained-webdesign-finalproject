@@ -18,10 +18,12 @@ exports.login = (req, res) =>{
     let user = Object.assign({}, req.body);
     userService.login(user, res);
 }
-
 exports.updateProgress = (req,res) =>{
    console.log("i am in user.controller");
     let data = Object.assign({},req.body);
     console.log('inside updates');
     userService.updateProgress(data,res);
+
+exports.display = (req, res) => {
+    userService.display(req, res);
 }

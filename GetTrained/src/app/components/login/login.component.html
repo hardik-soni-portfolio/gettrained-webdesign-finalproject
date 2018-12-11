@@ -1,8 +1,8 @@
 <div class="main-login-container">
 <mat-card-content>
-  <form #loginForm = "ngForm" (ngSubmit) = "loginForm.valid && onSubmit(loginForm)" class="my-form">
+    <Img src = "./assets/HomeScreenLogo.png" width="220" height="140">
       <div>
-          <mat-form-field appearance="fill" class="full-width">
+          <mat-form-field class="full-width">
             <mat-label>Email</mat-label>
             <input matInput type="text" #email="ngModel" [(ngModel)]="userService.selectedUser.email" name="email" placeholder="Email"
             required [pattern]="emailRegex"  [ngClass]="{'invalid-textbox' :loginForm.submitted && !email.valid }">
@@ -13,7 +13,7 @@
           </mat-form-field>
         </div>
         <div>
-          <mat-form-field appearance="fill" class="full-width">
+          <mat-form-field class="full-width">
             <mat-label>Password</mat-label>
             <input matInput type="password" #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password" placeholder="Password"
             minlength="4" required [ngClass]="{'invalid-textbox' :loginForm.submitted && !password.valid }">
@@ -23,13 +23,13 @@
             </div>
           </mat-form-field>
         </div>
-        <button mat-raised-button color="primary" type="submit" >Login</button>
+        <button mat-raised-button type="submit" >LOG IN</button>
   </form>
 </mat-card-content>
 <div class="alert" *ngIf="showErrorMessage">
   {{ errorMessage }}
 </div>
 <div>
-  <p> New to GetTrained? <a href="http://localhost:4200/register">Create an Account</a></p>
+  <p class="new-user">NEW USER? <a href="http://localhost:4200/register">SIGN UP</a></p>
 </div>
 </div>
