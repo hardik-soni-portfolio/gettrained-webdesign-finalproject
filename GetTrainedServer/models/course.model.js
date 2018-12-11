@@ -23,6 +23,9 @@ let courseSchema = new mongoose.Schema({
     course_modified_date: {
         type: Date,
     },
+    course_created_by: {
+        type: String,
+    },
     course_status: {
         type: String,
     },
