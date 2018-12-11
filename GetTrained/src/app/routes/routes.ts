@@ -11,13 +11,12 @@ import { QueryComponent } from './../components/query/query.component';
 import { QuerylistComponent } from './../components/querylist/querylist.component';
 import { ListCategoryComponent } from './../components/listCategory/listCategory.component';
 import { CreateCategoryComponent } from './../components/createCategory/createCategory.component';
-<<<<<<< HEAD
+
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
-=======
 import { CourseCreateComponent } from './../components/course-create/course-create.component';
 import { CourseListComponent } from './../components/course-list/course-list.component';
 import { Component } from '@angular/core';
->>>>>>> 9b5480f9b0204740e5ab6a2dc18b39c1bb2fcf33
+
 
 export const appRoutes: Routes = [
   {
@@ -72,14 +71,12 @@ export const appRoutes: Routes = [
     canActivate: [PreventAccessService]
   },
   {
-<<<<<<< HEAD
+
     path: 'dashboard',
     component: DashboardComponent,
     pathMatch: 'full',
-  
-    
-  }
-=======
+  },
+  {
     path: 'courses',
     component: CourseListComponent,
     pathMatch:'full',
@@ -91,6 +88,6 @@ export const appRoutes: Routes = [
     pathMatch:'full',
     canActivate:[PreventAccessService]
   },
->>>>>>> 9b5480f9b0204740e5ab6a2dc18b39c1bb2fcf33
+
 ];
 

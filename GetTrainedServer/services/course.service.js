@@ -33,34 +33,4 @@ exports.display = (req, res) => {
 }
 
 
-exports.find = (id, res) => {
-    let enrolledCourses = [];
 
-    User.findOne({user_id: id}, function(err, user) {
-        console.log("I am in id",id);
-        if(err)
-        throw err;
-        else{
-    
-        let courses = user.courses_enrolled;
-        console.log("I am in user",courses);
-        courses.forEach(course => {
-            let courseId = course.course_id;
-            let progress = course.progress;
-            let lastSlide = course.lastSlideIndex;
-            console.log("i am trying courses",courseId);
-            Course.findOne({_id: courseId}, (err, enrolledCourse) => {
-                console.log("i am trying courses",courses);
-                let userCourse = {
-                    'progress': progress, 
-                    'lastSlideIndex': lastSlide,
-                    'course': enrolledCourse
-                };
-                enrolledCourses.push(userCourse);
-                console.log('in enrolled ',enrolledCourses);
-            })
-        });}
-        res.json(enrolledCourses);
-        
-    });
-}
