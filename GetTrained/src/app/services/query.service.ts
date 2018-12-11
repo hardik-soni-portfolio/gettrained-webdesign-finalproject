@@ -38,8 +38,7 @@ export class QueryService {
   }
 
   getQueries() {
-    return this.http.get(`${environment.apiBaseUrl}/queries`);
-    // return this.http.get(environment.apiBaseUrl + '/queries');
+    return this.http.get(environment.apiBaseUrl + '/querylist');
   }
   // activate(token: String) {
   //   return this.http.put(environment.apiBaseUrl + '/activate/' + token, token);
