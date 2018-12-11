@@ -23,6 +23,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CourseCreateComponent } from './components/course-create/course-create.component';
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { ViewCourseComponent } from './components/view-course/view-course.component';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { ViewCourseComponent } from './components/view-course/view-course.compon
     MatDividerModule,
     ReactiveFormsModule,
     MatMenuModule,
+    NgxMatSelectSearchModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [PreventAccessService],

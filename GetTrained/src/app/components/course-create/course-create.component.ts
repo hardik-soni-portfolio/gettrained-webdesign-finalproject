@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from './../../services/course.service';
-import {CategoryService} from '../../services/category.service';
+import { CategoryService } from '../../services/category.service';
+import { UserService } from '../../services/user.service';
 import { Category } from 'src/app/models/category.model';
 import { NgForm } from '@angular/forms';
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {MatChipInputEvent} from '@angular/material';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { MatChipInputEvent } from '@angular/material';
 import { interceptingHandler } from '@angular/common/http/src/module';
+import { User } from 'src/app/models/user.model';
 
-export interface Learner{
+export interface Learner {
   name: String;
 }
 
@@ -15,7 +17,7 @@ export interface Learner{
   selector: 'app-course-create',
   templateUrl: './course-create.component.html',
   styleUrls: ['./course-create.component.scss'],
-  providers:[CourseService]
+  providers: [CourseService]
 })
 
 export class CourseCreateComponent implements OnInit {
@@ -24,16 +26,18 @@ export class CourseCreateComponent implements OnInit {
   courseService: CourseService;
   req: any;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-  constructor( courseService: CourseService,private categoryService: CategoryService) {
+  constructor(courseService: CourseService, private categoryService: CategoryService, private userService: UserService) {
     this.courseService = courseService;
-    this.categoryService=categoryService;
-   }
+    this.categoryService = categoryService;
+    this.userService = userService;
+  }
 
-   categories: Category[];
-   learners: Learner[];
+  categories: Category[];
+  users : User[];
+  learners: Learner[];
 
-   onSubmit(form: NgForm) {
-    form.value.course_created_by=localStorage.getItem('id');
+  onSubmit(form: NgForm) {
+    form.value.course_created_by = localStorage.getItem('id');
     this.courseService.postCourse(form.value).subscribe(
       res => {
         this.showSuccessMessage = true;
@@ -56,7 +60,7 @@ export class CourseCreateComponent implements OnInit {
 
     // Add email
     if ((value || '').trim()) {
-      this.learners.push({name: value.trim()});
+      this.learners.push({ name: value.trim() });
     }
 
     // Reset the input value
@@ -67,15 +71,15 @@ export class CourseCreateComponent implements OnInit {
 
   resetForm(form: NgForm) {
     this.courseService.selectedCourse = {
-      course_title:'',
-      course_description:'',
-      course_category:'',
-      course_learners:'',
-      course_created_date:'',
-      course_modified_date:'',
-      course_contents:'',
-      course_status:'',
-      course_created_by:''
+      course_title: '',
+      course_description: '',
+      course_category: '',
+      course_learners: '',
+      course_created_date: '',
+      course_modified_date: '',
+      course_contents: '',
+      course_status: '',
+      course_created_by: ''
     };
     form.resetForm();
     this.serverErrorMessage = '';
@@ -91,8 +95,19 @@ export class CourseCreateComponent implements OnInit {
       });
   }
 
+  fetchUsers() {
+    this.userService
+      .getUsers()
+      .subscribe((data: User[]) => {
+        this.users = data;
+        console.log('Data requested...');
+        console.log(this.users);
+      });
+  }
+
   ngOnInit() {
     this.fetchCategories();
+    this.fetchUsers();
   }
 
 }

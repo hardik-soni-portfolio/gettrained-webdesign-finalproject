@@ -18,7 +18,7 @@ export class CourseService {
     course_created_date: '',
     course_modified_date: '',
     course_contents: '',
-    course_status: '',
+    course_status: 'Saved as draft',
     course_created_by: ''
   };
 
@@ -31,4 +31,5 @@ export class CourseService {
     console.log(course);
     return this.http.post(`${environment.apiBaseUrl}/courses`, course);
   }
+
 }

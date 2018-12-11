@@ -18,3 +18,7 @@ exports.login = (req, res) =>{
     let user = Object.assign({}, req.body);
     userService.login(user, res);
 }
+
+exports.display = (req, res) => {
+    userService.display(req, res);
+}

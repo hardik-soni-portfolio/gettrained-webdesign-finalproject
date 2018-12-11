@@ -81,6 +81,12 @@ export const appRoutes: Routes = [
     component: ViewCourseComponent,
     pathMatch: 'full',
     canActivate: [PreventAccessService]
+  },
+  {
+    path: 'users',
+    component: UserComponent,
+    pathMatch: 'full',
+    canActivate: [PreventAccessService]
   }
 ];
 
