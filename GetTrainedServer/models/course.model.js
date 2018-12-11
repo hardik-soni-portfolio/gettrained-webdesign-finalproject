@@ -41,7 +41,7 @@ let courseSchema = new mongoose.Schema({
             type: String
         },
         video: {
-            type: String
+            type: Object
         }
     }],
 });

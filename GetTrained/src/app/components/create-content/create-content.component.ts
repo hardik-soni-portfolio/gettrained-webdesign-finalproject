@@ -1,3 +1,4 @@
+import urlParser from 'js-video-url-parser';
 import { Content } from './../../models/content.model';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Form, NgForm } from '@angular/forms';
@@ -12,14 +13,15 @@ export class CreateContentComponent implements OnInit {
   @Output() content = new EventEmitter<Content>();
   textContent: Array<String>;
   text: String;
-  slide_content: any;
-  courseService: CourseService;
-  constructor(  courseService: CourseService) {
-    this.courseService = courseService;
-    this.textContent = courseService.selectedSlide.content;
+  slide_content: Content;
+  video: String;
+  title: String;
+  constructor() {
+    this.slide_content = new Content();
    }
 
   ngOnInit() {
+    this.textContent = [];
   }
   onAddText() {
     this.textContent.push(this.text);
@@ -29,11 +31,17 @@ export class CreateContentComponent implements OnInit {
   }
   onFileSelected(event) {
     console.log(event);
-    this.courseService.selectedSlide.image = event.target.value;
+    this.slide_content.image = event.target.value;
   }
-  onSubmit() {
-    this.slide_content = {'text': this.textContent, 'title': this.courseService.selectedSlide.title,
-  'image': this.courseService.selectedSlide.image, 'video': this.courseService.selectedSlide.video};
+
+  onSaveSlide() {
+    let video = urlParser.parse(this.video);
+    if (video === undefined) {
+      video = '';
+    }
+    this.slide_content.title = this.title;
+    this.slide_content.content = this.textContent;
+    this.slide_content.video = video;
     this.content.emit(this.slide_content);
   }
 }

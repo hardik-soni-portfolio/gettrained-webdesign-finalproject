@@ -1,9 +1,9 @@
 <mat-card-content>
-  <form #slideContent = "ngForm" (ngSubmit)="slideContent.valid && onSubmit(slideContent)" class="myForm">
+  <form #slideContent = "ngForm" class="myForm">
     <div>
       <mat-form-field>
         <mat-label>Title:</mat-label>
-        <input matInput #slide_title="ngModel" [(ngModel)]="courseService.selectedSlide.title" name="slide_title"
+        <input matInput #slide_title="ngModel" [(ngModel)]="title" name="slide_title"
         required [ngClass]="{'invalid-textbox': slideContent.submitted && !slide_title.valid}">
       </mat-form-field>
     </div>
@@ -18,7 +18,7 @@
     <div>
       <mat-list>
         <mat-list-item *ngFor="let content of textContent">
-          <h1>{{ content }}</h1>
+          <h4>{{ content }}</h4>
         </mat-list-item>
       </mat-list>
     </div>
@@ -29,9 +29,9 @@
     <div>
       <mat-form-field>
         <mat-label>Video:</mat-label>
-        <input matInput #slide_video="ngModel" [(ngModel)]="courseService.selectedSlide.video" name="slide_video">
+        <input matInput #slide_video="ngModel" [(ngModel)]="video" name="slide_video">
       </mat-form-field>
     </div>
-    <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Save Slide</button>
+    <button mat-raised-button color="primary" (click)="onSaveSlide()">Save Slide</button>
   </form>
 </mat-card-content>

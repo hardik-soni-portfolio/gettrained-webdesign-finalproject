@@ -10,7 +10,7 @@ import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {MatChipInputEvent} from '@angular/material';
 import { interceptingHandler } from '@angular/common/http/src/module';
 
-export interface Learner{
+export interface Learner {
   name: String;
 }
 
@@ -26,8 +26,10 @@ export class CourseCreateComponent implements OnInit {
   req: any;
   course: Course;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-  constructor(private courseService: CourseService, private categoryService: CategoryService, private router: Router) {
+  courseService: CourseService;
+  constructor(courseService: CourseService, private categoryService: CategoryService, private router: Router) {
     this.categoryService = categoryService;
+    this.courseService = courseService;
    }
 
    categories: Category[];
@@ -35,10 +37,6 @@ export class CourseCreateComponent implements OnInit {
 
    addContent() {
      this.router.navigate(['createCourseContent']);
-    // this.courseService.selectedCourse.course_title = title;
-    // this.courseService.selectedCourse.course_description = form.value.course_description;
-    // this.courseService.selectedCourse.course_category = form.value.course_category;
-    // this.courseService.selectedCourse.course_learners = form.value.course_learners;
   }
    onSubmit(form: NgForm) {
     form.value.course_created_by = localStorage.getItem('id');
@@ -77,15 +75,15 @@ export class CourseCreateComponent implements OnInit {
 
   resetForm(form: NgForm) {
     this.courseService.selectedCourse = {
-      course_title:'',
-      course_description:'',
-      course_category:'',
-      course_learners:'',
-      course_created_date:'',
-      course_modified_date:'',
+      course_title: '',
+      course_description: '',
+      course_category: '',
+      course_learners: [],
+      course_created_date: '',
+      course_modified_date: '',
       course_contents: [],
-      course_status:'',
-      course_created_by:''
+      course_status: '',
+      course_created_by: ''
     };
     form.resetForm();
     this.serverErrorMessage = '';

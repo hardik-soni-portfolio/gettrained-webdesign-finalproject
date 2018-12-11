@@ -4,7 +4,7 @@ import { PreventAccessService } from './services/prevent-access.service';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatToolbarModule, MatDividerModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatCardModule, MatChipsModule,  MatSelectModule, MatOptionModule, MatTableModule,MatSnackBarModule, MatListModule, MatMenuModule } from '@angular/material';
+import { MatButtonModule, MatToolbarModule, MatDividerModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatCardModule, MatChipsModule,  MatSelectModule, MatOptionModule, MatTableModule,MatSnackBarModule, MatListModule, MatMenuModule, MatDialogModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -25,7 +25,7 @@ import { CreateCourseAreaComponent } from './components/create-course-area/creat
 import { CreateContentComponent } from './components/create-content/create-content.component';
 import { CourseCreateComponent } from './components/course-create/course-create.component';
 import { CourseListComponent } from './components/course-list/course-list.component';
-
+import { RemoveSlideDialogComponent } from './components/remove-slide-dialog/remove-slide-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +42,8 @@ import { CourseListComponent } from './components/course-list/course-list.compon
     CreateContentComponent,
     NavbarComponent,
     CourseCreateComponent,
-    CourseListComponent
+    CourseListComponent,
+    RemoveSlideDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -65,8 +66,10 @@ import { CourseListComponent } from './components/course-list/course-list.compon
     MatListModule,
     ReactiveFormsModule,
     MatMenuModule,
+    MatDialogModule,
     RouterModule.forRoot(appRoutes)
   ],
+  entryComponents: [RemoveSlideDialogComponent],
   providers: [PreventAccessService, CourseService],
   bootstrap: [AppComponent]
 })
