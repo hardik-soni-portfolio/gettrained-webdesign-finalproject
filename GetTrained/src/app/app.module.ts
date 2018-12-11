@@ -45,6 +45,7 @@ import { ViewCourseComponent } from './components/view-course/view-course.compon
     NavbarComponent,
     CourseCreateComponent,
     CourseListComponent,
+    RemoveSlideDialogComponent,
     ViewCourseComponent,
   ],
   imports: [
