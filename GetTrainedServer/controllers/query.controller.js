@@ -27,4 +27,4 @@ exports.displayquery = function (req, res) {
 
     exports.display = (req, res, err) => {
         queryService.display(req, res);
-    }
+}

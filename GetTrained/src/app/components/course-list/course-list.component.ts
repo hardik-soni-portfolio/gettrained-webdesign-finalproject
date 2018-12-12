@@ -17,14 +17,14 @@ export class CourseListComponent implements OnInit {
     this.fetchCourses();
   }
 
-  fetchCourses(){
+  fetchCourses() {
     this.courseService
       .getCourses()
       .subscribe((data: Course[]) => {
         this.courses = data;
         console.log('Data requested...');
         console.log(this.courses);
-      })
+      });
   }
 
 }
