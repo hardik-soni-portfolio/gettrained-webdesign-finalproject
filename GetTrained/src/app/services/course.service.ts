@@ -2,6 +2,7 @@ import { Content } from './../models/content.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+
 import { Course } from './../models/course.model';
 
 @Injectable()
@@ -13,7 +14,13 @@ export class CourseService {
     video: ''
   };
 
-  constructor(private http: HttpClient) { }
+
+getEnrolledCourses(id){
+  return this.http.get(`${environment.apiBaseUrl}/dashboard/`+id);
+}
+
+  constructor(private http: HttpClient) {
+   }
 
   selectedCourse: Course = {
     course_title: '',
@@ -35,10 +42,14 @@ export class CourseService {
   //   return this.selectedCourse;
   // }
   getCourses() {
+
     return this.http.get(`${environment.apiBaseUrl}/courses/?userId=${localStorage.getItem('id')}`);
+
   }
 
   postCourse(course: Course) {
+    console.log(course);
     return this.http.post(`${environment.apiBaseUrl}/courses`, course);
   }
+
 }

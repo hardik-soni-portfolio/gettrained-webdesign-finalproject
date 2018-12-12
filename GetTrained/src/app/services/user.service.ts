@@ -22,7 +22,10 @@ export class UserService {
     return this.http.put(environment.apiBaseUrl + '/activate/' + token, token);
   }
   loginUser(user: User) {
-    return this.http.post(environment.apiBaseUrl + '/login', {'email': user.email, 'password': user.password});
+    return this.http.post(environment.apiBaseUrl + '/login', { 'email': user.email, 'password': user.password });
+  }
+  getUsers() {
+    return this.http.get(`${environment.apiBaseUrl}/users`);
   }
   updateUser(req: any) {
     console.log("user.service");

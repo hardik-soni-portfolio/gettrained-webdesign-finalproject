@@ -36,5 +36,7 @@ export class NavbarComponent implements OnInit {
   gotoCourses() {
     this.router.navigate(['courses']);
   }
-
+  viewCourse() {
+    this.router.navigate(['course']);
+  }
 }

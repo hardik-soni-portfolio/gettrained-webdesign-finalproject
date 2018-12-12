@@ -6,23 +6,23 @@ const mongoose = require('mongoose'),
 
 let secret = 'trainingModule'; // salt secret for jwt token.
 
-    let throwError = function (error, res) {
-        if (error) {
-            if(error.code == 11000)
-                res.status(422).send(['Email Already exists in the system. Please try Logging in'])
-        }
-    };
+let throwError = function (error, res) {
+    if (error) {
+        if (error.code == 11000)
+            res.status(422).send(['Email Already exists in the system. Please try Logging in'])
+    }
+};
 
-    exports.save = function (user, res, callback) {
-        let newUser = new User(user),
-            resultCallback = function (err, user) {
-                throwError(err, res);
-                callback(user);
+exports.save = function (user, res, callback) {
+    let newUser = new User(user),
+        resultCallback = function (err, user) {
+            throwError(err, res);
+            callback(user);
         };
-        newUser.user_id = uuidv3(newUser.email, uuidv3.DNS); //generate a unique id and assign to the user
-        newUser.temporary_token = jwt.sign({ username: user.first_name+user.last_name, email: user.email}, secret, {expiresIn: '24h'}); //generate the temporary token and store.
-        newUser.save(resultCallback);
-    };
+    newUser.user_id = uuidv3(newUser.email, uuidv3.DNS); //generate a unique id and assign to the user
+    newUser.temporary_token = jwt.sign({ username: user.first_name + user.last_name, email: user.email }, secret, { expiresIn: '24h' }); //generate the temporary token and store.
+    newUser.save(resultCallback);
+};
 
     exports.login = function (user, res){
         User.findOne({ email: user.email}, function(err, dbUser){
@@ -90,3 +90,15 @@ let secret = 'trainingModule'; // salt secret for jwt token.
         // let courses = user_here.courses;
         // }
     }
+
+//API to get the list of users
+exports.display = (req, res) => {
+    var users = User.find({}).select('email first_name last_name');
+    users.exec(function (err, users) {
+        if (err)
+            throw err;
+        else {
+            res.json(users);
+        }
+    });
+}

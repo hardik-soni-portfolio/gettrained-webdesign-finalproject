@@ -6,4 +6,8 @@ module.exports = (app) => {
     .get(courseController.display);
     app.route('/courses/:id')
     .put(courseController.put);
+    
+    app.route('/dashboard/:id')
+    .get(courseController.find);
+
 };
