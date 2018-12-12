@@ -4,9 +4,10 @@
     float: left;
     margin: 2%;
     height: 35vh;
-    overflow: auto;
-   
+    overflow: initial;
+    word-wrap: break-word;
 }
+
 
 #title{
     font-weight: bold;
@@ -18,10 +19,14 @@
     margin-top: 1em;
     font-size: 1em;
     list-style: none;
+    height: 100%;
+    
 }
 
 .progress{
+    padding-top: 40%;
     float: right;
 }
+
 
 
