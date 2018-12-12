@@ -1,4 +1,5 @@
-let courseService = require('../services/course.service')
+let courseService = require('../services/course.service');
+let emailService = require('../services/email.service');
 
 exports.post = function (request, response) {
     let newCourse = Object.assign({}, request.body);
