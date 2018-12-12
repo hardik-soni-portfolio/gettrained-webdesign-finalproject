@@ -61,6 +61,7 @@ exports.activate = (req, res) => {
     });
 }
 
+
 exports.invite = (course) => {
     let inviteSubject = 'GetTrained: Course enrollment nomination',
         inviteHtml = 'Hello,<br><br>You have been invited for enrolling into course. Please log in on the below link to view your enrolled course:<br><br><a href=`http://localhost:4200/> http://localhost:4200 </a>';

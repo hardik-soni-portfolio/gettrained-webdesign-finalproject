@@ -7,6 +7,8 @@ import { Course } from './../models/course.model';
 
 @Injectable()
 export class CourseService {
+
+
   selectedSlide: Content = {
     title: '',
     content: [],
@@ -14,25 +16,20 @@ export class CourseService {
     video: ''
   };
 
+  selectedCourse: Course = {
+    course_title: '',
+    course_description: '',
+    course_category: '',
+    course_learners: [],
+    course_created_date: '',
+    course_modified_date: '',
+    course_contents: [],
+    course_status: '',
+    course_created_by: ''
+  };
 
-
-
-selectedCourse: Course = {
-  course_title: '',
-  course_description: '',
-  course_category: '',
-  course_learners: [],
-  course_created_date: '',
-  course_modified_date: '',
-  course_contents: [],
-  course_status: '',
-  course_created_by: ''
-};
   constructor(private http: HttpClient) {
    }
-
-
-
   // setSelectedCourse(course: Course) {
   //   this.selectedCourse = course;
   // }
@@ -52,6 +49,10 @@ selectedCourse: Course = {
   postCourse(course: Course) {
     console.log(course);
     return this.http.post(`${environment.apiBaseUrl}/courses`, course);
+  }
+
+  postImage(data: FormData) {
+    return this.http.post(`${environment.apiBaseUrl}/images`, data);
   }
 
 }

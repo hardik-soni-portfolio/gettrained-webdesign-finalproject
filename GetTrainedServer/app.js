@@ -9,8 +9,11 @@ module.exports = function (app) {
     let queryRoutes = require('./routes/query.route');
     let categoryRoutes = require('./routes/category.route');
     let courseRoutes = require('./routes/course.route');
+    let imageRoutes = require('./routes/images.route');
     userRoutes(app);
     queryRoutes(app);
     categoryRoutes(app);
     courseRoutes(app);
+    imageRoutes(app);
+
 }
