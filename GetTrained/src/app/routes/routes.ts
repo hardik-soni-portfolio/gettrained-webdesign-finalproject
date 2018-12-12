@@ -17,6 +17,7 @@ import { DashboardComponent } from '../components/dashboard/dashboard.component'
 import { CourseCreateComponent } from './../components/course-create/course-create.component';
 import { CourseListComponent } from './../components/course-list/course-list.component';
 import { Component } from '@angular/core';
+import { ViewCourseComponent } from '../components/view-course/view-course.component';
 
 
 export const appRoutes: Routes = [
@@ -76,6 +77,12 @@ export const appRoutes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     pathMatch: 'full',
+  },
+  {
+    path: 'dashboard/:id',
+    component: ViewCourseComponent,
+    pathMatch: 'full',
+    canActivate: [PreventAccessService]
   },
   {
     path: 'createCourseContent',

@@ -42,8 +42,8 @@ ngOnInit() {
   );
 }
 
-gotoView(id) {
-  this.router.navigate(['dashboard/'+id]);
-}
+  gotoView(id) {
+    this.router.navigate(['dashboard/'+id]);
+  }
 
 }

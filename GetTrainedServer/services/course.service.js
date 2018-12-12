@@ -2,11 +2,6 @@
 const mongoose = require('mongoose'),
     Course = mongoose.model('Courses'),
     User = mongoose.model('User');
-<<<<<<< HEAD
-    var ObjectId = require('mongodb').ObjectID;
-
-=======
->>>>>>> 70dca2e1900f02572c891ec27d6cb92c69383568
 
 let throwError = function (err, callback, msg) {
     console.log(err);
@@ -38,7 +33,6 @@ exports.display = (req, res) => {
     });
 }
 
-<<<<<<< HEAD
 
 
 exports.find = (id, res, callback) => {
@@ -72,29 +66,8 @@ exports.find = (id, res, callback) => {
                 }
             });
         });
-        // else{
-            
-        // let courses = user.courses_enrolled.map(x => x.course_id);//JSON.parse(JSON.stringify(x))
-        // console.log(user.courses_enrolled)
-        // console.log(courses)
-        // if(courses){
-        //     Course.find({_id: { $in : courses }}).lean().exec(function(err, enrolledCourse) {
-        //         console.log('in enrolled ',enrolledCourse);
-        //         enrolledCourse.forEach(x => {
-        //             user.courses_enrolled.forEach(y =>{
-        //                 if(y.course_id == x["_id"]){
-        //                     x.progress = y.progress
-        //                     x.lastSlideIndex = y.lastSlideIndex
-        //                 }
-        //             })
-        //         })
-
-        //         res.json(enrolledCourse);
-        //     })       
-        // }}
     });
 } 
-=======
 exports.displayCourse = function (params, callback, errCallback) {
     Course.find(params, function (err, course) {
         if(err){
@@ -104,4 +77,3 @@ exports.displayCourse = function (params, callback, errCallback) {
         callback(course);
     });
 };
->>>>>>> 70dca2e1900f02572c891ec27d6cb92c69383568
