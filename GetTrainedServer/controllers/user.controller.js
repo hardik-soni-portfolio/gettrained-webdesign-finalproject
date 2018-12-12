@@ -16,6 +16,7 @@ exports.register = (req, res) => {
 exports.login = (req, res) => {
     console.log('Inside Login function');
     let user = Object.assign({}, req.body);
+    console.log(user);
     userService.login(user, res);
 }
 exports.updateProgress = (req, res) => {

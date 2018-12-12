@@ -1,51 +1,38 @@
-<section class="mat-typography-title">
-  <h2>{{course_title}}</h2>
-</section>
-<mat-divider></mat-divider>
-<section class="mat-typography-description">
-  <p>{{course_description}}</p>
-</section>
+<br>
+<!-- <h1>Welcome to the course {{course.course_title}}</h1><br>
+ -->
 
-<div class="course-view-slide">
-  <ul *ngFor="let courseContent of courseContents">
-    
-    <!-- <li>{{courseContent.title}}</li>
-    <li><img [src]=course[current_page].imagepath height="400px" width="450px"></li>
-    <li><iframe width="560" height="315" [src]="getEmbedURL(course[current_page].videopath)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li> -->
-  </ul>
-</div>
 <h1>Welcome to the course {{course_title}}</h1><br>
 <!-- <h2>{{course.course_description}}</h2> -->
 <h2>{{course_description}}</h2>
-<!-- <div>
-  <div>
-    <li *ngFor="let  text of textarray">{{text}}</li>
-    <br>
-    <div>
-      <img src="assets/img1.png" height="400px" width="450px">
-      <div>
-          <iframe width="560" height="315" [src]="getEmbedURL(video)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-</div> -->
-<br>
-<br> -->
+
 <button mat-button (click)="update()">back</button>
-<div class="slide">
-  <div class="textarea">
-      <li *ngFor="let  textcontent of courseContents[current_page].text">{{textcontent}}{{current_page}}</li>
+
+<div class={{type}} >
+  <div class="title">{{course[current_page].title}}</div><br>
+  <div *ngIf="textflag" class={{textarea}} id='text_area'>
+      <li *ngFor="let  textcontent of course[current_page].text">{{textcontent}}{{current_page}}</li>
   </div>
-  <div>
-    <img [src]=courseContents[current_page].imagepath height="400px" width="450px">
+  <br>
+  <br>
+  <!-- <div style="height:'400px';width:'450px'" > -->
+  <div id="image" *ngIf="imageflag">
+    <img [src]=course[current_page].image>
   </div>
-  <div>
-      <iframe width="560" height="315" [src]="getEmbedURL(courseContents[current_page].videopath)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
+  <div id="video" *ngIf="videoflag">
+      <iframe [src]="getEmbedURL(course[current_page].video)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <!-- </div>
+    <button mat-button [disabled]="isprevDisabled" class="prev" (click)="dec_page(current_page)"><</button>
+<button mat-button [disabled]="isnextDisabled" class="next" (click)="inc_page(current_page)">></button> -->
+
 </div>
-<button mat-button [disabled]="isprevDisabled" (click)="dec_page(current_page)">previous</button>
-<button mat-button [disabled]="isnextDisabled" (click)="inc_page(current_page)">next</button>
+  </div>
+  <!-- </div> -->
+  <div class = "flex">
+  <button mat-button [disabled]="isprevDisabled" class="flex-item" (click)="dec_page(current_page)">previous</button>
+  <button mat-button [disabled]="isnextDisabled" class="flex-item" (click)="inc_page(current_page)">next</button>
+</div>
 <!-- <div *ngFor="let cor of course">
-  <div> <iframe width="560" height="315" [src]="getEmbedURL(cor.videopath)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div> <iframe width="560" height="315" [src]="getEmbedURL(cor.video)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 </div> -->
