@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { NgForm } from '@angular/forms';
@@ -23,6 +22,7 @@ export class LoginComponent implements OnInit {
     this.userService.loginUser(form.value).subscribe(
       (res: any) => {
         console.log(res);
+
         if (res.success) {
           // redirect to main home page
           console.log(res)
@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('role', res.role);
           this.router.navigate(['/home']);
         } else {
+
           this.errorMessage = res.message;
           this.showErrorMessage = true;
           setTimeout(() => this.showErrorMessage = false, 5000);
@@ -38,9 +39,9 @@ export class LoginComponent implements OnInit {
       },
       err => {
         if (err.status === 422) {
-          // this.serverErrorMessage = err.error.join('<br/>');
+          //this.serverErrorMessage = err.error.join('<br/>');
         } else {
-          // this.serverErrorMessage = 'Error occured while submitting the form';
+          //this.serverErrorMessage = 'Error occured while submitting the form';
         }
       }
     );

@@ -1,6 +1,7 @@
 'use strict';
 const mongoose = require('mongoose'),
-    Course = mongoose.model('Courses');
+    Course = mongoose.model('Courses'),
+    User = mongoose.model('User');
 
 let throwError = function (err, callback, msg) {
     console.log(err);
@@ -19,7 +20,10 @@ exports.save = function (course, callback, errCallback) {
 };
 
 exports.display = (req, res) => {
-    Course.find(function (err, courses) {
+
+    console.log(req.query.userId)
+    Course.find({ course_created_by: req.query.userId }, function (err, courses) {
+
         if (err)
             throw err;
         else {

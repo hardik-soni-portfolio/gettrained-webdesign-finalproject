@@ -7,23 +7,20 @@ ul {
 
     li {
         a {
-            color: #673ab7;
+            color: #1A3741;
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
-            font-variant-caps: all-petite-caps;
-            font-size: large;
+            text-transform: uppercase;
             text-decoration: none;
-        }
-
-        .activated {
-            background-color: #00a8ff;
         }
     }
 }
 
 .course-buttons{
     margin: 1em 1em 1em 1em;
+    background-color: #1A3741;
+    color: #F3D410;
 }
 
 .mat-typography{
