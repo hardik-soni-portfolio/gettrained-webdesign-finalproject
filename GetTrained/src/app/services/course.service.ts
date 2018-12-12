@@ -28,10 +28,6 @@ export class CourseService {
     course_created_by: ''
   };
 
-getEnrolledCourses(id) {
-  return this.http.get(`${environment.apiBaseUrl}/dashboard/` + id);
-}
-
   constructor(private http: HttpClient) {
    }
   // setSelectedCourse(course: Course) {
@@ -45,6 +41,9 @@ getEnrolledCourses(id) {
 
     return this.http.get(`${environment.apiBaseUrl}/courses/?userId=${localStorage.getItem('id')}`);
 
+  }
+  getEnrolledCourses(id) {
+    return this.http.get(`${environment.apiBaseUrl}/dashboard/` + id);
   }
 
   postCourse(course: Course) {

@@ -21,7 +21,9 @@
           <mat-label>CONTENT</mat-label>
           <input matInput #slide_content="ngModel" [(ngModel)]="text" name="slide_content">
         </mat-form-field>
-        <button mat-icon-button color="primary" (click)="onAddText()"><mat-icon>add</mat-icon></button>
+        <button mat-icon-button (click)="onAddText()">
+          <mat-icon>add</mat-icon>
+        </button>
         <!--<button mat-raised-button color="primary" (click)="onRemoveText()">Remove</button>-->
         <br>
         <mat-list>
@@ -32,12 +34,16 @@
         </mat-list>
       </div>
       <div>
-        <button mat-mini-fab color="primary" (click)="onSaveSlide()">
-          <mat-icon>save</mat-icon>
-        </button>
-        <button mat-mini-fab color="primary" (click)="onDeleteSlide()">
-          <mat-icon>delete</mat-icon>
-        </button>
+        <div class="delete-slide-div">
+          <button mat-mini-fab (click)="onDeleteSlide()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+        <div class="save-slide-div">
+          <button mat-mini-fab (click)="onSaveSlide()">
+            <mat-icon>check</mat-icon>
+          </button>
+        </div>
       </div>
     </div>
   </form>
