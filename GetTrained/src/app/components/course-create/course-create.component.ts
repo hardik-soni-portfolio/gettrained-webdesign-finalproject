@@ -19,8 +19,7 @@ export interface Learner {
 @Component({
   selector: 'app-course-create',
   templateUrl: './course-create.component.html',
-  styleUrls: ['./course-create.component.scss'],
-  providers: [CourseService]
+  styleUrls: ['./course-create.component.scss']
 })
 
 export class CourseCreateComponent implements OnInit {
@@ -84,12 +83,10 @@ export class CourseCreateComponent implements OnInit {
       course_title: '',
       course_description: '',
       course_category: '',
-
       course_learners: [],
       course_created_date: '',
       course_modified_date: '',
       course_contents: [],
-
       course_status: '',
       course_created_by: ''
     };
