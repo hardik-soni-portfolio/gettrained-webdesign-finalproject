@@ -9,6 +9,7 @@ let throwError = function (err, callback, msg) {
    callback(msg);
 };
 
+// API for creation of new course
 exports.save = function (courseObj, callback, errCallback) {
    let newCourse = new Course(courseObj);
    newCourse.save(function (err, course) {
@@ -45,6 +46,7 @@ exports.save = function (courseObj, callback, errCallback) {
    });
 };
 
+// fetches the courses based upon the creator
 exports.display = (req, res) => {
 
    console.log(req.query.userId)
@@ -59,6 +61,7 @@ exports.display = (req, res) => {
    });
 }
 
+//updates the progress while taking the course
 exports.update = function (course, callback) {
     let resultCallback = function (err, course) {
         throwError(err);
@@ -75,6 +78,7 @@ exports.update = function (course, callback) {
 exports.find = (id, res, callback) => {
    //let enrolledCourses = [];
    console.log("I am before error",id);
+   //retrieving the enrolled courses as array of objects against userID
    User.findOne({user_id: id}, function(err, user) {
        if(err){
        throw err;
@@ -84,7 +88,7 @@ exports.find = (id, res, callback) => {
        let counter =0;
        let enrolled_courses =[];
        courses.forEach(element => {
-           let userCourse = {
+           let userCourse = { //retrieving progress and last index of slide with courses
                'progress': element.progress,
                'lastSlideIndex': element.lastSlideIndex
            }
@@ -92,7 +96,7 @@ exports.find = (id, res, callback) => {
                if(err)throw err;
                else{
                    userCourse.course = course;
-                   enrolled_courses.push(userCourse);
+                   enrolled_courses.push(userCourse); //pushing each course in the enrolledCourses array that a user is enrolled for
                    if(counter===(size-1)){
                        console.log("this is bhargavi"+ enrolled_courses);
                        res.json(enrolled_courses);
@@ -106,6 +110,7 @@ exports.find = (id, res, callback) => {
 
 exports.displayCourse = function (params, callback, errCallback) {
 
+    //retrieves the list of courses for specific user
     Course.find(params, function (err, course) {
         if(err){
             throwError(err, errCallback, "Error finding message");

@@ -24,18 +24,19 @@ exports.save = function (user, res, callback) {
     newUser.save(resultCallback);
 };
 
+    // API for login function
     exports.login = function (user, res){
         User.findOne({ email: user.email}, function(err, dbUser){
             if(err) throw err;
-            if(!dbUser){
+            if(!dbUser){ // checking if the user exists
                 console.log('no user found');
                 res.json({success: false, message: 'No user found please Register'});
             }
-            else if(dbUser && (dbUser.password !== user.password)){
+            else if(dbUser && (dbUser.password !== user.password)){ //if the user exists and is email id and password matches
                 console.log(dbUser.password + '  '+ user.password);
                 res.json({success: false, message: 'User email or password did not match'});
             }
-            else if(dbUser && (dbUser.password === user.password) && (dbUser.is_verified === false)){
+            else if(dbUser && (dbUser.password === user.password) && (dbUser.is_verified === false)){ //if the user exists and the email id password matches and if whether the user has verified his account
                 res.json({success: false, message: 'User is not verified'});
             }
             else{
