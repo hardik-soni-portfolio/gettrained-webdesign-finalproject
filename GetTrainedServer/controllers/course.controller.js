@@ -19,3 +19,13 @@ exports.display = (req, res, err) => {
 exports.displayCourse = (req,res,err) => {
     courseService.displayCourse(req, res);
 }
+
+exports.put = function (request, response) {
+    let course = Object.assign({}, request.body),
+        callback = function (course) {
+        response.status(200);
+        response.json({'msg': 'Course published'});
+    };
+    course._id = request.params.id;
+    courseService.update(course, course._id, callback);
+};

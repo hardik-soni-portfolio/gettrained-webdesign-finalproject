@@ -28,4 +28,23 @@ exports.display = (req, res) => {
         }
 
     });
-}
+};
+
+exports.update = function (newCourse, id, callback) {
+    let resultCallback = function (err, course) {
+        throwError(err);
+        callback(course);
+    };
+
+    Course.findById(id, (err, course) => {
+        if(err){
+            newCourse.course_status = 'Published';
+            newCourse.save(resultCallback);
+        }
+        else{
+            course.course_status = 'Published';
+            course.course_modified_Date = new Date();
+            course.save(resultCallback);
+        }
+    });
+};
