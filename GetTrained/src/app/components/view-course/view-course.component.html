@@ -9,25 +9,30 @@
 <button mat-button (click)="update()">back</button>
 
 <div class={{type}} >
-  <div class="title">{{course[current_page].title}}</div>
-  <div *ngIf="textflag" class={{textarea}}>
+  <div class="title">{{course[current_page].title}}</div><br>
+  <div *ngIf="textflag" class={{textarea}} id='text_area'>
       <li *ngFor="let  textcontent of course[current_page].text">{{textcontent}}{{current_page}}</li>
   </div>
   <br>
   <br>
   <!-- <div style="height:'400px';width:'450px'" > -->
-  <div *ngIf="imageflag" class={{imagearea}}>
-    <img [src]=course[current_page].imagepath>
+  <div id="image" *ngIf="imageflag">
+    <img [src]=course[current_page].image>
   </div>
-  <div *ngIf="videoflag" class={{videoarea}}>
-      <!-- {{isVideo}} -->
-      <iframe [src]="getEmbedURL(course[current_page].videopath)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+  <div id="video" *ngIf="videoflag">
+      <iframe [src]="getEmbedURL(course[current_page].video)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <!-- </div>
+    <button mat-button [disabled]="isprevDisabled" class="prev" (click)="dec_page(current_page)"><</button>
+<button mat-button [disabled]="isnextDisabled" class="next" (click)="inc_page(current_page)">></button> -->
+
+</div>
   </div>
   <!-- </div> -->
-<button mat-button [disabled]="isprevDisabled" (click)="dec_page(current_page)">previous</button>
-<button mat-button [disabled]="isnextDisabled" (click)="inc_page(current_page)">next</button>
+  <div class = "flex">
+  <button mat-button [disabled]="isprevDisabled" class="flex-item" (click)="dec_page(current_page)">previous</button>
+  <button mat-button [disabled]="isnextDisabled" class="flex-item" (click)="inc_page(current_page)">next</button>
+</div>
 <!-- <div *ngFor="let cor of course">
-  <div> <iframe width="560" height="315" [src]="getEmbedURL(cor.videopath)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div> <iframe width="560" height="315" [src]="getEmbedURL(cor.video)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 </div> -->

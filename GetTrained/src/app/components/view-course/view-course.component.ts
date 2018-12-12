@@ -37,44 +37,44 @@ export class ViewCourseComponent implements OnInit, AfterViewInit {
     {
       title: 'title1',
       text: ['text1', 'text2'],
-      imagepath: 'assets/img1.png',
-      videopath: 'https://www.youtube.com/watch?v=L4QSwT8WhmM'
+      image: 'assets/img1.png',
+      video: 'https://www.youtube.com/watch?v=L4QSwT8WhmM'
     },
     {
       title: 'title2',
-      text: ['text3', 'text4'],
-      imagepath: `assets/img1.png`,
-      videopath: ''
+      text: ['text3', 'text4','dwedfaefdwfdew','ewdwedwedwe','dewdqewdqewx','weqxeqw'],
+      image: `assets/img1.png`,
+      video: ''
     },
     {
       title: 'title3',
       text: [],
-      imagepath: `assets/img3.png`,
-      videopath: `https://www.youtube.com/watch?v=PH_5lXxSpww`
+      image: `assets/img3.png`,
+      video: `https://www.youtube.com/watch?v=PH_5lXxSpww`
     },
     {
       title: 'title4',
       text: ['text5', 'text6'],
-      imagepath: ``,
-      videopath: `https://youtube.com/playlist?feature=share&list=PL46F0A159EC02DF82`
+      image: ``,
+      video: `https://youtube.com/playlist?feature=share&list=PL46F0A159EC02DF82`
     },
     {
       title: 'title5',
       text: [],
-      imagepath: `assets/img1.png`,
-      videopath: ''
+      image: `assets/img1.png`,
+      video: ''
     },
     {
       title: 'title6',
       text: ['text5', 'text6'],
-      imagepath: ``,
-      videopath: ``
+      image: ``,
+      video: ``
     },
     {
       title: 'title7',
       text: [],
-      imagepath: ``,
-      videopath: `http://vimeopro.com/staff/frame/video/24069938`
+      image: ``,
+      video: `http://vimeopro.com/staff/frame/video/24069938`
     }
   ];
 
@@ -85,27 +85,14 @@ export class ViewCourseComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.course);
-    console.log('iam herer');
     this.checkDisability();
     this.check_type(this.course[this.current_page]);
-    console.log(this.temp);
+    // console.log(this.temp);
   }
 
   ngAfterViewInit() {
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'aqua';
  }
-  // check_video(video_path){
-  //   console.log('i am inside');
-  //   if(video_path === ''){
-  //     console.log(video_path);
-  //     this.isVideo = false;
-  //   }
-  //   else{
-  //     console.log(video_path);
-  //     this.isVideo = true;
-  //   }
-  // }
 
   dispalyCourse(getCourse: any) {
     this.course = getCourse;
@@ -179,18 +166,19 @@ export class ViewCourseComponent implements OnInit, AfterViewInit {
         console.log(course.text.length);
         this.textflag = true;
       }
-      if (course.imagepath === '') {
+      if (course.image === '') {
         console.log('empty');
         this.imageflag = false;
       } else {
-        console.log(course.imagepath);
+        console.log(course.image);
         this.imageflag = true;
       }
-      if (course.videopath === '') {
+      if (course.video === '') {
         console.log('empty video');
+        console.log("i am here");
         this.videoflag = false;
       } else {
-        console.log(course.videopath);
+        console.log(course.video);
         this.videoflag = true;
       }
     this.assign_layout(this.textflag, this.imageflag, this.videoflag);
