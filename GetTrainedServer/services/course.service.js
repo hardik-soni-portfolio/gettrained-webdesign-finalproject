@@ -42,7 +42,7 @@ exports.update = function (course, callback) {
     }, course, {
             new: true
         }, resultCallback);
-
+    }
 
 exports.find = (id, res, callback) => {
     //let enrolledCourses = [];
@@ -85,4 +85,4 @@ exports.displayCourse = function (params, callback, errCallback) {
         }
         callback(course);
     });
-};
+}
