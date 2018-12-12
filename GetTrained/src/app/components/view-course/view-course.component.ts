@@ -133,6 +133,7 @@ export class ViewCourseComponent implements OnInit {
         console.log(slide.video);
         this.videoflag = true;
       }
+      console.log("video"+this.videoflag+"text"+this.textflag+"image"+this.imageflag);
     this.assign_layout(this.textflag, this.imageflag, this.videoflag);
   }
 
