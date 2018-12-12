@@ -74,7 +74,7 @@ exports.invite = (course) => {
         });
         const mailOptions = {
             from: 'pixelweb29@gmail.com',
-            to: course.course_learners,
+            bcc: course.course_learners,
             subject: inviteSubject,
             html: inviteHtml
         };

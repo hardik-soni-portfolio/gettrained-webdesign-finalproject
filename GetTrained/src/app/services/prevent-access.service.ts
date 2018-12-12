@@ -8,7 +8,7 @@ export class PreventAccessService implements CanActivate {
 
   constructor(private router: Router) { }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  canActivate() {
     if (localStorage.getItem('id')) {
       return true;
     }

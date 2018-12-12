@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {CategoryService} from '../../services/category.service';
+import { Router } from '@angular/router';
+import { MatTableDataSource } from '@angular/material';
+import { CategoryService } from '../../services/category.service';
+import { ConstantPool } from '@angular/compiler';
 import { Category } from 'src/app/models/category.model';
+import { containsElement } from '@angular/animations/browser/src/render/shared';
 
 @Component({
   selector: 'app-list',
@@ -10,7 +14,7 @@ import { Category } from 'src/app/models/category.model';
 export class ListCategoryComponent implements OnInit {
 
   categories: Category[];
-  // displayedColumns = ['category_name', ];
+
   displayedColumns: string[] = ['category_name', 'active', 'delete'];
 
 
@@ -33,7 +37,7 @@ export class ListCategoryComponent implements OnInit {
   deleteCategory(id) {
     this.categoryService.deleteCategory(id).subscribe(() => {
       this.fetchCategories();
-    });
+    })
   }
 
 }

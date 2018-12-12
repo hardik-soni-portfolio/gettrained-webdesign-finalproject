@@ -1,7 +1,7 @@
 <div>
   <br>
   <mat-card>
-    <section class="mat-typography">
+    <section class = "mat-typography">
       <h2>Create Category</h2>
     </section>
     <mat-divider></mat-divider>
@@ -12,10 +12,10 @@
       </mat-form-field>
       <mat-divider></mat-divider>
       <br>
-      <button mat-raised-button color="primary" class="create-category-buttons" routerLink="/categories">BACK</button>
+      <button mat-raised-button class="create-category-buttons" routerLink="/categories">BACK</button>
       &nbsp;
       <button mat-raised-button type="submit" class="create-category-buttons" (click)="addCategory(category_name.value)"
-        [disabled]="createCategoryForm.pristine || createCategoryForm.invalid" color="primary">SAVE</button>
+        [disabled]="createCategoryForm.pristine || createCategoryForm.invalid">SAVE</button>
     </form>
   </mat-card>
 </div>

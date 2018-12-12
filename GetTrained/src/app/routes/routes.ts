@@ -1,5 +1,6 @@
+import { CreateCourseAreaComponent } from './../components/create-course-area/create-course-area.component';
 import { PreventAccessService } from './../services/prevent-access.service';
-import { ViewCourseComponent } from './../components/view-course/view-course.component';
+// import { ViewCourseComponent } from './../components/view-course/view-course.component';
 import { ActivateComponent } from '../components/activate/activate.component';
 import { RegisterComponent } from './../components/register/register.component';
 import { UserComponent } from './../components/user/user.component';
@@ -11,9 +12,13 @@ import { QueryComponent } from './../components/query/query.component';
 import { QuerylistComponent } from './../components/querylist/querylist.component';
 import { ListCategoryComponent } from './../components/listCategory/listCategory.component';
 import { CreateCategoryComponent } from './../components/createCategory/createCategory.component';
+
+import { DashboardComponent } from '../components/dashboard/dashboard.component';
 import { CourseCreateComponent } from './../components/course-create/course-create.component';
 import { CourseListComponent } from './../components/course-list/course-list.component';
 import { Component } from '@angular/core';
+import { ViewCourseComponent } from '../components/view-course/view-course.component';
+
 
 export const appRoutes: Routes = [
   {
@@ -26,10 +31,13 @@ export const appRoutes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'login', component: LoginComponent
+    path: 'login', 
+    component: LoginComponent
   },
   {
-    path: 'home', component: AppComponent, canActivate: [PreventAccessService]
+    path: 'home', 
+    component: AppComponent, 
+    canActivate: [PreventAccessService]
   },
   {
     path: 'activate/:token', component: ActivateComponent
@@ -65,6 +73,22 @@ export const appRoutes: Routes = [
     canActivate: [PreventAccessService]
   },
   {
+
+    path: 'dashboard',
+    component: DashboardComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'dashboard/:id',
+    component: ViewCourseComponent,
+    pathMatch: 'full',
+    canActivate: [PreventAccessService]
+  },
+  {
+    path: 'createCourseContent',
+    component: CreateCourseAreaComponent
+  },
+  {
     path: 'courses',
     component: CourseListComponent,
     pathMatch: 'full',
@@ -76,9 +100,15 @@ export const appRoutes: Routes = [
     pathMatch: 'full',
     canActivate: [PreventAccessService]
   },
+  // {
+  //   path: 'course',
+  //   component: ViewCourseComponent,
+  //   pathMatch: 'full',
+  //   canActivate: [PreventAccessService]
+  // },
   {
-    path: 'course',
-    component: ViewCourseComponent,
+    path: 'users',
+    component: UserComponent,
     pathMatch: 'full',
     canActivate: [PreventAccessService]
   }
