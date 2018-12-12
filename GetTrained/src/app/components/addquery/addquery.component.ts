@@ -15,29 +15,29 @@ export class AddqueryComponent implements OnInit {
   queryService: QueryService;
   req: any;
   constructor( queryService: QueryService) {
-    this.queryService = queryService;
+    this.queryService = queryService;  // initiating query service
    }
 
-
+// Function to submit feedback form
    onSubmit(form: NgForm) {
-    this.req = {'value': form.value, 'user_id': localStorage.getItem('id')};
+    this.req = {'value': form.value, 'user_id': localStorage.getItem('id')};  // bundling values from local storage and form
     this.queryService.postQuery(this.req).subscribe(
       res => {
         this.showSuccessMessage = true;
-        setTimeout(() => this.showSuccessMessage = false, 4000);
+        setTimeout(() => this.showSuccessMessage = false, 4000); // success message
         this.resetForm(form);
       },
       err => {
         if (err.status === 422) {
           this.serverErrorMessage = err.error.join('<br/>');
         } else {
-          this.serverErrorMessage = 'Error occured while submitting the form';
+          this.serverErrorMessage = 'Error occured while submitting the form'; // error message
         }
       }
     );
   }
 
-  resetForm(form: NgForm) {
+  resetForm(form: NgForm) {   // resetting the form values to empty after submission
     this.queryService.selectedQuery = {
      query_title: '',
      query_content: '',

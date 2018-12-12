@@ -1,15 +1,16 @@
 'use strict';
 const mongoose = require('mongoose'),
    Course = mongoose.model('Courses'),
-   User = mongoose.model('User');
+   User = mongoose.model('User'),
+   emailService = require('./email.service');
 
 let throwError = function (err, callback, msg) {
    console.log(err);
    callback(msg);
 };
 
-exports.save = function (course, callback, errCallback) {
-   let newCourse = new Course(course);
+exports.save = function (courseObj, callback, errCallback) {
+   let newCourse = new Course(courseObj);
    newCourse.save(function (err, course) {
        if (err) {
            throwError(err, errCallback, "Error saving course");
@@ -17,24 +18,29 @@ exports.save = function (course, callback, errCallback) {
        }
        //callback(course);
        else {
+           emailService.invite(course);
            let learners = course.course_learners;
            learners.forEach(element => {
+            let userCourse = {
+                'progress': 0,
+                'lastSlideIndex': 0,
+                'score': 0,
+                'course_id': course._id
+            };
                User.findOne({email: element}, (err, user) => {
                    if(err) throw err;
                    else {
-                    let userCourse = {
-                        'progress': 0,
-                        'lastSlideIndex': 0,
-                        'score': 0,
-                        'course_id': course._id
-                    };
                     user.courses_enrolled.push(userCourse);
                     user.save((err, user) => {
                         if(err) throw err;
+                        else{
+                            console.log('Before callback')
+                        }
                     })
                    }
                })
-           })
+           });
+           callback(course);
        }
    });
 };

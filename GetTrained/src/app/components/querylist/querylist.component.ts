@@ -20,11 +20,12 @@ export class QuerylistComponent implements OnInit {
     this.fetchQueries();
   }
 
+  // function to fetch queries from Backend
   fetchQueries() {
     this.queryService
       .getQueries()
       .subscribe((data: Query[]) => {
-        this.queries = data;
+        this.queries = data;            // storing the retrieved data into queries
         console.log('Data requested ...');
         console.log(this.queries);
       });

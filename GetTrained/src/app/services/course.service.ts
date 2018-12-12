@@ -8,7 +8,6 @@ import { Course } from './../models/course.model';
 @Injectable()
 export class CourseService {
 
-
   selectedSlide: Content = {
     id: 0,
     title: '',
@@ -30,19 +29,13 @@ export class CourseService {
   };
 
   constructor(private http: HttpClient) {
-   }
-  // setSelectedCourse(course: Course) {
-  //   this.selectedCourse = course;
-  // }
-
-  // getSelectedCourse(): Course {
-  //   return this.selectedCourse;
-  // }
-  getCourses() {
-
-    return this.http.get(`${environment.apiBaseUrl}/courses/?userId=${localStorage.getItem('id')}`);
-
   }
+  
+  //
+  getCourses() {
+    return this.http.get(`${environment.apiBaseUrl}/courses/?userId=${localStorage.getItem('id')}`);
+  }
+
   getEnrolledCourses(id) {
     return this.http.get(`${environment.apiBaseUrl}/dashboard/` + id);
   }

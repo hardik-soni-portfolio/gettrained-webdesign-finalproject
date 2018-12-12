@@ -6,7 +6,6 @@ exports.post = function (request, response) {
     courseService.save(newCourse, function (course) {
         response.status(200);
         response.json(course);
-
         emailService.invite(course);
     }, function (errMsg) {
 
