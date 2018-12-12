@@ -18,7 +18,7 @@
 
   <div class="multimedia-div">
     <div id="image" *ngIf="imageflag">
-      <img [src]=contents[current_page].image>
+      <img [src]="getImageURL(contents[current_page].image)">
     </div>
 
     <div id="video" *ngIf="videoflag">
