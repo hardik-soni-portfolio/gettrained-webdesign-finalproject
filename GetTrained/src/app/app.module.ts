@@ -15,7 +15,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { appRoutes } from './routes/routes';
 import { ActivateComponent } from './components/activate/activate.component';
 import { LoginComponent } from './components/login/login.component';
-import { QueryComponent } from './components/query/query.component';
+// import { QueryComponent } from './components/query/query.component';
 import { QuerylistComponent } from './components/querylist/querylist.component';
 import { AddqueryComponent } from './components/addquery/addquery.component';
 import { ListCategoryComponent } from './components/listCategory/listCategory.component';
@@ -37,7 +37,7 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     RegisterComponent,
     ActivateComponent,
     LoginComponent,
-    QueryComponent,
+    // QueryComponent,
     QuerylistComponent,
     AddqueryComponent,
     CreateCategoryComponent,

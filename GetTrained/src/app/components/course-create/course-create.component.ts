@@ -27,6 +27,7 @@ export class CourseCreateComponent implements OnInit {
   serverErrorMessage: string;
   req: any;
   course: Course;
+  num: number;
 
   courseService: CourseService;
   constructor(courseService: CourseService, private categoryService: CategoryService, private userService: UserService,private router: Router) {
@@ -45,7 +46,6 @@ export class CourseCreateComponent implements OnInit {
    onSubmit(form: NgForm) {
     form.value.course_created_by = localStorage.getItem('id');
     form.value.course_contents = this.courseService.selectedCourse.course_contents;
-    console.log(form.value);
     this.courseService.postCourse(form.value).subscribe(
       res => {
         this.showSuccessMessage = true;
@@ -101,6 +101,7 @@ export class CourseCreateComponent implements OnInit {
   ngOnInit() {
     this.fetchCategories();
     this.fetchUsers();
+    this.num = this.courseService.selectedCourse.course_contents.length;
   }
 
 }

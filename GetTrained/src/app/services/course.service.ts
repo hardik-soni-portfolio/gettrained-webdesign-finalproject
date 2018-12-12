@@ -8,6 +8,7 @@ import { Course } from './../models/course.model';
 @Injectable()
 export class CourseService {
   selectedSlide: Content = {
+    id: 0,
     title: '',
     content: [],
     image: '',

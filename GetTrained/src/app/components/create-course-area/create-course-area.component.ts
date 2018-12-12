@@ -12,6 +12,7 @@ import { NgForm } from '@angular/forms';
 })
 export class CreateCourseAreaComponent implements OnInit {
   @Output() content = new EventEmitter<Array<Content>>();
+  @Output() numberOfSlides = new EventEmitter<number>();
   courseContent: Array<Content> = [];
   counter: Array<Number> = [1];
   constructor(private courseService: CourseService, public dialog: MatDialog ) {
@@ -25,6 +26,7 @@ export class CreateCourseAreaComponent implements OnInit {
   }
   resetContentFields() {
     this.courseService.selectedSlide = {
+      id: 0,
       title: '',
       content: [],
       image: '',
@@ -47,5 +49,6 @@ export class CreateCourseAreaComponent implements OnInit {
   }
   createCourseContent() {
     this.courseService.selectedCourse.course_contents = this.courseContent;
+    localStorage.setItem('slides', JSON.stringify(this.courseContent.length));
   }
 }
