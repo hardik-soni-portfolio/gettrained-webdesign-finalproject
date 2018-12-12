@@ -1,6 +1,5 @@
 <mat-card-content>
     <app-create-content (content)="addSlide($event)" *ngFor="let count of counter"></app-create-content>
     <button mat-raised-button color="primary" (click)="addNewSlide()">Add Slide</button>
-    <button mat-raised-button color="primary" (click)="removeSlide()">Remove Slide</button><br/><br/>
     <button mat-raised-button color="primary" (click)="createCourseContent()" routerLink="/createCourse">Create</button>
 </mat-card-content>

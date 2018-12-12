@@ -8,14 +8,36 @@ let throwError = function (err, callback, msg) {
     callback(msg);
 };
 
-exports.save = function (course, callback, errCallback) {
-    let newCourse = new Course(course);
+exports.save = function (createdCourse, callback, errCallback) {
+    let newCourse = new Course(createdCourse);
+    let learners = newCourse.course_learners;
+    let counter = 0;
     newCourse.save(function (err, course) {
         if (err) {
             throwError(err, errCallback, "Error saving course");
             return;
         }
-        callback(course);
+        learners.forEach(element => {
+            User.findOne({email: element}, (err, user) => {
+                let enrolled = {
+                    'course_id': course._id,
+                    'score': 0,
+                    'progress': 0,
+                    'lastSlideIndex':0
+                }
+                user.courses_enrolled.push(enrolled);
+                user.save((err, userReturned) => {
+                    if(err){
+                        throwError(err, errCallback, "Error assigning course to user");
+                        return;
+                    }
+                })
+            })
+            if(counter === learners.length-1){
+               callback(course);
+            }
+            counter++;
+        })
     });
 };
 
