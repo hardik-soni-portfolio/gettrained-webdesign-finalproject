@@ -2,10 +2,12 @@
   <mat-toolbar-row>
     <p class="app-name">GetTrained</p>
     <span class="example-spacer"></span>
+
     <button mat-button *ngIf="isAdmin()" (click)="gotoCategories()">Category</button>
     <button mat-button (click)="gotoCourses()">Course Creation</button>
     <button mat-button (click)="gotoCreateFeedback()">Add Feedback</button>
     <button mat-button *ngIf="isAdmin()" (click)="gotoViewFeedback()">View Feedback</button>
     <button mat-button (click)="logout()">Logout</button>
+
   </mat-toolbar-row>
 </mat-toolbar>

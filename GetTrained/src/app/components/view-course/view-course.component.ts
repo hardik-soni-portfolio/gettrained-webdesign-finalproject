@@ -4,6 +4,7 @@ import { Course } from './../../models/course.model';
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { IfStmt } from '@angular/compiler';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-course',
@@ -28,27 +29,24 @@ export class ViewCourseComponent implements OnInit {
   isVideo: boolean;
   isnextDisabled: Boolean;
   isprevDisabled: Boolean;
-  courseid = this.course_data._id;
+  courseid = this.course_data.course._id;
   current_page = this.course_data.lastSlideIndex;
-  progress = this.course_data.course.progress;
+  progress = this.course_data.progress;
   course_description = this.course_data.course.course_description;
-   contents = this.course_data.course.course_contents;
+  contents = this.course_data.course.course_contents;
 
   constructor(
     private sanitizer: DomSanitizer,
     private userService: UserService,
-
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.checkDisability();
-    console.log('hi');
     this.check_type(this.contents[this.current_page]);
   }
 
-  getImageURL(image){
-    return "http://localhost:3003/"+image;
-  }
+
 
   getEmbedURL(video) {
     if (video === '') {
@@ -78,10 +76,6 @@ export class ViewCourseComponent implements OnInit {
     this.check_type(this.contents[this.current_page]);
   }
   checkDisability() {
-    console.log(this.contents.length+"CONTENTS");
-    console.log(this.current_page);
-    console.log(this.isprevDisabled);
-    console.log(this.isnextDisabled);
     if (this.current_page === 0) {
       this.isprevDisabled = true;
     } else {
@@ -100,12 +94,14 @@ export class ViewCourseComponent implements OnInit {
     this.req = {
       current_page: this.current_page,
       course_id: this.courseid,
-      progress: this.progress + 1,
+      progress: this.progress,
       user_id: localStorage.getItem('id')
     };
+    console.log(this.courseid);
     this.userService.updateUser(this.req).subscribe((data: any) => {
-      if (data.success) {
+      if (data) {
         console.log('success');
+        this.router.navigate(['dashboard']);
       } else {
         console.log('failure');
       }
@@ -136,7 +132,6 @@ export class ViewCourseComponent implements OnInit {
         console.log(slide.video);
         this.videoflag = true;
       }
-      console.log("video"+this.videoflag+"text"+this.textflag+"image"+this.imageflag);
     this.assign_layout(this.textflag, this.imageflag, this.videoflag);
   }
 

@@ -1,14 +1,9 @@
 <div> 
-    <!-- li *ngFor="let query of queries">{{query.query_id}}</li> -->
       <br>
       <mat-card>
           <h2>User Feedback</h2>
         <table mat-table [dataSource]="queries">
   
-          <!-- <ng-container matColumnDef="query_id">
-            <th mat-header-cell *matHeaderCellDef>QueryId</th>
-            <td mat-cell *matCellDef="let element">{{element.query_id}}</td>
-          </ng-container> -->
   
           <ng-container matColumnDef="query_title">
               <th mat-header-cell *matHeaderCellDef>QUERY TITLE</th>
@@ -37,14 +32,3 @@
         
       </mat-card>
     </div>
-  
-    <!-- <div>
-      <div *ngFor="let query of queries">
-        <ul>
-          <li>Title:{{query.query_title}}</li>
-          <li>Content:{{query.query_content}}</li>
-          <li>Query Type:{{query.query_type}}</li>
-          <li>Created By:{{query.query_createdby}}</li>
-        </ul>
-      </div>
-    </div> -->

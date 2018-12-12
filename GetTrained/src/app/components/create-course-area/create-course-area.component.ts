@@ -12,6 +12,7 @@ import { NgForm } from '@angular/forms';
 })
 export class CreateCourseAreaComponent implements OnInit {
   @Output() content = new EventEmitter<Array<Content>>();
+  @Output() numberOfSlides = new EventEmitter<number>();
   courseContent: Array<Content> = [];
   counter: Array<Number> = [];
   slide: Content;
@@ -27,7 +28,17 @@ export class CreateCourseAreaComponent implements OnInit {
   }
 
   addSlide(content: Content) {
-      this.courseContent.push(content);
+
+    this.courseContent.push(content);
+  }
+  resetContentFields() {
+    this.courseService.selectedSlide = {
+      id: 0,
+      title: '',
+      content: [],
+      image: '',
+      video: ''
+    };
   }
 
   addNewSlide() {
@@ -50,5 +61,6 @@ export class CreateCourseAreaComponent implements OnInit {
   }
   createCourseContent() {
     this.courseService.selectedCourse.course_contents = this.courseContent;
+    localStorage.setItem('slides', JSON.stringify(this.courseContent.length));
   }
 }
