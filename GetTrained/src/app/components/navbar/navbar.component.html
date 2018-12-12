@@ -1,6 +1,6 @@
 <mat-toolbar *ngIf = "isLoggedIn()">
   <mat-toolbar-row>
-    <p class="app-name">GetTrained</p>
+    <p class="app-name" (click) = "gotoDashboard()">GetTrained</p>
     <span class="example-spacer"></span>
     <button mat-button *ngIf="isAdmin()" (click) = "gotoCategories()">Category</button>
     <button mat-button (click) = "gotoCourses()">Course Creation</button>

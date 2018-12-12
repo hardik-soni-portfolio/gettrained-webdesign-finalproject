@@ -1,11 +1,12 @@
-.card{
+
+mat-card{
     width: 25%;
-    height: 100px;
     float: left;
     margin: 2%;
     height: 35vh;
     overflow: initial;
     word-wrap: break-word;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 
@@ -13,6 +14,8 @@
     font-weight: bold;
     font-size: 1.7em;
     list-style: none;
+    margin: 0.5em 1em 1em 0.5em;
+    border: 2px red solid;
 }
 
 #content{
@@ -24,9 +27,42 @@
 }
 
 .progress{
-    padding-top: 40%;
+    padding-top: 15vh;
     float: right;
+}
+
+button{
+    top: 15vh;
+    overflow: initial;
+    word-wrap: break-word;
+    display: flex;
+    font-weight: bold;
+    background-color: rgb(216, 212, 2);
+
 }
 
 
 
+.card{
+    width: 27%;
+    float: left;
+    margin: 2%;
+    height: 45vh;
+    overflow: initial;
+    border: 2px red solid;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); 
+    display: inline-block;
+}
+
+#content{
+    border: 2px red solid;
+    margin: 1em 1em 1em 1em;
+    word-wrap: break-word;
+}
+
+.card-footer{
+    bottom: 0%;
+    right:0%;
+    border: 2px red solid;
+
+}
