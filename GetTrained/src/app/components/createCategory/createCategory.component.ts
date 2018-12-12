@@ -18,7 +18,7 @@ export class CreateCategoryComponent implements OnInit {
     });
   }
 
-  addCategory(category_name){
+  addCategory(category_name){   // add category
       this.categoryService.addCategory(category_name).subscribe(() =>{
         this.router.navigate(['/categories']);
       });

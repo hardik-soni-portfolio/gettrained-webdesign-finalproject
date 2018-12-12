@@ -15,19 +15,20 @@ export class UserService {
     password: ''
   };
   constructor(private http: HttpClient) { }
-  postUser(user: User) {
+
+  postUser(user: User) {  // add a user
     return this.http.post(environment.apiBaseUrl + '/register', user);
   }
-  activate(token: String) {
+  activate(token: String) { // activate
     return this.http.put(environment.apiBaseUrl + '/activate/' + token, token);
   }
-  loginUser(user: User) {
+  loginUser(user: User) { // login of user
     return this.http.post(environment.apiBaseUrl + '/login', { 'email': user.email, 'password': user.password });
   }
-  getUsers() {
+  getUsers() { // list of users
     return this.http.get(`${environment.apiBaseUrl}/users`);
   }
-  updateUser(req: any) {
+  updateUser(req: any) { // update users
     console.log("user.service");
     return this.http.put(environment.apiBaseUrl + '/updateprogress', req );
   }

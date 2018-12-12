@@ -34,9 +34,9 @@ export class CreateCourseAreaComponent implements OnInit {
         data: {message: 'Slide Saved'}
       });
 
-    this.courseContent.push(content);
+    this.courseContent.push(content);   // Add a course
   }
-  resetContentFields() {
+  resetContentFields() {     // reset text fields
     this.courseService.selectedSlide = {
       id: 0,
       title: '',
@@ -48,9 +48,9 @@ export class CreateCourseAreaComponent implements OnInit {
 
   addNewSlide() {
     this.id++;
-    this.counter.push(this.id);
+    this.counter.push(this.id); // add new slides
   }
-  removeSlide(slide) {
+  removeSlide(slide) {  // remove slide
     console.log(slide);
     if (this.counter.length === 1) {
       this.dialog.open(RemoveSlideDialogComponent, {
@@ -65,7 +65,7 @@ export class CreateCourseAreaComponent implements OnInit {
       this.courseContent.splice(index, 1);
     }
   }
-  createCourseContent() {
+  createCourseContent() { // create content for course
     this.courseService.selectedCourse.course_contents = this.courseContent;
     localStorage.setItem('slides', JSON.stringify(this.courseContent.length));
   }
