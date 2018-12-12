@@ -36,10 +36,10 @@
 
     <div class="card-footer">
         <div class="progress">
-            <p>{{courses.progress * 100 /courses.course.course_contents.length }}</p>
+            <p class="text-progress">{{courses.progress * 100 /courses.course.course_contents.length }}% completed</p>
         </div>
-        <div class="GetTrained">
-            <button mat-button (click)="gotoView(courses)"> {{courses.progress == 0? "GetTrained" : "Continue"}}
+        <div class="gettrained">
+            <button mat-raised-button class = "gettrained-button" (click)="gotoView(courses)"> {{courses.progress == 0? "GET TRAINED" : "CONTINUE"}}
             </button>
         </div>
     </div>
