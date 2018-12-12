@@ -7,9 +7,9 @@ import { environment } from 'src/environments/environment';
 })
 export class CategoryService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http:HttpClient) {}
 
-  getCategories() {
+  getCategories(){
     return this.http.get(`${environment.apiBaseUrl}/categories`);
   }
 

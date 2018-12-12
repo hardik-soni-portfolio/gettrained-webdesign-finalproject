@@ -1,12 +1,13 @@
+import { CourseService } from './services/course.service';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { PreventAccessService } from './services/prevent-access.service';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatDividerModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatCardModule, MatChipsModule,  MatSelectModule, MatOptionModule, MatTableModule,MatSnackBarModule, MatMenuModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatToolbarModule,MatIconModule, MatDividerModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatCardModule, MatChipsModule,  MatSelectModule, MatOptionModule, MatTableModule,MatSnackBarModule, MatListModule, MatMenuModule, MatDialogModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
@@ -19,9 +20,14 @@ import { QuerylistComponent } from './components/querylist/querylist.component';
 import { AddqueryComponent } from './components/addquery/addquery.component';
 import { ListCategoryComponent } from './components/listCategory/listCategory.component';
 import { CreateCategoryComponent } from './components/createCategory/createCategory.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import {CategoryService} from './services/category.service';
+import { CreateCourseAreaComponent } from './components/create-course-area/create-course-area.component';
+import { CreateContentComponent } from './components/create-content/create-content.component';
 import { CourseCreateComponent } from './components/course-create/course-create.component';
 import { CourseListComponent } from './components/course-list/course-list.component';
+import { RemoveSlideDialogComponent } from './components/remove-slide-dialog/remove-slide-dialog.component';
+// import { ViewCourseComponent } from './components/view-course/view-course.component';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 @NgModule({
   declarations: [
@@ -35,9 +41,13 @@ import { CourseListComponent } from './components/course-list/course-list.compon
     AddqueryComponent,
     CreateCategoryComponent,
     ListCategoryComponent,
+    CreateCourseAreaComponent,
+    CreateContentComponent,
     NavbarComponent,
     CourseCreateComponent,
     CourseListComponent,
+    RemoveSlideDialogComponent,
+    // ViewCourseComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,14 +64,19 @@ import { CourseListComponent } from './components/course-list/course-list.compon
     MatSelectModule,
     MatOptionModule,
     MatTableModule,
-    MatToolbarModule,
     MatSnackBarModule,
+    MatToolbarModule,
     MatDividerModule,
+    MatIconModule,
+    MatListModule,
     ReactiveFormsModule,
     MatMenuModule,
+    MatDialogModule,
+    NgxMatSelectSearchModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [PreventAccessService],
+  entryComponents: [RemoveSlideDialogComponent],
+  providers: [PreventAccessService, CourseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

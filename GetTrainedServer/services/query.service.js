@@ -1,5 +1,6 @@
 let mongoose = require('mongoose'),
-    Query = mongoose.model('Queries');
+    Query = mongoose.model('Queries'),
+    User = mongoose.model('User');
 
     exports.get = function (_id, callback, errCallback) {
         // console.log('query is '+ _id);
@@ -16,14 +17,28 @@ let mongoose = require('mongoose'),
     };
     
     exports.save = function (query, callback, errCallback) {
-        let newQuery = new Query(query);
-        newQuery.save(function (err, query) {
+        let newQuery = new Query(query.value);
+        let temp;
+        let userid = query.user_id;
+        User.findOne({user_id:userid},function(err,user){
             if(err){
-                throwError(err, errCallback, "Error saving query");
+                throwError(err, errCallback, "Error getting user");
                 return;
-            } 
-            callback(query);
-        });
+            }
+        
+            // console.log(user.email);
+            temp=user.first_name+" "+user.last_name;
+            newQuery.query_createdby = temp;
+            newQuery.save(function (err, query) {
+                if(err){
+                    throwError(err, errCallback, "Error saving query");
+                    return;
+                } 
+                console.log(query);
+                callback(query);
+            });
+        })
+        console.log(temp);
     };
 
     exports.display = (req, res) => {
@@ -34,4 +49,4 @@ let mongoose = require('mongoose'),
             }
     
          });
-    }
+}

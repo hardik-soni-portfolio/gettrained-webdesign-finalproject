@@ -1,5 +1,6 @@
+import { CreateCourseAreaComponent } from './../components/create-course-area/create-course-area.component';
 import { PreventAccessService } from './../services/prevent-access.service';
-
+// import { ViewCourseComponent } from './../components/view-course/view-course.component';
 import { ActivateComponent } from '../components/activate/activate.component';
 import { RegisterComponent } from './../components/register/register.component';
 import { UserComponent } from './../components/user/user.component';
@@ -65,16 +66,32 @@ export const appRoutes: Routes = [
     canActivate: [PreventAccessService]
   },
   {
+    path: 'createCourseContent',
+    component: CreateCourseAreaComponent
+  },
+  {
     path: 'courses',
     component: CourseListComponent,
-    pathMatch:'full',
-    canActivate:[PreventAccessService]
+    pathMatch: 'full',
+    canActivate: [PreventAccessService]
   },
   {
     path: 'createCourse',
     component: CourseCreateComponent,
-    pathMatch:'full',
-    canActivate:[PreventAccessService]
+    pathMatch: 'full',
+    canActivate: [PreventAccessService]
   },
+  // {
+  //   path: 'course',
+  //   component: ViewCourseComponent,
+  //   pathMatch: 'full',
+  //   canActivate: [PreventAccessService]
+  // },
+  {
+    path: 'users',
+    component: UserComponent,
+    pathMatch: 'full',
+    canActivate: [PreventAccessService]
+  }
 ];
 
