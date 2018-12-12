@@ -16,6 +16,7 @@ let mongoose = require('mongoose'),
         callback(msg);
     };
     
+    // API to save a new query
     exports.save = function (query, callback, errCallback) {
         let newQuery = new Query(query.value);
         let temp;
@@ -40,7 +41,7 @@ let mongoose = require('mongoose'),
         })
         console.log(temp);
     };
-
+      //API to display a particular query
     exports.display = (req, res) => {
         Query.find(function(err, queries){
             if(err) throw err;
