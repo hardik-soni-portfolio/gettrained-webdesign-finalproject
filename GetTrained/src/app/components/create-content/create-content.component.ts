@@ -30,6 +30,7 @@ export class CreateContentComponent implements OnInit {
   }
   onAddText() {
     this.textContent.push(this.text);
+    this.text = '';
   }
   onRemoveText(content) {
     const index = this.textContent.indexOf(content);
