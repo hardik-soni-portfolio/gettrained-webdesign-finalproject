@@ -13,7 +13,7 @@ import { IfStmt } from '@angular/compiler';
 })
 
 
-export class ViewCourseComponent implements OnInit, AfterViewInit {
+export class ViewCourseComponent implements OnInit {
 
   course_title = 'course title';
   theme: String;
@@ -81,7 +81,7 @@ export class ViewCourseComponent implements OnInit, AfterViewInit {
   constructor(
     private sanitizer: DomSanitizer,
     private userService: UserService,
-    private elementRef: ElementRef
+   
   ) { }
 
   ngOnInit() {
@@ -90,9 +90,6 @@ export class ViewCourseComponent implements OnInit, AfterViewInit {
     // console.log(this.temp);
   }
 
-  ngAfterViewInit() {
-    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'aqua';
- }
 
   dispalyCourse(getCourse: any) {
     this.course = getCourse;
