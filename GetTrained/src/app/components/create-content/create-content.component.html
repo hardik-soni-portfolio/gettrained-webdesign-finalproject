@@ -27,7 +27,7 @@
         <mat-list>
           <mat-list-item *ngFor="let content of textContent">
             <p class="content-list">{{ content }}</p>
-            <button mat-icon-button><mat-icon>remove</mat-icon></button>
+            <button mat-icon-button (click)="onRemoveText(content)"><mat-icon>remove</mat-icon></button>
           </mat-list-item>
         </mat-list>
       </div>
@@ -35,7 +35,7 @@
         <button mat-mini-fab color="primary" (click)="onSaveSlide()">
           <mat-icon>save</mat-icon>
         </button>
-        <button mat-mini-fab color="primary">
+        <button mat-mini-fab color="primary" (click)="onDeleteSlide()">
           <mat-icon>delete</mat-icon>
         </button>
       </div>

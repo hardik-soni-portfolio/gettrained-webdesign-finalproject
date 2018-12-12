@@ -1,7 +1,7 @@
 'use strict';
 const mongoose = require('mongoose'),
     Course = mongoose.model('Courses'),
-    User = mongoose.model('Users');
+    User = mongoose.model('User');
 
 let throwError = function (err, callback, msg) {
     console.log(err);

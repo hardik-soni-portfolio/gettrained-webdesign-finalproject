@@ -1,8 +1,7 @@
 <mat-card-content>
-    <app-create-content (content)="addSlide($event)" *ngFor="let count of counter"></app-create-content>
+    <app-create-content [id]= "id" (content)="addSlide($event)" *ngFor="let id of counter" (slide)="removeSlide($event)"></app-create-content>
     <div id="footer">
         <button mat-raised-button color="primary" (click)="addNewSlide()">ADD NEW SLIDE</button>
-        <button mat-raised-button color="primary" (click)="removeSlide()">REMOVE SLIDE</button>
         <button mat-raised-button color="primary" (click)="createCourseContent()" routerLink="/createCourse">SAVE SLIDES TO COURSE</button>
-    </div> 
+    </div>
 </mat-card-content>

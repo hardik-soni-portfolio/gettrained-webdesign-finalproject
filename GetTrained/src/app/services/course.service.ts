@@ -7,20 +7,14 @@ import { Course } from './../models/course.model';
 
 @Injectable()
 export class CourseService {
+
+
   selectedSlide: Content = {
     title: '',
     content: [],
     image: '',
     video: ''
   };
-
-
-getEnrolledCourses(id){
-  return this.http.get(`${environment.apiBaseUrl}/dashboard/`+id);
-}
-
-  constructor(private http: HttpClient) {
-   }
 
   selectedCourse: Course = {
     course_title: '',
@@ -34,6 +28,12 @@ getEnrolledCourses(id){
     course_created_by: ''
   };
 
+getEnrolledCourses(id) {
+  return this.http.get(`${environment.apiBaseUrl}/dashboard/` + id);
+}
+
+  constructor(private http: HttpClient) {
+   }
   // setSelectedCourse(course: Course) {
   //   this.selectedCourse = course;
   // }
@@ -50,6 +50,10 @@ getEnrolledCourses(id){
   postCourse(course: Course) {
     console.log(course);
     return this.http.post(`${environment.apiBaseUrl}/courses`, course);
+  }
+
+  postImage(data: FormData) {
+    return this.http.post(`${environment.apiBaseUrl}/images`, data);
   }
 
 }
