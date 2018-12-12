@@ -1,8 +1,9 @@
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { RemoveSlideDialogComponent } from './../remove-slide-dialog/remove-slide-dialog.component';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,8 +14,8 @@ export class LoginComponent implements OnInit {
   userService: UserService;
   errorMessage: String;
   showErrorMessage: boolean;
-
-  constructor(userService: UserService, private router: Router) {
+  dialogRef: MatDialogRef<RemoveSlideDialogComponent>;
+  constructor(userService: UserService, private router: Router, public dialog: MatDialog) {
     this.userService = userService;
    }
 
@@ -31,12 +32,12 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/dashboard']);
 
           localStorage.setItem('role', res.role);
-    
-        } else {
 
-          this.errorMessage = res.message;
-          this.showErrorMessage = true;
-          setTimeout(() => this.showErrorMessage = false, 5000);
+        } else {
+          this.dialog.open(RemoveSlideDialogComponent, {
+            width: '250px',
+            data: {message: res.message}
+          });
         }
         this.resetForm(form);
       },

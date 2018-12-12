@@ -28,6 +28,11 @@ export class CreateCourseAreaComponent implements OnInit {
   }
 
   addSlide(content: Content) {
+      this.courseContent.push(content);
+      this.dialog.open(RemoveSlideDialogComponent, {
+        width: '250px',
+        data: {message: 'Slide Saved'}
+      });
 
     this.courseContent.push(content);
   }
@@ -49,7 +54,8 @@ export class CreateCourseAreaComponent implements OnInit {
     console.log(slide);
     if (this.counter.length === 1) {
       this.dialog.open(RemoveSlideDialogComponent, {
-        width: '250px'
+        width: '250px',
+        data: {message: 'This course needs at least one slide.'}
       });
     } else {
       const ind = this.counter.indexOf(slide.id);
