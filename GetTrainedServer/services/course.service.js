@@ -33,11 +33,22 @@ exports.display = (req, res) => {
    });
 }
 
+exports.update = function (course, callback) {
+    let resultCallback = function (err, course) {
+        throwError(err);
+        callback(course);
+    };
+    course.course_modified_date = new Date();
+    Course.findOneAndUpdate({
+        _id: course._id
+    }, course, {
+            new: true
+        }, resultCallback);
+    }
+
 exports.find = (id, res, callback) => {
    //let enrolledCourses = [];
    console.log("I am before error",id);
-
-
    User.findOne({user_id: id}, function(err, user) {
        if(err){
        throw err;
@@ -68,11 +79,12 @@ exports.find = (id, res, callback) => {
 }
 
 exports.displayCourse = function (params, callback, errCallback) {
-   Course.find(params, function (err, course) {
-       if(err){
-           throwError(err, errCallback, "Error finding message");
-           return;
-       }
-       callback(course);
-   });
-};
+
+    Course.find(params, function (err, course) {
+        if(err){
+            throwError(err, errCallback, "Error finding message");
+            return;
+        }
+        callback(course);
+    });
+}
