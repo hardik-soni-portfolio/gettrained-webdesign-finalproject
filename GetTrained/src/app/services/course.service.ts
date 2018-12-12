@@ -15,24 +15,23 @@ export class CourseService {
   };
 
 
-getEnrolledCourses(id){
-  return this.http.get(`${environment.apiBaseUrl}/dashboard/`+id);
-}
 
+
+selectedCourse: Course = {
+  course_title: '',
+  course_description: '',
+  course_category: '',
+  course_learners: [],
+  course_created_date: '',
+  course_modified_date: '',
+  course_contents: [],
+  course_status: '',
+  course_created_by: ''
+};
   constructor(private http: HttpClient) {
    }
 
-  selectedCourse: Course = {
-    course_title: '',
-    course_description: '',
-    course_category: '',
-    course_learners: [],
-    course_created_date: '',
-    course_modified_date: '',
-    course_contents: [],
-    course_status: '',
-    course_created_by: ''
-  };
+
 
   // setSelectedCourse(course: Course) {
   //   this.selectedCourse = course;
@@ -45,6 +44,9 @@ getEnrolledCourses(id){
 
     return this.http.get(`${environment.apiBaseUrl}/courses/?userId=${localStorage.getItem('id')}`);
 
+  }
+  getEnrolledCourses(id) {
+    return this.http.get(`${environment.apiBaseUrl}/dashboard/` + id);
   }
 
   postCourse(course: Course) {
