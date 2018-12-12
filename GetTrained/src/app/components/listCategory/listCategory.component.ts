@@ -24,7 +24,7 @@ export class ListCategoryComponent implements OnInit {
     this.fetchCategories();
   }
 
-  fetchCategories() {
+  fetchCategories() {     // function to fetch categories
     this.categoryService
       .getCategories()
       .subscribe((data: Category[]) => {
@@ -34,7 +34,7 @@ export class ListCategoryComponent implements OnInit {
       });
   }
 
-  deleteCategory(id) {
+  deleteCategory(id) {    // function to delete category by id
     this.categoryService.deleteCategory(id).subscribe(() => {
       this.fetchCategories();
     })

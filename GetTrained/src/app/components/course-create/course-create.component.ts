@@ -41,28 +41,28 @@ export class CourseCreateComponent implements OnInit {
   learners: Learner[];
   
    addContent() {
-     this.router.navigate(['createCourseContent']);
+     this.router.navigate(['createCourseContent']); // add navigation to add content 
   }
-   onSubmit(form: NgForm) {
+   onSubmit(form: NgForm) { // form to create course
     form.value.course_created_by = localStorage.getItem('id');
     form.value.course_contents = this.courseService.selectedCourse.course_contents;
     this.courseService.postCourse(form.value).subscribe(
       res => {
         this.showSuccessMessage = true;
-        setTimeout(() => this.showSuccessMessage = false, 4000);
+        setTimeout(() => this.showSuccessMessage = false, 4000);  // success message
         this.resetForm(form);
       },
       err => {
         if (err.status === 422) {
           this.serverErrorMessage = err.error.join('<br/>');
         } else {
-          this.serverErrorMessage = 'Error occured while submitting the form';
+          this.serverErrorMessage = 'Error occured while submitting the form';// error message
         }
       }
     );
   }
 
-  resetForm(form: NgForm) {
+  resetForm(form: NgForm) { // function to reset the form to initial state
     this.courseService.selectedCourse = {
       course_title: '',
       course_description: '',
@@ -78,7 +78,7 @@ export class CourseCreateComponent implements OnInit {
     this.serverErrorMessage = '';
   }
 
-  fetchCategories() {
+  fetchCategories() {   // function to make a request to get categories from backend 
     this.categoryService
       .getCategories()
       .subscribe((data: Category[]) => {
@@ -88,7 +88,7 @@ export class CourseCreateComponent implements OnInit {
       });
   }
 
-  fetchUsers() {
+  fetchUsers() {    // fetch the users from the backend
     this.userService
       .getUsers()
       .subscribe((data: User[]) => {
