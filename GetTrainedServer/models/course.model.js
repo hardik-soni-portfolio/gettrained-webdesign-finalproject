@@ -30,7 +30,19 @@ let courseSchema = new mongoose.Schema({
         type: String,
     },
     course_contents: [{
-        type: String,
+        title: {
+            type: String,
+            required: true
+        },
+        content: [{
+            type: String
+        }],
+        image: {
+            type: String
+        },
+        video: {
+            type: Object
+        }
     }],
 });
 

@@ -1,12 +1,5 @@
 const mongoose = require('mongoose');
 
-// mongoose.connect('mongodb://localhost:27017/GetTrained', (err) => {
-//     if(!err){ console.log('MongoDB connection succeeded.'); }
-//     else { console.log('Error in MongoDB connection : ' + JSON.stringify(err, undefined, 2)); }
-// });
-
-// const bcrypt = require('bcryptjs');
-
 var querySchema = new mongoose.Schema({
     query_title:{
         type: String,
@@ -21,8 +14,7 @@ var querySchema = new mongoose.Schema({
         required: 'Query type cannot be empty'
     },
     query_createdby:{
-        type: String,
-        default: 'Bhargavi'
+        type: String
     }
 });
 
