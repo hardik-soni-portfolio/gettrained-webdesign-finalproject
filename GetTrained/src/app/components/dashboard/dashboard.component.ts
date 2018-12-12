@@ -42,8 +42,9 @@ ngOnInit() {
   );
 }
 
-  gotoView(id) {
-    this.router.navigate(['dashboard/'+id]);
+  gotoView(course) {
+    localStorage.setItem('course', JSON.stringify(course));
+    this.router.navigate(['dashboard/'+ course.course._id]);
   }
 
 }
