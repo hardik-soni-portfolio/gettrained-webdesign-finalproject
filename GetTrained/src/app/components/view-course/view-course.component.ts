@@ -37,6 +37,7 @@ export class ViewCourseComponent implements OnInit {
   constructor(
     private sanitizer: DomSanitizer,
     private userService: UserService,
+
   ) { }
 
   ngOnInit() {
