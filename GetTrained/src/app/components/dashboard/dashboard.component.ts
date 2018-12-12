@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from '../../services/course.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -12,7 +12,7 @@ import { CourseService } from '../../services/course.service';
 })
 export class DashboardComponent implements OnInit {
   enrolledCourses: any[];
-  constructor(private courseService: CourseService) { }
+  constructor(private courseService: CourseService, private router: Router) { }
 
 //   ngOnInit() {
 //     this.courseService.getEnrolledCourses(localStorage.getItem('id')).subscribe(
@@ -40,6 +40,10 @@ ngOnInit() {
 
     }
   );
+}
+
+gotoView(id) {
+  this.router.navigate(['dashboard/'+id]);
 }
 
 }

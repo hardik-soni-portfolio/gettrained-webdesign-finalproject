@@ -87,7 +87,7 @@ export const appRoutes: Routes = [
     component: CourseCreateComponent,
     pathMatch:'full',
     canActivate:[PreventAccessService]
-  },
+  }
 
 ];
 
