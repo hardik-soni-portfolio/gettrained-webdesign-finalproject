@@ -28,6 +28,7 @@ import { CourseListComponent } from './components/course-list/course-list.compon
 import { RemoveSlideDialogComponent } from './components/remove-slide-dialog/remove-slide-dialog.component';
 import { ViewCourseComponent } from './components/view-course/view-course.component';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { QuizComponent } from './components/quiz/quiz.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     CourseListComponent,
     RemoveSlideDialogComponent,
     ViewCourseComponent,
+    QuizComponent,
   ],
   imports: [
     BrowserModule,
