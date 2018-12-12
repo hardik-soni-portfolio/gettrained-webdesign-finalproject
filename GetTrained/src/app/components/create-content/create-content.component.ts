@@ -4,6 +4,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Form, NgForm } from '@angular/forms';
 import { CourseService } from 'src/app/services/course.service';
 
+
 @Component({
   selector: 'app-create-content',
   templateUrl: './create-content.component.html',
@@ -18,7 +19,7 @@ export class CreateContentComponent implements OnInit {
   title: String;
   constructor() {
     this.slide_content = new Content();
-   }
+  }
 
   ngOnInit() {
     this.textContent = [];

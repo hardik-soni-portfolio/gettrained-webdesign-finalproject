@@ -1,7 +1,6 @@
 'use strict';
 const mongoose = require('mongoose'),
-    Course = mongoose.model('Courses'),
-    User = mongoose.model('User');
+    Course = mongoose.model('Courses');
 
 let throwError = function (err, callback, msg) {
     console.log(err);
@@ -27,6 +26,18 @@ exports.display = (req, res) => {
         else {
             res.json(courses);
         }
-
     });
 }
+
+exports.update = function (course, callback) {
+    let resultCallback = function (err, course) {
+        throwError(err);
+        callback(course);
+    };
+    course.course_modified_date = new Date();
+    Course.findOneAndUpdate({
+        _id: course._id
+    }, course, {
+            new: true
+        }, resultCallback);
+};
