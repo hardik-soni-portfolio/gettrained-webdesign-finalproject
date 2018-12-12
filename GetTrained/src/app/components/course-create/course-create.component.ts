@@ -27,7 +27,6 @@ export class CourseCreateComponent implements OnInit {
   serverErrorMessage: string;
   req: any;
   course: Course;
-  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
   courseService: CourseService;
   constructor(courseService: CourseService, private categoryService: CategoryService, private userService: UserService,private router: Router) {
@@ -61,21 +60,6 @@ export class CourseCreateComponent implements OnInit {
         }
       }
     );
-  }
-
-  add(event: MatChipInputEvent): void {
-    const input = event.input;
-    const value = event.value;
-
-    // Add email
-    if ((value || '').trim()) {
-      this.learners.push({ name: value.trim() });
-    }
-
-    // Reset the input value
-    if (input) {
-      input.value = '';
-    }
   }
 
   resetForm(form: NgForm) {

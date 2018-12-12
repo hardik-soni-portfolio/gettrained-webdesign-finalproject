@@ -56,9 +56,9 @@ var userSchema = new mongoose.Schema({
                 type: Number
             },
             lastSlideIndex: {
-                 type:Number
+                type: Number
             }
-    }]
+        }]
 });
 
 //Validation for email on back end.
