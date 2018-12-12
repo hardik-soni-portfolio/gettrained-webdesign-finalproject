@@ -46,14 +46,20 @@ exports.find = (id, res, callback) => {
         }
         let courses = user.courses_enrolled;
         const size = courses.length;
-        let counter =0; 
-        let enrolled_courses = [];
+        let counter =0;
+        let enrolled_courses =[];
         courses.forEach(element => {
+            let userCourse = {
+                'progress': element.progress,
+                'lastSlideIndex': element.lastSlideIndex
+            }
             Course.findById( element.course_id, (err, course) => {
                 if(err)throw err;
                 else{
-                    enrolled_courses.push(course);
+                    userCourse.course = course;
+                    enrolled_courses.push(userCourse);
                     if(counter===(size-1)){
+                        console.log("this is bhargavi"+ enrolled_courses);
                         res.json(enrolled_courses);
                     }
                     counter++;

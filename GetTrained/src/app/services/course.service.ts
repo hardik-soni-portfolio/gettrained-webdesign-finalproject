@@ -14,12 +14,11 @@ export class CourseService {
 
 
 
-getEnrolledCourses(){
-  return this.http.get(`${environment.apiBaseUrl}/dashboard/`+ this.id);
+getEnrolledCourses(id){
+  return this.http.get(`${environment.apiBaseUrl}/dashboard/`+id);
 }
 
   constructor(private http: HttpClient) {
-    this.id = localStorage.getItem('id');
    }
 
   selectedCourse: Course = {
