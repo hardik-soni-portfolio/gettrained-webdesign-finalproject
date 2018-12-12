@@ -25,8 +25,9 @@ import { CreateCourseAreaComponent } from './components/create-course-area/creat
 import { CreateContentComponent } from './components/create-content/create-content.component';
 import { CourseCreateComponent } from './components/course-create/course-create.component';
 import { CourseListComponent } from './components/course-list/course-list.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RemoveSlideDialogComponent } from './components/remove-slide-dialog/remove-slide-dialog.component';
-// import { ViewCourseComponent } from './components/view-course/view-course.component';
+import { ViewCourseComponent } from './components/view-course/view-course.component';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 @NgModule({
@@ -46,8 +47,9 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     NavbarComponent,
     CourseCreateComponent,
     CourseListComponent,
+    DashboardComponent,
     RemoveSlideDialogComponent,
-    // ViewCourseComponent,
+    ViewCourseComponent,
   ],
   imports: [
     BrowserModule,
