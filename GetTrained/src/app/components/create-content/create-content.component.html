@@ -1,38 +1,44 @@
 <mat-card-content>
-  <form #slideContent = "ngForm" class="myForm">
-    <div>
-      <mat-form-field>
-        <mat-label>Title:</mat-label>
-        <input matInput #slide_title="ngModel" [(ngModel)]="title" name="slide_title"
-        required [ngClass]="{'invalid-textbox': slideContent.submitted && !slide_title.valid}">
-      </mat-form-field>
+  <form #slideContent="ngForm" class="myForm">
+
+    <div class="slide-content-container">
+      <div class="left-column">
+        <mat-form-field class="left-column-input">
+          <mat-label>TITLE</mat-label>
+          <input matInput #slide_title="ngModel" [(ngModel)]="title" name="slide_title" required [ngClass]="{'invalid-textbox': slideContent.submitted && !slide_title.valid}">
+        </mat-form-field>
+        <br>
+        <input type="file" (change)="onFileSelected($event)" accept="image/*" #inputImg hidden>
+        <button mat-stroked-button (click)="inputImg.click()">SELECT IMAGE</button>
+        <br>
+        <mat-form-field class="left-column-input">
+          <mat-label>VIDEO URL</mat-label>
+          <input matInput #slide_video="ngModel" [(ngModel)]="video" name="slide_video">
+        </mat-form-field>
+      </div>
+      <div class="right-column">
+        <mat-form-field class="right-column-input">
+          <mat-label>CONTENT</mat-label>
+          <input matInput #slide_content="ngModel" [(ngModel)]="text" name="slide_content">
+        </mat-form-field>
+        <button mat-icon-button color="primary" (click)="onAddText()"><mat-icon>add</mat-icon></button>
+        <!--<button mat-raised-button color="primary" (click)="onRemoveText()">Remove</button>-->
+        <br>
+        <mat-list>
+          <mat-list-item *ngFor="let content of textContent">
+            <p class="content-list">{{ content }}</p>
+            <button mat-icon-button><mat-icon>remove</mat-icon></button>
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <div>
+        <button mat-mini-fab color="primary" (click)="onSaveSlide()">
+          <mat-icon>save</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
     </div>
-    <div>
-      <mat-form-field>
-        <mat-label>Content:</mat-label>
-        <input matInput #slide_content="ngModel" [(ngModel)]="text" name="slide_content">
-      </mat-form-field>
-      <button mat-raised-button color="primary" (click)="onAddText()">Add</button>
-      <button mat-raised-button color="primary" (click)="onRemoveText()">Remove</button>
-    </div>
-    <div>
-      <mat-list>
-        <mat-list-item *ngFor="let content of textContent">
-          <h4>{{ content }}</h4>
-        </mat-list-item>
-      </mat-list>
-    </div>
-    <div>
-      <input type="file" (change)="onFileSelected($event)" accept="image/*" #inputImg hidden>
-      <button mat-raised-button color="primary" (click)="inputImg.click()">Add Image</button>
-    </div>
-    <div>
-      <mat-form-field>
-        <mat-label>Video:</mat-label>
-        <input matInput #slide_video="ngModel" [(ngModel)]="video" name="slide_video">
-      </mat-form-field>
-    </div>
-    <button mat-raised-button color="primary" (click)="onSaveSlide()">Save Slide</button>
-    <button mat-raised-button color="primary" (click)="removeSlide()">Remove Slide</button><br/><br/>
   </form>
 </mat-card-content>
