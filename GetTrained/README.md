@@ -1,29 +1,21 @@
 # GetTrained
 
+Welcome to **GetTrained...**  
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
+*The application is mainly about training people by creating courses and sharing them to get them trained.*
 
+**Steps to run this project**    
 
-## Development server
+1. Open the terminal and copy and paste the link
+        **git clone -repo_link-**   
+2. You will get a two folders named   
+        **i. GetTrained -- Angular Client**  
+        **ii. GetTrainedServer -- nodeJS Server**  
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+3. Now to start client go to **GetTrained** using **cd GetTrained** and run the following command  
+        *1.npm install*  
+        *2. ng serve --open*    
+        
+***The client starts in the localhost port 4200.***
+        
+**You can open http://localhost:4200 to access the application**
