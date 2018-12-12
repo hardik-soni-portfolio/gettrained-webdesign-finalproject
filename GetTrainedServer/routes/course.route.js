@@ -4,6 +4,8 @@ module.exports = (app) => {
     app.route('/courses')
     .post(courseController.post)
     .get(courseController.display);
+    app.route('/courses/:id')
+    .put(courseController.put);
     
     app.route('/dashboard/:id')
     .get(courseController.find);

@@ -15,7 +15,27 @@ exports.save = function (course, callback, errCallback) {
            throwError(err, errCallback, "Error saving course");
            return;
        }
-       callback(course);
+       //callback(course);
+       else {
+           let learners = course.course_learners;
+           learners.forEach(element => {
+               User.findOne({email: element}, (err, user) => {
+                   if(err) throw err;
+                   else {
+                    let userCourse = {
+                        'progress': 0,
+                        'lastSlideIndex': 0,
+                        'score': 0,
+                        'course_id': course._id
+                    };
+                    user.courses_enrolled.push(userCourse);
+                    user.save((err, user) => {
+                        if(err) throw err;
+                    })
+                   }
+               })
+           })
+       }
    });
 };
 
