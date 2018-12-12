@@ -1,6 +1,7 @@
 'use strict';
 const mongoose = require('mongoose'),
-    Course = mongoose.model('Courses');
+    Course = mongoose.model('Courses'),
+    User = mongoose.model('User');
 
 let throwError = function (err, callback, msg) {
     console.log(err);
@@ -53,19 +54,6 @@ exports.display = (req, res) => {
     });
 }
 
-exports.update = function (course, callback) {
-    let resultCallback = function (err, course) {
-        throwError(err);
-        callback(course);
-    };
-    course.course_modified_date = new Date();
-    Course.findOneAndUpdate({
-        _id: course._id
-    }, course, {
-            new: true
-        }, resultCallback);
-
-
 exports.find = (id, res, callback) => {
     //let enrolledCourses = [];
     console.log("I am before error",id);
@@ -107,4 +95,4 @@ exports.displayCourse = function (params, callback, errCallback) {
         }
         callback(course);
     });
-};
+}
