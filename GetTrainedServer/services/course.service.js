@@ -36,9 +36,9 @@ exports.display = (req, res) => {
 
 
 exports.find = (id, res, callback) => {
-    //let enrolledCourses = [];
     console.log("I am before error",id);
  
+   //retrieving the enrolled courses as array of objects against userID
    
     User.findOne({user_id: id}, function(err, user) {
         if(err){
@@ -49,7 +49,7 @@ exports.find = (id, res, callback) => {
         let counter =0;
         let enrolled_courses =[];
         courses.forEach(element => {
-            let userCourse = {
+            let userCourse = { //retrieving progress and last index of slide with courses
                 'progress': element.progress,
                 'lastSlideIndex': element.lastSlideIndex
             }
@@ -57,7 +57,7 @@ exports.find = (id, res, callback) => {
                 if(err)throw err;
                 else{
                     userCourse.course = course;
-                    enrolled_courses.push(userCourse);
+                    enrolled_courses.push(userCourse); //pushing each course in the enrolledCourses array that a user is enrolled for
                     if(counter===(size-1)){
                         console.log("this is bhargavi"+ enrolled_courses);
                         res.json(enrolled_courses);

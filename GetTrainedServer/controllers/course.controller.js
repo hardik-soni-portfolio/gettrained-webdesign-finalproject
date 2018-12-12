@@ -22,7 +22,7 @@ exports.displayCourse = (req, res, err) => {
     courseService.displayCourse(req, res);
 }
 
-exports.find = (req, res, err) => {
+exports.find = (req, res, err) => { 
     let id = req.params.id;
     courseService.find(id, res);
 
