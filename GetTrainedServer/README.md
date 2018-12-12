@@ -12,10 +12,8 @@ Welcome to **GetTrained...**
         **i. GetTrained -- Angular Client**  
         **ii. GetTrainedServer -- nodeJS Server**  
 
-3. Now to start client go to **GetTrained** using **cd GetTrained** and run the following command  
-        *1.npm install*  
-        *2. ng serve --open*    
+3. Now inorder to start the application change the directory to **GetTrainedServer** using **cd GetTrainedServer** and run the following command  
+        **1. npm install**  
+        **2. npm start**  
         
-***The client starts in the localhost port 4200.***
-        
-**You can open http://localhost:4200 to access the application**
+***The server starts in the localhost port 3003.***

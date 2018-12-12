@@ -14,14 +14,21 @@ export class CreateCourseAreaComponent implements OnInit {
   @Output() content = new EventEmitter<Array<Content>>();
   @Output() numberOfSlides = new EventEmitter<number>();
   courseContent: Array<Content> = [];
-  counter: Array<Number> = [1];
+  counter: Array<Number> = [];
+  slide: Content;
+  id: number;
   constructor(private courseService: CourseService, public dialog: MatDialog ) {
+    this.id = 0;
    }
 
   ngOnInit() {
+    this.counter.push(this.id);
+    // const newSlide = new Content();
+    // this.courseContent.push(newSlide);
   }
 
   addSlide(content: Content) {
+
     this.courseContent.push(content);
   }
   resetContentFields() {
@@ -33,18 +40,23 @@ export class CreateCourseAreaComponent implements OnInit {
       video: ''
     };
   }
+
   addNewSlide() {
-    this.counter.push(1);
-    this.resetContentFields();
+    this.id++;
+    this.counter.push(this.id);
   }
-  removeSlide() {
+  removeSlide(slide) {
+    console.log(slide);
     if (this.counter.length === 1) {
       this.dialog.open(RemoveSlideDialogComponent, {
         width: '250px'
       });
     } else {
-      this.counter.pop();
-      this.courseContent.pop();
+      const ind = this.counter.indexOf(slide.id);
+      this.counter.splice(ind, 1);
+      const index = this.courseContent.indexOf(slide);
+      console.log(index);
+      this.courseContent.splice(index, 1);
     }
   }
   createCourseContent() {

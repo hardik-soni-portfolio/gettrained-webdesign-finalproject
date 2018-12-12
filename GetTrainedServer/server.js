@@ -15,8 +15,11 @@ mongoose.Promise = global.Promise;
 let app = express();
 app.use(bodyParser.json());
 
+var busboy = require('connect-busboy');    
+app.use(busboy());
 //Enabling CORS
 app.use(cors());
+app.use(express.static(__dirname + '/public'));
 
 let initApp = require('./app');
 initApp(app);
