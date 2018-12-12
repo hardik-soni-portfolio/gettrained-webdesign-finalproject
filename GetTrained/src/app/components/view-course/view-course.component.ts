@@ -37,6 +37,7 @@ export class ViewCourseComponent implements OnInit {
   constructor(
     private sanitizer: DomSanitizer,
     private userService: UserService,
+
   ) { }
 
   ngOnInit() {
@@ -45,7 +46,9 @@ export class ViewCourseComponent implements OnInit {
     this.check_type(this.contents[this.current_page]);
   }
 
-
+  getImageURL(image){
+    return "http://localhost:3003/"+image;
+  }
 
   getEmbedURL(video) {
     if (video === '') {
@@ -133,6 +136,7 @@ export class ViewCourseComponent implements OnInit {
         console.log(slide.video);
         this.videoflag = true;
       }
+      console.log("video"+this.videoflag+"text"+this.textflag+"image"+this.imageflag);
     this.assign_layout(this.textflag, this.imageflag, this.videoflag);
   }
 

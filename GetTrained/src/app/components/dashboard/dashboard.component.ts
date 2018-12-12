@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   enrolledCourses: any[];
+  contentLenght;
+  continue;
   constructor(private courseService: CourseService, private router: Router) { }
 
 //   ngOnInit() {
@@ -33,6 +35,7 @@ ngOnInit() {
   this.courseService.getEnrolledCourses(localStorage.getItem('id')).subscribe(
     (data:any[]) => {
       this.enrolledCourses = data;
+      //this.contentLenght = this.enrolledCourses.contents.length;
       console.log(this.enrolledCourses);
       console.log("In ts of front end",this.enrolledCourses);
     },
