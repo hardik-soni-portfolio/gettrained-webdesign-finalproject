@@ -6,8 +6,8 @@
       <p>{{course_description}}</p>
     </section>
   </div>
-  
-  
+
+
   <div class="slides">
     <div class="text-div">
       <div class="title">{{contents[current_page].title}}</div>
@@ -15,12 +15,12 @@
         <li *ngFor="let  textcontent of contents[current_page].content">{{textcontent}}</li>
       </div>
     </div>
-  
+
     <div class="multimedia-div">
       <div id="image" *ngIf="imageflag">
-        <img [src]=contents[current_page].image>
+        <img [src]="getImageURL(contents[current_page].image)">
       </div>
-  
+
       <div id="video" *ngIf="videoflag">
         <iframe [src]="getEmbedURL(contents[current_page].video)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>

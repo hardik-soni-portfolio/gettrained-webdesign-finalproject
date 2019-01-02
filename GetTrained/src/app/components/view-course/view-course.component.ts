@@ -46,7 +46,9 @@ export class ViewCourseComponent implements OnInit {
     this.check_type(this.contents[this.current_page]);
   }
 
-
+  getImageURL(image) {
+    return 'http://localhost:3003/' + image;
+  }
 
   getEmbedURL(video) {
     if (video === '') {
