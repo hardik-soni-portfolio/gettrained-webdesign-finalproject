@@ -1,4 +1,4 @@
-<!-- <mat-card class="card"  *ngFor="let courses of enrolledCourses"> 
+<!-- <mat-card class="card"  *ngFor="let courses of enrolledCourses">
   <mat-card-header>
       <img mat-card-avatar>
   </mat-card-header>
@@ -19,8 +19,9 @@
 <div>
 
 </div> -->
-
-
+<div *ngIf="! enrolledCourses">
+  <h1>{{ noCourseMessage }}</h1>
+</div>
 <div class="card" *ngFor="let courses of enrolledCourses">
     <div class="card-header">
         <div id="title">
@@ -43,5 +44,5 @@
             </button>
         </div>
     </div>
-    
+
 </div>
