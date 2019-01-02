@@ -39,4 +39,7 @@ export class NavbarComponent implements OnInit {
   viewCourse() {
     this.router.navigate(['course']);
   }
+  gotoDashboard(){
+    this.router.navigate(['dashboard']);
+  }
 }
