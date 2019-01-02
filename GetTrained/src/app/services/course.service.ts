@@ -31,20 +31,20 @@ export class CourseService {
   constructor(private http: HttpClient) {
   }
   
-  //
+  // return list of all courses
   getCourses() {
     return this.http.get(`${environment.apiBaseUrl}/courses/?userId=${localStorage.getItem('id')}`);
   }
-
+  //return list of all courses user is enrolled in
   getEnrolledCourses(id) {
     return this.http.get(`${environment.apiBaseUrl}/dashboard/` + id);
   }
-
+  //post a new course
   postCourse(course: Course) {
     console.log(course);
     return this.http.post(`${environment.apiBaseUrl}/courses`, course);
   }
-
+  //post a new image for a slide
   postImage(data: FormData) {
     return this.http.post(`${environment.apiBaseUrl}/images`, data);
   }

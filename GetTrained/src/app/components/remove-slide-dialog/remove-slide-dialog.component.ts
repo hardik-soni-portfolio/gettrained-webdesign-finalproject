@@ -17,7 +17,7 @@ export class RemoveSlideDialogComponent implements OnInit {
   ngOnInit() {
   }
   onNoClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(); // remove a dialog component
   }
 
 }

@@ -28,15 +28,15 @@ export class CreateContentComponent implements OnInit {
     console.log(this.id);
     this.slide_content.id = this.id;
   }
-  onAddText() {
+  onAddText() {   // function to add text 
     this.textContent.push(this.text);
     this.text = '';
   }
-  onRemoveText(content) {
+  onRemoveText(content) {   // function to remove text
     const index = this.textContent.indexOf(content);
     this.textContent.splice(index, 1);
   }
-  onFileSelected(event) {
+  onFileSelected(event) { // function to upload a image
     console.log(event);
     const image = event.target.files[0];
     const data = new FormData();
@@ -49,10 +49,10 @@ export class CreateContentComponent implements OnInit {
     );
   }
 
-  onDeleteSlide() {
+  onDeleteSlide() { // function to delete a slide
     this.slide.emit(this.slide_content);
   }
-  onSaveSlide() {
+  onSaveSlide() { // function to save slide
     let video = urlParser.parse(this.video);
     if (video === undefined) {
       video = '';

@@ -17,10 +17,10 @@ export class ActivateComponent implements OnInit {
     this.userService = userService;
   }
 
-  ngOnInit() {
+  ngOnInit() { // a token is generated and mapped
     this.token = this.route.snapshot.paramMap.get('token');
     console.log(this.token);
-    this.userService.activate(this.token).subscribe(( data: any ) => {
+    this.userService.activate(this.token).subscribe(( data: any ) => { // check activation
       if ( data.success ) {
         this.successMessage = data.message;
       } else {

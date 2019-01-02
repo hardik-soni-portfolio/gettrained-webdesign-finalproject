@@ -17,7 +17,7 @@ export class CourseListComponent implements OnInit {
     this.fetchCourses();
   }
 
-  fetchCourses(){
+  fetchCourses(){   // fetch the courses
     this.courseService
       .getCourses()
       .subscribe((data: Course[]) => {
