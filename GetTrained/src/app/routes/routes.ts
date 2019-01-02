@@ -8,7 +8,7 @@ import { Routes, CanActivate } from '@angular/router';
 import { AppComponent } from './../app.component';
 import { LoginComponent } from '../components/login/login.component';
 import { AddqueryComponent } from './../components/addquery/addquery.component';
-import { QueryComponent } from './../components/query/query.component';
+// import { QueryComponent } from './../components/query/query.component';
 import { QuerylistComponent } from './../components/querylist/querylist.component';
 import { ListCategoryComponent } from './../components/listCategory/listCategory.component';
 import { CreateCategoryComponent } from './../components/createCategory/createCategory.component';
@@ -31,12 +31,12 @@ export const appRoutes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'login', 
+    path: 'login',
     component: LoginComponent
   },
   {
-    path: 'home', 
-    component: AppComponent, 
+    path: 'home',
+    component: AppComponent,
     canActivate: [PreventAccessService]
   },
   {
@@ -54,12 +54,12 @@ export const appRoutes: Routes = [
     pathMatch: 'full',
     canActivate: [PreventAccessService]
   },
-  {
-    path: 'query/:id',
-    component: QueryComponent,
-    pathMatch: 'full',
-    canActivate: [PreventAccessService]
-  },
+  // {
+  //   path: 'query/:id',
+  //   component: QueryComponent,
+  //   pathMatch: 'full',
+  //   canActivate: [PreventAccessService]
+  // },
   {
     path: 'createCategory',
     component: CreateCategoryComponent,

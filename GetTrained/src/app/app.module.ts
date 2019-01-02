@@ -4,7 +4,7 @@ import { PreventAccessService } from './services/prevent-access.service';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatToolbarModule, MatDividerModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatCardModule, MatChipsModule,  MatSelectModule, MatOptionModule, MatTableModule,MatSnackBarModule, MatListModule, MatMenuModule, MatDialogModule, MatProgressSpinner, MatProgressSpinnerModule } from '@angular/material';
+import { MatButtonModule, MatToolbarModule, MatDividerModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatCardModule, MatIconModule, MatChipsModule,  MatSelectModule, MatOptionModule, MatTableModule,MatSnackBarModule, MatListModule, MatMenuModule, MatDialogModule, MatProgressSpinner, MatProgressSpinnerModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,7 +15,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { appRoutes } from './routes/routes';
 import { ActivateComponent } from './components/activate/activate.component';
 import { LoginComponent } from './components/login/login.component';
-import { QueryComponent } from './components/query/query.component';
+// import { QueryComponent } from './components/query/query.component';
 import { QuerylistComponent } from './components/querylist/querylist.component';
 import { AddqueryComponent } from './components/addquery/addquery.component';
 import { ListCategoryComponent } from './components/listCategory/listCategory.component';
@@ -37,7 +37,7 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     RegisterComponent,
     ActivateComponent,
     LoginComponent,
-    QueryComponent,
+    // QueryComponent,
     QuerylistComponent,
     AddqueryComponent,
     CreateCategoryComponent,
@@ -69,6 +69,7 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     MatSnackBarModule,
     MatToolbarModule,
     MatDividerModule,
+    MatIconModule,
     MatListModule,
     ReactiveFormsModule,
     MatMenuModule,

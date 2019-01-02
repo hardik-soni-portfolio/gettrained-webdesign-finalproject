@@ -7,37 +7,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.scss']
   // template: `
   //   <h1>{{enrolledCourses}}</h1>
-   
-    
+
+
 })
 export class DashboardComponent implements OnInit {
   enrolledCourses: any[];
   contentLenght;
   continue;
-  constructor(private courseService: CourseService, private router: Router) { }
+  noCourseMessage: String;
+  constructor(private courseService: CourseService, private router: Router) {
+    this.noCourseMessage = 'You are not enrolled in any courses. Maybe create one!!';
+   }
 
-//   ngOnInit() {
-//     this.courseService.getEnrolledCourses(localStorage.getItem('id')).subscribe(
-//       (res:any) => {
-//         this.enrolledCourses = res.body;
-//         console.log(this.enrolledCourses);
-//         console.log("In ts of front end",this.enrolledCourses);
-//       },
-//       err => {
 
-//       }
-//     );
-//   }
-
-// }
-
-ngOnInit() {
+ngOnInit() {  // get enrolled courses
   this.courseService.getEnrolledCourses(localStorage.getItem('id')).subscribe(
-    (data:any[]) => {
+    (data: any[]) => {
       this.enrolledCourses = data;
-      this.contentLenght = this.enrolledCourses.contents.length;
       console.log(this.enrolledCourses);
-      console.log("In ts of front end",this.enrolledCourses);
+      console.log('In ts of front end', this.enrolledCourses);
     },
     err => {
 
@@ -45,9 +33,9 @@ ngOnInit() {
   );
 }
 
-  gotoView(course) {
+  gotoView(course) {  // navigate to course
     localStorage.setItem('course', JSON.stringify(course));
-    this.router.navigate(['dashboard/'+ course.course._id]);
+    this.router.navigate(['dashboard/' + course.course._id]);
   }
 
 }

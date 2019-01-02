@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class PreventAccessService implements CanActivate {
 
   constructor(private router: Router) { }
-
+  //prevent access for routing without login
   canActivate() {
     if (localStorage.getItem('id')) {
       return true;

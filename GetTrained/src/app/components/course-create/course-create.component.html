@@ -41,7 +41,6 @@
         <mat-form-field class="full-width-fields">
           <mat-select #course_learners="ngModel" placeholder="Select Users" name="course_learners" [(ngModel)]="courseService.selectedCourse.course_learners"
             required multiple>
-            <ngx-mat-select-search></ngx-mat-select-search>
             <mat-option *ngFor="let user of users" [value]="user.email">{{user.first_name}} {{user.last_name}} - {{user.email}}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -49,11 +48,10 @@
     </div>
     <mat-divider></mat-divider>
     <button mat-raised-button color="primary" class="course-buttons" (click)="addContent()">ADD CONTENT</button>
-    <div></div>
+    <div *ngIf="num!==0 && num!==null">You have created {{ num }} slides</div>
     <br>
     <mat-divider></mat-divider>
     <br>
-    <button mat-raised-button class="course-buttons" type="submit">SAVE COURSE</button>
     <button mat-raised-button class="course-buttons" type="submit">PUBLISH COURSE</button>
   </form>
 </mat-card-content>

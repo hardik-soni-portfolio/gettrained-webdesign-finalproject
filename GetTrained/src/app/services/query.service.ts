@@ -32,11 +32,12 @@ export class QueryService {
 
   //   return this.http.post(`${environment.apiBaseUrl}/queries`, query);
   // }
+  //post new query
   postQuery(req: any) {
 
     return this.http.post(`${environment.apiBaseUrl}/queries`, req);
   }
-
+  //get all queries 
   getQueries() {
     return this.http.get(`${environment.apiBaseUrl}/queries`);
     // return this.http.get(environment.apiBaseUrl + '/queries');

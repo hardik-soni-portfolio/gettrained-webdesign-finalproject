@@ -7,20 +7,14 @@ import { Course } from './../models/course.model';
 
 @Injectable()
 export class CourseService {
+
   selectedSlide: Content = {
+    id: 0,
     title: '',
     content: [],
     image: '',
     video: ''
   };
-
-
-getEnrolledCourses(id){
-  return this.http.get(`${environment.apiBaseUrl}/dashboard/`+id);
-}
-
-  constructor(private http: HttpClient) {
-   }
 
   selectedCourse: Course = {
     course_title: '',
@@ -34,22 +28,25 @@ getEnrolledCourses(id){
     course_created_by: ''
   };
 
-  // setSelectedCourse(course: Course) {
-  //   this.selectedCourse = course;
-  // }
-
-  // getSelectedCourse(): Course {
-  //   return this.selectedCourse;
-  // }
-  getCourses() {
-
-    return this.http.get(`${environment.apiBaseUrl}/courses/?userId=${localStorage.getItem('id')}`);
-
+  constructor(private http: HttpClient) {
   }
-
+  
+  // return list of all courses
+  getCourses() {
+    return this.http.get(`${environment.apiBaseUrl}/courses/?userId=${localStorage.getItem('id')}`);
+  }
+  //return list of all courses user is enrolled in
+  getEnrolledCourses(id) {
+    return this.http.get(`${environment.apiBaseUrl}/dashboard/` + id);
+  }
+  //post a new course
   postCourse(course: Course) {
     console.log(course);
     return this.http.post(`${environment.apiBaseUrl}/courses`, course);
+  }
+  //post a new image for a slide
+  postImage(data: FormData) {
+    return this.http.post(`${environment.apiBaseUrl}/images`, data);
   }
 
 }

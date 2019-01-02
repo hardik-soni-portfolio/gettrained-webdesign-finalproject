@@ -23,19 +23,20 @@ exports.save = function (user, res, callback) {
     newUser.temporary_token = jwt.sign({ username: user.first_name + user.last_name, email: user.email }, secret, { expiresIn: '24h' }); //generate the temporary token and store.
     newUser.save(resultCallback);
 };
-   // API for login function 
+
+    // API for login function
     exports.login = function (user, res){
         User.findOne({ email: user.email}, function(err, dbUser){
             if(err) throw err;
-            if(!dbUser){  // checking if the user exists in the database
+            if(!dbUser){ // checking if the user exists
                 console.log('no user found');
                 res.json({success: false, message: 'No user found please Register'});
             }
-            else if(dbUser && (dbUser.password !== user.password)){ //if the user exists, then whether emailId and password matches
+            else if(dbUser && (dbUser.password !== user.password)){ //if the user exists and is email id and password matches
                 console.log(dbUser.password + '  '+ user.password);
                 res.json({success: false, message: 'User email or password did not match'});
             }
-            else if(dbUser && (dbUser.password === user.password) && (dbUser.is_verified === false)){ //if the user exists and emailId and password matches, then whether the user has verified his/her account
+            else if(dbUser && (dbUser.password === user.password) && (dbUser.is_verified === false)){ //if the user exists and the email id password matches and if whether the user has verified his account
                 res.json({success: false, message: 'User is not verified'});
             }
             else{

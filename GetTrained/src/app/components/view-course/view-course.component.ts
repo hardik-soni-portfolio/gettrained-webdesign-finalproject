@@ -1,10 +1,10 @@
 import { UserService } from 'src/app/services/user.service';
-// import { UserService } from './../../services/user.service';
 import urlParser from 'js-video-url-parser';
 import { Course } from './../../models/course.model';
-import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { IfStmt } from '@angular/compiler';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-course',
@@ -15,7 +15,9 @@ import { IfStmt } from '@angular/compiler';
 
 export class ViewCourseComponent implements OnInit {
 
-  course_title = 'course title';
+  course_data = JSON.parse(localStorage.getItem('course'));
+
+  course_title = this.course_data.course.course_title;
   theme: String;
   temp: string;
   req: any;
@@ -24,75 +26,28 @@ export class ViewCourseComponent implements OnInit {
   imageflag: Boolean;
   textflag: Boolean;
 
-
-  seeing: string;
   isVideo: boolean;
   isnextDisabled: Boolean;
   isprevDisabled: Boolean;
-  courseid = '5c09fcd8639e7b21f0067836';
-  current_page = 0;
-  progress = 0;
-  course_description = 'course description';
-  course = [
-    {
-      title: 'title1',
-      text: ['text1', 'text2'],
-      image: 'assets/img1.png',
-      video: 'https://www.youtube.com/watch?v=L4QSwT8WhmM'
-    },
-    {
-      title: 'title2',
-      text: ['text3', 'text4','dwedfaefdwfdew','ewdwedwedwe','dewdqewdqewx','weqxeqw'],
-      image: `assets/img1.png`,
-      video: ''
-    },
-    {
-      title: 'title3',
-      text: [],
-      image: `assets/img3.png`,
-      video: `https://www.youtube.com/watch?v=PH_5lXxSpww`
-    },
-    {
-      title: 'title4',
-      text: ['text5', 'text6'],
-      image: ``,
-      video: `https://youtube.com/playlist?feature=share&list=PL46F0A159EC02DF82`
-    },
-    {
-      title: 'title5',
-      text: [],
-      image: `assets/img1.png`,
-      video: ''
-    },
-    {
-      title: 'title6',
-      text: ['text5', 'text6'],
-      image: ``,
-      video: ``
-    },
-    {
-      title: 'title7',
-      text: [],
-      image: ``,
-      video: `http://vimeopro.com/staff/frame/video/24069938`
-    }
-  ];
+  courseid = this.course_data.course._id;
+  current_page = this.course_data.lastSlideIndex;
+  progress = this.course_data.progress;
+  course_description = this.course_data.course.course_description;
+  contents = this.course_data.course.course_contents;
 
   constructor(
     private sanitizer: DomSanitizer,
     private userService: UserService,
-   
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.checkDisability();
-    this.check_type(this.course[this.current_page]);
-    // console.log(this.temp);
+    this.check_type(this.contents[this.current_page]);
   }
 
-
-  dispalyCourse(getCourse: any) {
-    this.course = getCourse;
+  getImageURL(image) {
+    return 'http://localhost:3003/' + image;
   }
 
   getEmbedURL(video) {
@@ -102,9 +57,7 @@ export class ViewCourseComponent implements OnInit {
       this.temp = urlParser.create({videoInfo: obj2, format: 'embed' });
       return this.sanitizer.bypassSecurityTrustResourceUrl(this.temp);
     } else {
-    this.seeing = 'unhidden';
-    let obj1 = urlParser.parse(video);
-    this.temp = urlParser.create({videoInfo: obj1, format: 'embed' });
+    this.temp = urlParser.create({videoInfo: video, format: 'embed' });
     return this.sanitizer.bypassSecurityTrustResourceUrl(this.temp);
   }
 }
@@ -112,18 +65,17 @@ export class ViewCourseComponent implements OnInit {
     current_page = current_page - 1;
     this.current_page = current_page;
     this.checkDisability();
-    this.check_type(this.course[this.current_page]);
+    this.check_type(this.contents[this.current_page]);
   }
   inc_page(current_page) {
     if (current_page === this.progress) {
       this.progress = this.progress + 1;
       this.checkDisability();
-      console.log('hi');
     }
     current_page = current_page + 1;
     this.current_page = current_page;
     this.checkDisability();
-    this.check_type(this.course[this.current_page]);
+    this.check_type(this.contents[this.current_page]);
   }
   checkDisability() {
     if (this.current_page === 0) {
@@ -131,11 +83,13 @@ export class ViewCourseComponent implements OnInit {
     } else {
       this.isprevDisabled = false;
     }
-    if (this.current_page === this.course.length - 1) {
+    if (this.current_page === this.contents.length - 1) {
       this.isnextDisabled = true;
     } else {
       this.isnextDisabled = false;
     }
+    console.log(this.isprevDisabled);
+    console.log(this.isnextDisabled);
   }
 
   update() {
@@ -145,44 +99,46 @@ export class ViewCourseComponent implements OnInit {
       progress: this.progress,
       user_id: localStorage.getItem('id')
     };
+    console.log(this.courseid);
     this.userService.updateUser(this.req).subscribe((data: any) => {
-      if (data.success) {
+      if (data) {
         console.log('success');
+        this.router.navigate(['dashboard']);
       } else {
         console.log('failure');
       }
     });
   }
 
-  check_type(course) {
-    console.log("i am inside");
-      if (course.text.length === 0) {
+  check_type(slide) {
+    console.log('i am inside');
+      if (slide.content.length === 0) {
         console.log('empty text');
         this.textflag = false;
       } else {
-        console.log(course.text.length);
+        console.log(slide.content.length);
         this.textflag = true;
       }
-      if (course.image === '') {
+      if (slide.image === '') {
         console.log('empty');
         this.imageflag = false;
       } else {
-        console.log(course.image);
+        console.log(slide.image);
         this.imageflag = true;
       }
-      if (course.video === '') {
+      if (slide.video === '') {
         console.log('empty video');
-        console.log("i am here");
+        console.log('i am here');
         this.videoflag = false;
       } else {
-        console.log(course.video);
+        console.log(slide.video);
         this.videoflag = true;
       }
     this.assign_layout(this.textflag, this.imageflag, this.videoflag);
   }
 
   assign_layout(isText, isImage, isVideo) {
-    console.log("assign");
+    console.log('assign');
     if (isText && isImage && isVideo) {
       console.log('all');
       this.type = 'all';

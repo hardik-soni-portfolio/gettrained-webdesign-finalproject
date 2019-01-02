@@ -1,80 +1,47 @@
-<div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px" class="outer">
-    <div *ngIf="enrolledCourses.length===0">
-        <h1>You have not been enrolled in any courses. Maybe create one!!</h1>
-    </div>
-    <!-- <mat-card class="card" fxFlex="33" *ngFor="let courses of enrolledCourses">
-        <mat-card-header>
-            <div id="title">
-                {{courses.course.course_title}}
-            </div>
-        </mat-card-header>
-        <mat-card-content>
-            <div id="content">
-                {{courses.course.course_description}}
-            </div>
-            <div class="progress">
-                <mat-progress-spinner class="progress" [diameter]="65" value="{{ courses.progress * 100 /courses.course.course_contents.length }}"></mat-progress-spinner>
-            </div>
+<!-- <mat-card class="card"  *ngFor="let courses of enrolledCourses">
+  <mat-card-header>
+      <img mat-card-avatar>
+  </mat-card-header>
+  <mat-card-content >
+    <li >
+      {{courses.progress}}
+      {{courses.lastSlideIndex}}
+      {{courses.course.course_learners}}
 
-        </mat-card-content>
-        <mat-card-actions class="bottom">
-            <p>{{courses.progress * 100 /courses.course.course_contents.length }}</p>
-            <button mat-button (click)="gotoView(courses)"> {{courses.progress == 0? "GetTrained" : "Continue"}}
-            </button>
-        </mat-card-actions>
-    </mat-card> -->
+    </li>
+    {{course}}
+  </mat-card-content>
+  <mat-card-actions>
+      <button mat-button (click)="gotoView(courses)"> Get Trained </button>
+       <button mat-button>Continue</button> -->
+<!-- </mat-card-actions>
+</mat-card>
+<div>
 
-
+</div> -->
+<div *ngIf="! enrolledCourses">
+  <h1>{{ noCourseMessage }}</h1>
+</div>
 <div class="card" *ngFor="let courses of enrolledCourses">
     <div class="card-header">
         <div id="title">
             {{courses.course.course_title}}
         </div>
     </div>
+
     <div class="card-content">
         <div id="content">
             {{courses.course.course_description}}
         </div>
     </div>
+
     <div class="card-footer">
         <div class="progress">
-            <p>{{courses.progress * 100 /courses.course.course_contents.length }}</p>
+            <p class="text-progress">{{courses.progress * 100 /courses.course.course_contents.length }}% completed</p>
         </div>
-        <div class="GetTrained">
-            <button mat-button (click)="gotoView(courses)"> {{courses.progress == 0? "GetTrained" : "Continue"}}
+        <div class="gettrained">
+            <button mat-raised-button class = "gettrained-button" (click)="gotoView(courses)"> {{courses.progress == 0? "GET TRAINED" : "CONTINUE"}}
             </button>
         </div>
     </div>
 </div>
-</div>
-
-
-<!-- <mat-card class="card">
-    <mat-card-header >
-        <img mat-card-avatar>
-        header
-    </mat-card-header>
-    <mat-card-content>
-      content
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-button>Get Started</button>
-        <button mat-button>Continue</button>
-    </mat-card-actions>
-</mat-card>
-
-<mat-card class="card">
-    <mat-card-header >
-        <img mat-card-avatar>
-        header
-    </mat-card-header>
-    <mat-card-content>
-      content
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-button>Get Started</button>
-        <button mat-button>Continue</button>
-    </mat-card-actions>
-</mat-card>
-
- -->
